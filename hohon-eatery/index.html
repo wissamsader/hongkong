@@ -54,10 +54,11 @@ header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events
 .haddr{flex:1;text-align:center;font-size:13px;font-weight:600;letter-spacing:.13em;color:var(--cream);opacity:.94;min-width:0}
 .langchip{background:rgba(10,25,23,.18);border:1px solid rgba(244,237,219,.6);color:var(--cream);border-radius:3px;padding:12px 16px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
 .langchip:hover{background:var(--cream);color:var(--ink)}
-.hbottom{position:absolute;left:0;right:0;bottom:0;z-index:2}
+.hbottom{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:0 clamp(26px,4.6vw,76px) clamp(22px,3.2vw,48px)}
 h1.hword{margin:0;line-height:0}
 .hword svg{display:block;width:100%;height:auto}
-@media (max-width:640px){.hword svg{width:122%;margin-left:-11%}}
+@media (max-width:640px){.hbottom{padding:0 20px 22px}.hword svg{width:100%;margin-left:0}}
 .hword path{fill:var(--cream)}
 @media (max-width:640px){
   .htop{padding:14px 16px;row-gap:10px}
