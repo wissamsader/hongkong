@@ -86,7 +86,7 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
 @media(max-width:900px){ .storyG{grid-template-columns:1fr;gap:40px;padding-bottom:80px} }
 
 /* ---------- plates (highlights) ---------- */
-#plates{background:var(--cream2);border-top:1px solid var(--hair2);border-bottom:1px solid var(--hair2)}
+#plates{background:var(--cream2);border-top:1px solid var(--hair2)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-bottom:110px}
 .cards>*{min-width:0}
 .card{border:1px solid var(--hair);background:var(--cream);padding:14px 14px 22px}
@@ -95,24 +95,6 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
 .card .cnum{display:block;text-align:center;font-size:10px;letter-spacing:.36em;color:var(--bronze);margin-top:18px}
 .card p{font-size:14.5px;color:var(--mut);text-align:center;max-width:30ch;margin:0 auto}
 @media(max-width:900px){ .cards{grid-template-columns:1fr;gap:28px;padding-bottom:80px} .card img{aspect-ratio:4/5} }
-
-/* ---------- gallery ---------- */
-.wall{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px}
-.wall>*{min-width:0}
-.wframe{margin:0}
-.wframe img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--hair)}
-.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-bottom:14px}
-.strip>*{min-width:0}
-.strip figure{margin:0}
-.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 85%;border:1px solid var(--hair)}
-.stripCap{text-align:center;font-size:12.5px;letter-spacing:.06em;color:var(--mut);padding-bottom:110px}
-.stripCap i{font-style:normal;font-size:10px;letter-spacing:.3em;color:var(--bronze);margin-right:10px}
-@media(max-width:900px){
-  .wall{grid-template-columns:1fr;gap:28px;margin-bottom:28px}
-  .strip{grid-template-columns:1fr;gap:24px}
-  .strip img{aspect-ratio:3/4}
-  .stripCap{padding-bottom:80px}
-}
 
 /* ---------- menu ---------- */
 #menu{background:var(--cream2);border-top:1px solid var(--hair2);border-bottom:1px solid var(--hair2)}
@@ -220,7 +202,6 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
       <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
       <a href="#plates"><xen>Plates</xen><xzh>菜式</xzh></a>
       <a href="#menu"><xen>Menu</xen><xzh>菜單</xzh></a>
-      <a href="#gallery"><xen>Gallery</xen><xzh>影像</xzh></a>
       <a href="#book"><xen>Reserve</xen><xzh>訂座</xzh></a>
     </div>
     <a class="ncall" href="tel:+85226639938"><xen>Call the room</xen><xzh>致電訂座</xzh></a>
@@ -297,36 +278,10 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
   </div>
 </section>
 
-<section id="gallery">
-  <div class="wrap">
-    <div class="shead">
-      <span class="snum">03</span>
-      <h2><xen>The wall</xen><xzh>影像牆</xzh></h2>
-      <div class="rule"></div>
-    </div>
-    <div class="wall">
-      <figure class="wframe">
-        <img src="img/01.jpg" alt="The dining room at A Lux">
-        <figcaption class="mlab"><i>I</i><span><xen>The dining room.</xen><xzh>餐室。</xzh></span></figcaption>
-      </figure>
-      <figure class="wframe">
-        <img src="img/06.jpg" alt="A main course as served at A Lux">
-        <figcaption class="mlab"><i>II</i><span><xen>A main course, as served.</xen><xzh>主菜，如上桌之貌。</xzh></span></figcaption>
-      </figure>
-    </div>
-    <div class="strip">
-      <figure><img src="img/03.jpg" alt="A raw opener at A Lux"></figure>
-      <figure><img src="img/05.jpg" alt="Handmade pasta at A Lux"></figure>
-      <figure><img src="img/04.jpg" alt="Beef over dark jus at A Lux"></figure>
-    </div>
-    <p class="stripCap"><i>III · IV · V</i><xen>From the pass, this season.</xen><xzh>本季出菜口一瞥。</xzh></p>
-  </div>
-</section>
-
 <section id="menu">
   <div class="wrap">
     <div class="shead">
-      <span class="snum">04</span>
+      <span class="snum">03</span>
       <h2><xen>From the printed menu</xen><xzh>印刷菜單選錄</xzh></h2>
       <p class="ssub"><xen>Mains, transcribed from the menu photographed at the table. Prices in HKD.</xen><xzh>主菜，轉錄自於餐桌上拍攝的菜單。價格以港幣計。</xzh></p>
       <div class="rule"></div>
@@ -351,7 +306,7 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
       </div>
       <figure class="menuFig">
         <img src="img/02.jpg" alt="The printed A Lux menu, photographed at the table">
-        <figcaption class="mlab"><i>VI</i><span><xen>The printed page, photographed at the table.</xen><xzh>菜單原頁，於餐桌上拍攝。</xzh></span></figcaption>
+        <figcaption class="mlab"><i>II</i><span><xen>The printed page, photographed at the table.</xen><xzh>菜單原頁，於餐桌上拍攝。</xzh></span></figcaption>
       </figure>
     </div>
   </div>
@@ -360,7 +315,7 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
 <section id="reviews">
   <div class="wrap">
     <div class="shead">
-      <span class="snum">05</span>
+      <span class="snum">04</span>
       <h2><xen>Guests' words</xen><xzh>賓客之言</xzh></h2>
       <div class="rule"></div>
     </div>
@@ -386,7 +341,7 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
 <section id="book">
   <div class="wrap">
     <div class="shead">
-      <span class="snum">06</span>
+      <span class="snum">05</span>
       <h2><xen>Reserve a table</xen><xzh>預訂餐桌</xzh></h2>
       <p class="ssub"><xen>Leave your details and the button opens a prefilled email to the room. The team confirms by reply.</xen><xzh>留下您的資料，按鈕會開啟一封預先填好的電郵。餐廳將以回覆確認。</xzh></p>
       <div class="rule"></div>
@@ -417,7 +372,7 @@ html.zh .dropcap::first-letter{font-size:inherit;float:none;padding:0;color:inhe
 <section id="visit">
   <div class="wrap">
     <div class="shead">
-      <span class="snum">07</span>
+      <span class="snum">06</span>
       <h2><xen>Visit</xen><xzh>到訪</xzh></h2>
       <div class="rule"></div>
     </div>

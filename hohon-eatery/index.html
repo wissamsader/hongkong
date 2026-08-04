@@ -9,7 +9,7 @@
 <title>HoHon Eatery · Pasta &amp; Burgers · Sai Wan, Hong Kong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --field:#1E5B59;   /* their shopfront paint */
@@ -44,41 +44,55 @@ section{position:relative}
 .grain::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
 .grain>*{position:relative;z-index:1}
 
-/* ---------- header ---------- */
-header.hero{background:var(--field);min-height:clamp(600px,92svh,820px);max-height:860px;display:flex;flex-direction:column;overflow:hidden}
-.nav{display:flex;align-items:center;gap:28px;padding:20px 0 14px}
-.nav .brand{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:.06em;color:var(--cream);white-space:nowrap}
-.nav .brand small{font-weight:500;color:var(--ice);letter-spacing:.3em;font-size:10px;display:block;margin-top:-2px}
-.nav nav{display:flex;gap:26px;margin-left:auto;align-items:center}
-.nav nav a{font-size:13.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ice);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s}
-.nav nav a:hover{color:var(--cream);border-color:var(--hair)}
+/* ---------- hero: one full-bleed photograph, the type is the composition ---------- */
+header.hero{position:relative;overflow:hidden;background:var(--ink);min-height:clamp(600px,92svh,820px);max-height:860px}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:29% 46%}
+header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,25,23,.55) 0%,rgba(10,25,23,.16) 26%,rgba(8,20,18,.04) 50%,rgba(8,20,18,.40) 100%)}
+.htop{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:24px clamp(16px,2.4vw,34px)}
+.bookbox{border:1px solid rgba(244,237,219,.92);color:var(--cream);padding:13px 22px;font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(10,25,23,.18);transition:background .2s,color .2s;white-space:nowrap}
+.bookbox:hover{background:var(--cream);color:var(--ink)}
+.haddr{flex:1;text-align:center;font-size:13px;font-weight:600;letter-spacing:.13em;color:var(--cream);opacity:.94;min-width:0}
+.langchip{background:rgba(10,25,23,.18);border:1px solid rgba(244,237,219,.6);color:var(--cream);border-radius:3px;padding:12px 16px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
+.langchip:hover{background:var(--cream);color:var(--ink)}
+.hbottom{position:absolute;left:0;right:0;bottom:0;z-index:2}
+h1.hword{margin:0;line-height:0}
+.hword svg{display:block;width:100%;height:auto}
+@media (max-width:640px){.hword svg{width:122%;margin-left:-11%}}
+.hword path{fill:var(--cream)}
+@media (max-width:640px){
+  .htop{padding:14px 16px;row-gap:10px}
+  .haddr{flex-basis:100%;order:3;font-size:11.5px;letter-spacing:.1em}
+  .bookbox{padding:11px 15px;font-size:11px;letter-spacing:.16em}
+  .langchip{padding:10px 13px;font-size:11.5px}
+}
+
+/* ---------- sticky nav, below the fold ---------- */
+.nav2{position:sticky;top:0;z-index:70;background:var(--board);border-bottom:1px solid var(--hair)}
+.nav2 .in{display:flex;align-items:center;gap:26px;padding:13px 0}
+.nav2 .brand{font-family:var(--disp);font-weight:800;font-size:16px;letter-spacing:.1em;color:var(--cream);white-space:nowrap}
+.nav2 nav{display:flex;gap:24px;margin-left:auto;align-items:center}
+.nav2 nav a{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ice);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s}
+.nav2 nav a:hover{color:var(--cream);border-color:var(--hair)}
 .callpill{background:var(--cream);color:var(--ink)!important;border-radius:3px;padding:10px 18px!important;border-bottom:none!important;font-weight:700!important;display:inline-flex;align-items:center;gap:8px;transition:background .2s}
 .callpill:hover{background:#fff}
 .callpill svg{width:15px;height:15px}
-@media (max-width:940px){.nav nav a:not(.callpill){display:none}}
-.langchip{position:absolute;top:78px;right:max(24px,calc((100% - 1160px)/2));z-index:40;background:transparent;border:1px solid var(--hair);color:var(--ice);border-radius:3px;padding:7px 14px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
-.langchip:hover{background:var(--board);color:var(--cream)}
-@media (max-width:640px){.langchip{top:70px;right:16px}}
+@media (max-width:940px){.nav2 nav a:not(.callpill){display:none}}
 
-.heroin{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 0 30px}
-.kicker{font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ice);font-weight:600;margin-bottom:20px}
-.slab{position:relative;z-index:2;background:var(--board);border:1px solid var(--hair);padding:24px 50px 20px;max-width:94%}
-.slab h1{font-family:var(--disp);font-weight:800;font-size:clamp(56px,8.4vw,98px);line-height:.94;letter-spacing:.015em;color:var(--cream)}
-.slab .sub{font-family:var(--disp);font-weight:500;font-size:clamp(15px,1.9vw,23px);letter-spacing:.55em;padding-left:.55em;color:var(--ice);margin-top:12px}
-.heroph{position:relative;z-index:1;width:min(620px,92%);margin-top:-44px;border:8px solid var(--cream);background:var(--cream);box-shadow:0 0 0 1px var(--hairdark)}
-.heroph .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
-.heroph img{width:100%;height:100%;object-fit:cover}
-.heroph .ph::before{content:"";position:absolute;inset:0 0 auto 0;height:56px;background:linear-gradient(180deg,rgba(23,63,62,.34),transparent);z-index:1;pointer-events:none}
-.hmeta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
-.hmeta .chip{border:1px solid var(--hair);border-radius:3px;padding:8px 15px;font-size:13px;letter-spacing:.06em;color:var(--ice);font-weight:600;display:inline-flex;align-items:center;gap:7px}
-.hmeta .chip b{color:var(--cream);font-weight:700}
-.hmeta .chip svg{width:13px;height:13px;flex:0 0 auto}
-@media (max-width:640px){
-  .heroin{padding:16px 0 24px}
-  .kicker{font-size:11px;margin-bottom:14px}
-  .slab{padding:18px 24px 16px}
-  .heroph{margin-top:-26px;border-width:6px}
-  .hmeta{margin-top:14px}
+/* ---------- the deep teal field: two words, tiny labels ---------- */
+.duo{background:var(--field);padding:clamp(76px,9vw,122px) 0}
+.duogrid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(28px,4vw,64px)}
+.dcol{display:block;text-align:center}
+.dbig{display:block;font-family:'Anton','Noto Sans TC',sans-serif;font-weight:400;font-size:clamp(58px,8.4vw,124px);line-height:1;color:var(--cream);letter-spacing:.02em;transition:color .2s}
+.dbig xzh{font-weight:900}
+.dcol:hover .dbig{color:var(--ice)}
+.dlab{display:block;margin-top:16px;font-size:11.5px;font-weight:700;letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--ice)}
+.dmeta{border:1px solid var(--hair);padding:24px 28px;text-align:center;max-width:280px}
+.dmeta .dr{font-family:var(--disp);font-weight:800;font-size:30px;color:var(--cream);letter-spacing:.02em}
+.dmeta .ds{color:var(--ice);font-size:14px;letter-spacing:.24em;padding-left:.24em;margin:6px 0 0}
+.dmeta p{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);padding-top:12px;border-top:1px solid var(--hair);margin-top:12px;line-height:1.75}
+@media (max-width:900px){
+  .duogrid{grid-template-columns:1fr;justify-items:center}
+  .dmeta{order:3;margin-top:10px}
 }
 
 /* ---------- ticker band ---------- */
@@ -88,7 +102,7 @@ header.hero{background:var(--field);min-height:clamp(600px,92svh,820px);max-heig
 .band span i{font-style:normal;color:var(--field);margin-right:34px}
 
 /* ---------- shared section furniture ---------- */
-.sec{padding:88px 0}
+.sec{padding:88px 0;scroll-margin-top:60px}
 @media (max-width:640px){.sec{padding:60px 0}}
 .overline{font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
 h2{font-family:var(--disp);font-weight:800;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:.01em;margin-bottom:22px}
@@ -105,7 +119,7 @@ h2{font-family:var(--disp);font-weight:800;font-size:clamp(30px,3.6vw,46px);line
 .schips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .schips .chip{border:1px solid var(--hairdark);border-radius:3px;padding:8px 15px;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--board)}
 .scol .frame{margin-bottom:22px}
-.scol .frame .ph{aspect-ratio:1012/430}
+.scol .frame .ph{aspect-ratio:1354/1016}
 .facts{background:var(--board);color:var(--cream);padding:26px 28px}
 .facts h3{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--ice);margin-bottom:14px}
 .facts ul{list-style:none}
@@ -125,27 +139,6 @@ h2{font-family:var(--disp);font-weight:800;font-size:clamp(30px,3.6vw,46px);line
 .card .zh{font-family:'Noto Sans TC',var(--body);font-size:14.5px;color:var(--field);font-weight:600;margin:0 8px 6px}
 .card p{font-size:14px;color:#41504d;margin:0 8px;line-height:1.55}
 @media (max-width:900px){.hgrid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}}
-
-/* ---------- gallery ---------- */
-.gal{background:var(--deep)}
-.gal .overline{color:var(--ice)}
-.gr{display:flex;justify-content:center;gap:22px;margin-top:26px}
-.gr .frame{height:100%}
-.gr .r43{aspect-ratio:4/3}
-.gr .r34{aspect-ratio:3/4}
-.gr .r916{aspect-ratio:9/15}
-.gr1{height:min(520px,44vw)}
-.gr2{height:min(470px,40vw);margin-top:22px}
-.gr .frame .ph{height:100%}
-.gtile{flex:1;background:var(--board);border:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center;padding:34px;min-width:0}
-.gtile .disp{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,27px);line-height:1.18;color:var(--cream);margin-bottom:12px}
-.gtile p{font-size:14px;color:var(--ice)}
-@media (max-width:900px){
-  .gr{flex-direction:column;height:auto;align-items:stretch}
-  .gr1,.gr2{height:auto}
-  .gr .frame{height:auto}
-  .gtile{padding:26px}
-}
 
 /* ---------- menu ---------- */
 .menu{background:var(--cream);color:var(--ink)}
@@ -260,42 +253,56 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 </head>
 <body>
 
-<!-- ============ HERO ============ -->
-<header class="hero grain" id="top">
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">HOHON<small>EATERY</small></div>
-      <nav>
-        <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
-        <a href="#menu"><xen>Menu</xen><xzh>餐牌</xzh></a>
-        <a href="#gallery"><xen>Gallery</xen><xzh>相集</xzh></a>
-        <a href="#reviews"><xen>Reviews</xen><xzh>評價</xzh></a>
-        <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
-        <a class="callpill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
-          <xen>WhatsApp</xen><xzh>WhatsApp</xzh>
-        </a>
-      </nav>
-    </div>
+<!-- ============ HERO: full-bleed photograph, wordmark bleeding off both edges ============ -->
+<header class="hero" id="top">
+  <img class="hbg" src="img/07.jpg" alt="The charcoal bun fried chicken burger with crinkle-cut fries, on HoHon Eatery's own table">
+  <div class="htop">
+    <a class="bookbox" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen>Book a table</xen><xzh>訂位</xzh></a>
+    <p class="haddr">Shop 3, 419M Queen's Rd West · Sai Wan, Hong Kong</p>
+    <button class="langchip" id="langBtn" type="button" aria-label="Language / 語言"><span id="langLabel">繁體</span></button>
   </div>
-  <button class="langchip" id="langBtn" type="button" aria-label="Language / 語言"><span id="langLabel">繁體</span></button>
-
-  <div class="heroin wrap">
-    <p class="kicker"><xen>Pasta &amp; burgers · Queen's Rd West · Sai Wan</xen><xzh>意粉與漢堡 · 皇后大道西 · 西環</xzh></p>
-    <div class="slab">
-      <h1>HOHON</h1>
-      <div class="sub">EATERY</div>
-    </div>
-    <div class="heroph">
-      <div class="ph"><img src="img/03.jpg" alt="Charcoal bun burger with crinkle-cut fries at HoHon Eatery"></div>
-    </div>
-    <div class="hmeta">
-      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8L2.2 9.1l6.9-.8z"/></svg><b>4.7</b>&nbsp;<xen>· 165 Google reviews</xen><xzh>· 165 則 Google 評論</xzh></span>
-      <span class="chip"><b><xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh></b>&nbsp;·&nbsp;<b><xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></b></span>
-      <span class="chip"><xen>Closed Mondays</xen><xzh>逢星期一休息</xzh></span>
-    </div>
+  <div class="hbottom">
+    <h1 class="hword" aria-label="HoHon Eatery"><svg viewBox="0 0 390 102" aria-hidden="true" focusable="false"><path transform="translate(-16 94) scale(0.114054)" d="M499 0V-660H660V0ZM69 0V-660H230V0ZM167 -268V-398H564V-268Z M1090 14Q1018 14 960.0 -8.0Q902 -30 860.5 -73.0Q819 -116 797.0 -179.5Q775 -243 775 -327Q775 -445 816.5 -521.5Q858 -598 931.0 -636.0Q1004 -674 1096 -674Q1167 -674 1225.0 -652.0Q1283 -630 1324.5 -587.0Q1366 -544 1388.5 -479.5Q1411 -415 1411 -331Q1411 -244 1387.5 -179.5Q1364 -115 1321.5 -72.0Q1279 -29 1220.0 -7.5Q1161 14 1090 14ZM1095 -112Q1144 -112 1177.5 -136.5Q1211 -161 1228.5 -207.5Q1246 -254 1246 -321Q1246 -392 1228.0 -441.5Q1210 -491 1175.5 -516.5Q1141 -542 1091 -542Q1043 -542 1009.5 -517.5Q976 -493 958.0 -445.5Q940 -398 940 -329Q940 -277 950.5 -236.5Q961 -196 980.0 -168.5Q999 -141 1028.5 -126.5Q1058 -112 1095 -112Z M1954 0V-660H2115V0ZM1524 0V-660H1685V0ZM1622 -268V-398H2019V-268Z M2545 14Q2473 14 2415.0 -8.0Q2357 -30 2315.5 -73.0Q2274 -116 2252.0 -179.5Q2230 -243 2230 -327Q2230 -445 2271.5 -521.5Q2313 -598 2386.0 -636.0Q2459 -674 2551 -674Q2622 -674 2680.0 -652.0Q2738 -630 2779.5 -587.0Q2821 -544 2843.5 -479.5Q2866 -415 2866 -331Q2866 -244 2842.5 -179.5Q2819 -115 2776.5 -72.0Q2734 -29 2675.0 -7.5Q2616 14 2545 14ZM2550 -112Q2599 -112 2632.5 -136.5Q2666 -161 2683.5 -207.5Q2701 -254 2701 -321Q2701 -392 2683.0 -441.5Q2665 -491 2630.5 -516.5Q2596 -542 2546 -542Q2498 -542 2464.5 -517.5Q2431 -493 2413.0 -445.5Q2395 -398 2395 -329Q2395 -277 2405.5 -236.5Q2416 -196 2435.0 -168.5Q2454 -141 2483.5 -126.5Q2513 -112 2550 -112Z M2979 0V-660H3188L3471 -217H3483L3473 -660H3630V0H3441L3138 -468H3127L3136 0Z"/></svg></h1>
   </div>
 </header>
+
+<!-- ============ NAV (below the fold, sticks on scroll) ============ -->
+<div class="nav2">
+  <div class="wrap in">
+    <div class="brand">HOHON EATERY</div>
+    <nav>
+      <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
+      <a href="#menu"><xen>Menu</xen><xzh>餐牌</xzh></a>
+      <a href="#reviews"><xen>Reviews</xen><xzh>評價</xzh></a>
+      <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
+      <a class="callpill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+        <xen>WhatsApp</xen><xzh>WhatsApp</xzh>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ PASTA / BURGERS FIELD ============ -->
+<section class="duo grain">
+  <div class="wrap duogrid">
+    <a class="dcol" href="#menu">
+      <span class="dbig"><xen>PASTA</xen><xzh>意粉</xzh></span>
+      <span class="dlab"><xen>View the menu</xen><xzh>查看餐牌</xzh></span>
+    </a>
+    <div class="dmeta">
+      <div class="dr">4.7</div>
+      <div class="ds">★★★★★</div>
+      <p><xen>165 Google reviews</xen><xzh>165 則 Google 評論</xzh></p>
+      <p><xen>Tue to Sun</xen><xzh>星期二至日</xzh> · <xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh> · <xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></p>
+      <p><xen>Closed Mondays</xen><xzh>逢星期一休息</xzh></p>
+    </div>
+    <a class="dcol" href="#menu">
+      <span class="dbig"><xen>BURGERS</xen><xzh>漢堡</xzh></span>
+      <span class="dlab"><xen>View the menu</xen><xzh>查看餐牌</xzh></span>
+    </a>
+  </div>
+</section>
 
 <!-- ============ TICKER BAND ============ -->
 <div class="band">
@@ -325,7 +332,7 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
     </div>
     <div class="scol">
       <figure class="frame">
-        <div class="ph"><img src="img/01.jpg" alt="The teal HoHon Eatery signboard over the shopfront on Queen's Road West"></div>
+        <div class="ph"><img src="img/03.jpg" alt="The charcoal bun burger with crinkle fries and ketchup on a stoneware plate"></div>
       </figure>
       <div class="facts">
         <h3><xen>At a glance</xen><xzh>一眼看清</xzh></h3>
@@ -365,26 +372,6 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
         <p class="zh">香煎比目魚炭黑包漢堡</p>
         <p><xen>The charcoal bun again, this time around a seared fillet of halibut.</xen><xzh>同一個炭黑包，這次夾着香煎比目魚柳。</xzh></p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GALLERY ============ -->
-<section class="sec gal grain" id="gallery">
-  <div class="wrap">
-    <p class="overline"><xen>Gallery</xen><xzh>相集</xzh></p>
-    <h2><xen>The room and the plates</xen><xzh>店面與菜式</xzh></h2>
-    <div class="gr gr1">
-      <figure class="frame r43"><div class="ph"><img src="img/03.jpg" alt="Charcoal bun burger with crinkle fries and ketchup on a stoneware plate"></div></figure>
-      <figure class="frame r34"><div class="ph"><img src="img/04.jpg" alt="Three fried oysters with beetroot and homemade mayo"></div></figure>
-    </div>
-    <div class="gr gr2">
-      <figure class="frame r916"><div class="ph"><img src="img/06.jpg" alt="Halibut charcoal bun burger wrapped in paper beside fries"></div></figure>
-      <figure class="frame r34"><div class="ph"><img src="img/05.jpg" alt="Burgers, rigatoni and double fries across the table"></div></figure>
-      <div class="gtile">
-        <p class="disp"><xen>Shot in their room, on their plates.</xen><xzh>全部相片攝於店內，用他們自己的餐具。</xzh></p>
-        <p><xen>Nothing staged, nothing borrowed: the burgers, the shells and the teal paint are all theirs.</xen><xzh>沒有擺拍，沒有借來的道具：漢堡、蠔殼與藍綠色油漆，全部屬於他們。</xzh></p>
-      </div>
     </div>
   </div>
 </section>

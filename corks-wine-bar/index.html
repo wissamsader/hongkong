@@ -102,7 +102,13 @@ html.zh .btn xzh{font-family:'Noto Serif TC',serif;font-weight:500}
 .zoom{position:relative;aspect-ratio:1/1;overflow:hidden}
 .zoom img{position:absolute;max-width:none;aspect-ratio:auto}
 .zoomA img{width:150%;left:-25%;top:-76%}
-.zoomB img{width:250%;left:-95%;top:-84%}
+.tp{position:relative;aspect-ratio:1/1;background:linear-gradient(158deg,#69192B 0%,var(--wine) 46%,#4C101E 100%);color:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;overflow:hidden}
+.tp::after{content:"";position:absolute;inset:11px;border:1px solid rgba(241,235,223,.26);pointer-events:none}
+.tp-k{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;line-height:1.7;color:rgba(241,235,223,.82)}
+.tp-s{font-size:clamp(44px,4.4vw,56px);line-height:1;margin-top:12px;color:var(--bone)}
+.tp-rule{width:36px;border-top:1px solid rgba(241,235,223,.45);margin-top:18px}
+.tp-k2{margin-top:16px}
+html.zh .tp-k xzh{letter-spacing:.26em}
 .hl-t{margin-top:16px;font-size:24px;font-weight:500}
 .hl-c{margin-top:6px;font-size:16.5px;color:var(--ink2);line-height:1.6}
 
@@ -124,12 +130,6 @@ html.zh .btn xzh{font-family:'Noto Serif TC',serif;font-weight:500}
 .menu-chip{margin-top:30px;display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:var(--bone);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px}
 .menu-note{margin-top:14px;font-size:15.5px;font-style:italic;color:var(--ink2)}
 .board-side{position:sticky;top:92px}
-
-/* ---------- gallery ---------- */
-.gal-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.gal-wide{grid-column:1 / -1}
-.gal-wide img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 42%}
-.gal-p img{width:100%;aspect-ratio:3/4;object-fit:cover}
 
 /* ---------- reviews ---------- */
 .quote-band{background:linear-gradient(168deg,#65182A 0%,var(--wine) 55%,#4C101E 100%);color:var(--bone);padding:96px 0;position:relative;overflow:hidden}
@@ -222,7 +222,6 @@ html.zh .bar-book xzh,html.zh .bar-rate xzh{font-family:'Noto Serif TC',serif}
   .hl-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .menu-cols{grid-template-columns:1fr}
   .mcat:nth-child(2){margin-top:26px}
-  .gal-grid{grid-template-columns:1fr}
   .visit-grid2{grid-template-columns:1fr}
 }
 @media (max-width:720px){
@@ -256,7 +255,6 @@ html.zh .bar-book xzh,html.zh .bar-rate xzh{font-family:'Noto Serif TC',serif}
     <div class="nav-links">
       <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
       <a href="#menu"><xen>Menu</xen><xzh>菜單</xzh></a>
-      <a href="#gallery"><xen>Gallery</xen><xzh>相簿</xzh></a>
       <a href="#reviews"><xen>Reviews</xen><xzh>評語</xzh></a>
       <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
     </div>
@@ -324,9 +322,17 @@ html.zh .bar-book xzh,html.zh .bar-rate xzh{font-family:'Noto Serif TC',serif}
         <p class="hl-c"><xen>Duck rillette, cornichons, bread still warm.</xen><xzh>鴨肉醬、酸青瓜、還暖的麵包。</xzh></p>
       </div>
       <div class="hl-card">
-        <figure class="frame"><div class="zoom zoomB"><img src="img/01.jpg" alt="Inside the CORKS corner room, warm bulbs and high stools"></div></figure>
-        <div class="hl-t"><xen>The corner</xen><xzh>街角</xzh></div>
-        <p class="hl-c"><xen>Warm light, high stools, the street a step away.</xen><xzh>暖燈、高凳，街道只有一步之遙。</xzh></p>
+        <figure class="frame">
+          <div class="tp grain">
+            <div class="tp-k"><xen>The house of</xen><xzh>主理人</xzh></div>
+            <div class="tp-s script">Chris &amp; Steph</div>
+            <div class="tp-k tp-k2"><xen>Originally from France</xen><xzh>來自法國</xzh></div>
+            <span class="tp-rule" aria-hidden="true"></span>
+            <div class="tp-k tp-k2"><xen>Saturdays until 02:00</xen><xzh>週六直落凌晨 02:00</xzh></div>
+          </div>
+        </figure>
+        <div class="hl-t"><xen>The hosts</xen><xzh>主人家</xzh></div>
+        <p class="hl-c"><xen>Two founders from France, pouring on their own corner.</xen><xzh>兩位法國創辦人，在自家街角為你斟酒。</xzh></p>
       </div>
     </div>
   </div>
@@ -396,30 +402,6 @@ html.zh .bar-book xzh,html.zh .bar-rate xzh{font-family:'Noto Serif TC',serif}
       <figure class="frame board-side">
         <img src="img/02.jpg" alt="The CORKS chalkboard menu of finger foods, platters, spreads and toasties">
         <figcaption><xen>The board itself, chalked by hand</xen><xzh>店內黑板，手寫原樣</xzh></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section class="sec" id="gallery">
-  <div class="wrap">
-    <div class="hl-head">
-      <div class="kick"><xen>The room</xen><xzh>小店本身</xzh></div>
-      <h2><xen>Glasses up</xen><xzh>舉杯</xzh></h2>
-    </div>
-    <div class="gal-grid">
-      <figure class="frame gal-wide">
-        <img src="img/01.jpg" alt="The corner of Hollywood Road at dusk, the CORKS room glowing">
-        <figcaption><xen>The corner of Hollywood Road at dusk</xen><xzh>黃昏時分的荷李活道街角</xzh></figcaption>
-      </figure>
-      <figure class="frame gal-p">
-        <img src="img/03.jpg" alt="A chilled glass at the window seat, bokeh lights of Sheung Wan behind">
-        <figcaption><xen>First pour at the window</xen><xzh>窗邊的第一杯</xzh></figcaption>
-      </figure>
-      <figure class="frame gal-p">
-        <img src="img/05.jpg" alt="A board of saucisson and cheese waiting on the counter">
-        <figcaption><xen>A board, before it reaches the table</xen><xzh>上桌前的拼盤</xzh></figcaption>
       </figure>
     </div>
   </div>

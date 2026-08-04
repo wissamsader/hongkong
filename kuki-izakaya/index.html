@@ -255,13 +255,38 @@ html.zh .spec h3{font-family:'Noto Serif TC',serif;font-weight:700}
 html.zh .beyond b{font-family:'Noto Serif TC',serif;font-weight:700}
 .beyond span{color:var(--mut);font-size:14.5px;max-width:46rem}
 
-/* ---------- gallery ---------- */
-#gallery .g-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-#gallery .g-grid>*{min-width:0}
-.gt{grid-column:span 2}
-.gw{grid-column:span 3}
-.gt .ph{aspect-ratio:3/4}
-.gw .ph{height:390px}
+/* ---------- house board (visit, type panel) ---------- */
+.hboard{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(560px 340px at 88% 0%, rgba(226,154,60,.1), transparent 62%),
+    var(--char2);
+  padding:38px 40px 34px;
+}
+.hboard::before{
+  content:"居酒屋";writing-mode:vertical-rl;position:absolute;right:22px;top:34px;
+  font-family:'Noto Serif TC',serif;font-weight:900;font-size:38px;letter-spacing:.24em;
+  color:rgba(226,154,60,.13);pointer-events:none;
+}
+.hb-kick{font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:10px}
+.hb-title{font-family:var(--disp);font-weight:600;font-size:24px;line-height:1.25;margin-bottom:10px;max-width:21rem}
+html.zh .hb-title{font-family:'Noto Serif TC',serif;font-weight:900;letter-spacing:.04em}
+.hb-list{list-style:none;margin-top:6px}
+.hb-list li{display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed rgba(226,154,60,.16);align-items:baseline}
+.hb-no{flex:none;width:32px;font-family:var(--disp);font-weight:700;font-size:16px;color:var(--amber2);letter-spacing:.04em}
+.hb-tx{display:block;color:var(--mut);font-size:14.5px;line-height:1.6;min-width:0}
+.hb-tx i{display:block;font-style:normal;color:var(--ink);font-weight:600;font-size:15.5px;margin-bottom:2px}
+html.zh .hb-tx i{font-weight:700}
+.hb-foot{display:flex;align-items:center;gap:14px;margin-top:24px}
+.hb-stamp{
+  flex:none;width:46px;height:46px;border-radius:4px;
+  background:var(--verm);color:#f6e8d2;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Noto Serif TC',serif;font-weight:900;font-size:17px;letter-spacing:.08em;
+  box-shadow:0 0 0 3px var(--char2),0 0 0 4px rgba(226,154,60,.35);
+}
+.hb-sig{font-size:12.5px;letter-spacing:.12em;color:var(--mut)}
 
 /* ---------- reviews ---------- */
 #reviews{background:linear-gradient(180deg,var(--char) 0%,#1a140d 100%)}
@@ -333,7 +358,6 @@ html.zh .vrow .vk{letter-spacing:.24em}
 .vrow .vv a.ph-num{border-bottom:1px solid var(--line)}
 .vrow .vv a.ph-num:hover{color:var(--amber2)}
 .visit-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.visit-ph .ph{aspect-ratio:4/3}
 .iglink{display:inline-flex;align-items:center;gap:9px}
 
 /* ---------- footer ---------- */
@@ -394,10 +418,6 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   .specs{grid-template-columns:1fr;gap:16px;margin-bottom:44px}
   #counter .cards{grid-template-columns:1fr 1fr}
   .rev-grid{grid-template-columns:1fr}
-  #gallery .g-grid{grid-template-columns:repeat(2,1fr)}
-  .gt{grid-column:span 1}
-  .gw{grid-column:span 2}
-  .gw .ph{height:auto;aspect-ratio:16/10}
   .tray{display:block}
   footer{padding-bottom:150px}
   .mlist{grid-template-columns:1fr}
@@ -432,6 +452,8 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   .wrap{padding-inline:20px}
   nav{padding:14px 20px}
   .shead{gap:16px;margin-bottom:32px}
+  .hboard{padding:30px 24px 28px}
+  .hboard::before{font-size:30px;right:14px;top:26px}
 }
 @media (max-width:560px){
   #counter .cards{grid-template-columns:1fr}
@@ -457,7 +479,6 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
     <a class="brand" href="#top">Kuki Izakaya <small>九鬼</small></a>
     <div class="navlinks">
       <a href="#menu"><xen>Yakitori</xen><xzh>燒鳥</xzh></a>
-      <a href="#gallery"><xen>Gallery</xen><xzh>相簿</xzh></a>
       <a href="#reviews"><xen>Reviews</xen><xzh>食評</xzh></a>
       <a href="#visit"><xen>Visit</xen><xzh>位置</xzh></a>
       <a class="btn nav-book navlinks-book" href="#book"><xen>Book a table</xen><xzh>立即訂座</xzh></a>
@@ -622,25 +643,6 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   </div>
 </section>
 
-<!-- ================= GALLERY ================= -->
-<section id="gallery">
-  <div class="wrap">
-    <div class="shead">
-      <span class="zhtab" aria-hidden="true">店內相簿</span>
-      <div>
-        <h2><xen>An evening at Kuki</xen><xzh>九鬼的一夜</xzh></h2>
-      </div>
-    </div>
-    <div class="g-grid">
-      <figure class="frame gt"><span class="ph"><img src="img/04.jpg" alt="Chirashi bowl with tuna and shiso"></span><figcaption class="cap"><span><xen>Chirashi</xen><xzh>散壽司</xzh></span><span>02</span></figcaption></figure>
-      <figure class="frame gt"><span class="ph"><img src="img/06.jpg" alt="Three yakitori skewers with lemon"></span><figcaption class="cap"><span><xen>From the grill</xen><xzh>爐上直送</xzh></span><span>03</span></figcaption></figure>
-      <figure class="frame gt"><span class="ph"><img src="img/05.jpg" alt="Abalone small plate in a red bowl"></span><figcaption class="cap"><span><xen>Small bites</xen><xzh>下酒小食</xzh></span><span>04</span></figcaption></figure>
-      <figure class="frame gw"><span class="ph"><img src="img/01.jpg" alt="Kuki Izakaya red storefront sign"></span><figcaption class="cap"><span><xen>The red sign on High Street</xen><xzh>高街紅招牌</xzh></span><span>05</span></figcaption></figure>
-      <figure class="frame gw"><span class="ph"><img src="img/03.jpg" alt="Unagi-ju in a lacquer box"></span><figcaption class="cap"><span><xen>Unagi-ju</xen><xzh>鰻魚飯</xzh></span><span>06</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <!-- ================= REVIEWS ================= -->
 <section id="reviews">
   <div class="wrap">
@@ -759,10 +761,36 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
           <a class="btn ghost wa-quick" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen>WhatsApp us</xen><xzh>WhatsApp 我哋</xzh></a>
         </div>
       </div>
-      <figure class="frame visit-ph">
-        <span class="ph"><img src="img/01.jpg" alt="Kuki Izakaya entrance with red samurai sign"></span>
-        <figcaption class="cap"><span><xen>Look for the samurai over the door</xen><xzh>認住門口嗰個武士</xzh></span><span>HK</span></figcaption>
-      </figure>
+      <aside class="hboard">
+        <p class="hb-kick"><xen>The house way</xen><xzh>九鬼流</xzh></p>
+        <p class="hb-title"><xen>An evening at Kuki, in four moves</xen><xzh>九鬼的一夜，四步入門</xzh></p>
+        <ol class="hb-list">
+          <li>
+            <b class="hb-no">01</b>
+            <span class="hb-tx"><i><xen>Book your table first</xen><xzh>記得先訂座</xzh></i>
+            <xen>Seats go early, send a WhatsApp and the team confirms.</xen><xzh>座位唔多，WhatsApp 留個言，店員會覆你確認。</xzh></span>
+          </li>
+          <li>
+            <b class="hb-no">02</b>
+            <span class="hb-tx"><i><xen>Start from Osaka</xen><xzh>由大阪開始</xzh></i>
+            <xen>Kushikatsu and oden, the two specialities of the house.</xen><xzh>串炸同關東煮，本店兩大招牌。</xzh></span>
+          </li>
+          <li>
+            <b class="hb-no">03</b>
+            <span class="hb-tx"><i><xen>Bring your own bottle</xen><xzh>帶支酒嚟</xzh></i>
+            <xen>BYOB friendly, open what you love the izakaya way.</xen><xzh>歡迎自攜酒水，鍾意飲乜就開乜。</xzh></span>
+          </li>
+          <li>
+            <b class="hb-no">04</b>
+            <span class="hb-tx"><i><xen>Let Ivan choose</xen><xzh>交畀 Ivan 揀</xzh></i>
+            <xen>19 cuts on the yakitori chart, and a host who loves to recommend.</xen><xzh>燒鳥圖鑑足足 19 款，店長最鍾意幫你推介。</xzh></span>
+          </li>
+        </ol>
+        <div class="hb-foot">
+          <span class="hb-stamp" aria-hidden="true">九鬼</span>
+          <span class="hb-sig">九鬼居酒屋 · <xen>Sai Ying Pun</xen><xzh>西營盤</xzh></span>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
