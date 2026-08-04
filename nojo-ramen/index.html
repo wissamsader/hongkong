@@ -58,7 +58,9 @@ html[data-lang="zh"] .ce{display:none}
 .hero-ph{position:absolute;z-index:2;right:3vw;top:112px;width:clamp(300px,32vw,470px);aspect-ratio:1800/2411;border:1px solid #443830;background:#241c16;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
 .hero-ph img{width:100%;height:100%;object-fit:contain;object-position:50% 50%}
 .hero-ph::after{content:"";position:absolute;inset:10px;pointer-events:none;background:linear-gradient(180deg,transparent 58%,rgba(20,15,12,.42) 100%)}
-.hstrip{position:absolute;z-index:4;left:max(28px,calc((100% - 1220px)/2 + 28px));bottom:34px;max-width:50%;display:flex;flex-wrap:wrap;gap:12px 30px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+/* the fact strip used to be absolutely positioned, so its border-top cut straight through the
+   two buttons above it. It now sits in the normal flow under the CTA, clear of them. */
+.hstrip{margin-top:44px;max-width:none;display:flex;flex-wrap:wrap;gap:12px 30px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
 .hero-in{position:relative;z-index:4;max-width:1220px;margin:0 auto;padding:128px 28px 56px}
 .hk2{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);margin-top:8px;text-transform:uppercase}
 .big{font-family:var(--disp);font-weight:400;color:var(--red);font-size:clamp(104px,16.5vw,238px);line-height:.84;letter-spacing:.01em;margin:22px 0 14px;text-shadow:0 0 12px rgba(255,43,43,.55),0 0 46px rgba(255,43,43,.34),0 0 110px rgba(255,43,43,.22)}
@@ -264,11 +266,11 @@ html[data-lang="zh"] .ce{display:none}
       <a class="btn red" href="tel:+85224151333"><xen>Call to reserve</xen><xzh>致電訂座</xzh></a>
       <a class="btn" href="#sake"><xen>Sake &amp; wine list</xen><xzh>清酒及酒單</xzh></a>
     </div>
-  </div>
-  <div class="hstrip">
-    <span>SHOP 5 · H CODE · 45 POTTINGER ST</span>
-    <span><xen>Terrace from 3 pm</xen><xzh>下午 3 時起設露台</xzh></span>
-    <span><xen>Sake from four family breweries</xen><xzh>四間家族酒藏清酒</xzh></span>
+    <div class="hstrip">
+      <span>SHOP 5 · H CODE · 45 POTTINGER ST</span>
+      <span><xen>Terrace from 3 pm</xen><xzh>下午 3 時起設露台</xzh></span>
+      <span><xen>Sake from four family breweries</xen><xzh>四間家族酒藏清酒</xzh></span>
+    </div>
   </div>
 </header>
 
