@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="description" content="CORKS Wine & Bar, 205C Hollywood Rd, Sheung Wan. Wine by the glass, platters and spreads from the chalkboard, no service charge. Book direct on WhatsApp.">
+<title>CORKS Wine & Bar · Sheung Wan, Hong Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#F1EBDF;
+  --bone2:#F7F2E8;
+  --bone3:#E3DAC6;
+  --panel:#FBF8F1;
+  --ink:#33221F;
+  --ink2:#6E5B52;
+  --wine:#5E1524;
+  --wine2:#7A1F31;
+  --wine-deep:#460E1B;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{background:var(--bone);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.7}
+img{max-width:100%;display:block}
+figure{margin:0}
+address{font-style:normal}
+::selection{background:var(--wine);color:var(--bone)}
+a{color:var(--wine)}
+:focus-visible{outline:2px solid var(--wine2);outline-offset:3px}
+
+/* ---------- language layers ---------- */
+xen{display:contents}
+xzh{display:none}
+html.zh xen{display:none}
+html.zh xzh{display:contents;font-family:'Noto Serif TC',serif}
+html.zh h1,html.zh h2,html.zh h3{letter-spacing:.02em}
+html.zh p{line-height:1.95}
+
+/* ---------- shared ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(18px,4vw,48px)}
+.script{font-family:'Italianno',cursive;font-weight:400}
+.caps{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:11.5px}
+html.zh .caps xzh{letter-spacing:.24em}
+.kick{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--wine)}
+h2{font-weight:500;font-size:clamp(33px,3.6vw,45px);line-height:1.14;letter-spacing:.005em;margin:14px 0 0}
+.sec{padding:96px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Jost',sans-serif;font-size:11.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border-radius:2px;transition:background .25s,border-color .25s,color .25s;cursor:pointer}
+html.zh .btn xzh{font-family:'Noto Serif TC',serif;font-weight:500}
+.btn svg{flex:0 0 auto}
+.btn-bone{background:var(--bone);color:var(--wine)}
+.btn-bone:hover{background:#fff}
+.btn-line{border:1px solid rgba(241,235,223,.55);color:var(--bone)}
+.btn-line:hover{border-color:var(--bone)}
+.btn-wine{background:var(--wine);color:var(--bone);border:1px solid var(--wine)}
+.btn-wine:hover{background:var(--wine2);border-color:var(--wine2)}
+.btn-wline{border:1px solid rgba(94,21,36,.4);color:var(--wine);background:transparent}
+.btn-wline:hover{border-color:var(--wine)}
+.frame{background:var(--panel);border:1px solid var(--bone3);padding:12px;box-shadow:0 20px 48px rgba(51,34,31,.10)}
+.frame figcaption{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:10.5px;color:var(--ink2);padding:11px 2px 1px}
+.grain{position:relative}
+.grain::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(241,235,223,.93);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--bone3)}
+.nav-in{max-width:1180px;margin:0 auto;padding-inline:clamp(18px,4vw,48px);height:66px;display:flex;align-items:center;gap:30px}
+.nav-mark{font-size:34px;color:var(--wine);text-decoration:none;line-height:1;transform:translateY(-3px)}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--ink);transition:color .2s}
+.nav-links a:hover{color:var(--wine)}
+.nav-book{margin-left:6px;padding:11px 20px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:linear-gradient(158deg,#69192B 0%,var(--wine) 46%,#4C101E 100%);color:var(--bone);min-height:clamp(600px,92svh,820px);max-height:860px;overflow:hidden;display:flex}
+.hero-edge{position:absolute;inset:16px;border:1px solid rgba(241,235,223,.22);pointer-events:none;z-index:3}
+.lang{position:absolute;top:30px;right:26px;z-index:6;background:rgba(70,14,27,.35);border:1px solid rgba(241,235,223,.5);color:var(--bone);border-radius:999px;padding:8px 15px;font-family:'Noto Serif TC','Jost',serif;font-size:12px;letter-spacing:.14em;cursor:pointer;transition:background .25s,border-color .25s}
+.lang:hover{background:rgba(70,14,27,.7);border-color:var(--bone)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;padding:88px clamp(18px,4vw,48px) 72px;display:flex;flex-direction:column;align-items:flex-start}
+.hero-mark{font-size:clamp(108px,17.5vw,248px);line-height:.8;color:var(--bone);margin-left:-6px;text-decoration:none}
+.hero-caps{margin-top:18px;color:rgba(241,235,223,.85)}
+.hero-lede{margin-top:26px;max-width:430px;font-size:clamp(20px,1.8vw,24px);line-height:1.55;font-style:italic;color:rgba(241,235,223,.95)}
+.hero-rate{margin-top:26px;display:flex;align-items:center;gap:12px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(241,235,223,.9)}
+.hero-rate .stars{letter-spacing:.3em;font-size:13px;color:var(--bone)}
+.hero-rate .rt{font-weight:500}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-photo{position:absolute;z-index:4;right:clamp(26px,7vw,108px);bottom:0;width:clamp(212px,23vw,296px);background:var(--bone);padding:9px 9px 0;box-shadow:0 34px 70px rgba(0,0,0,.4)}
+.hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* ---------- story ---------- */
+.story-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(40px,5vw,76px);align-items:center}
+.story-txt p{margin-top:22px;font-size:19px;color:#4A3A34;max-width:54ch}
+.story-sig{margin-top:30px;font-size:44px;color:var(--wine)}
+
+/* ---------- highlights ---------- */
+.hl-head{text-align:center;max-width:640px;margin:0 auto}
+.hl-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.hl-card{min-width:0}
+.hl-card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.zoom{position:relative;aspect-ratio:1/1;overflow:hidden}
+.zoom img{position:absolute;max-width:none;aspect-ratio:auto}
+.zoomA img{width:150%;left:-25%;top:-76%}
+.zoomB img{width:250%;left:-95%;top:-84%}
+.hl-t{margin-top:16px;font-size:24px;font-weight:500}
+.hl-c{margin-top:6px;font-size:16.5px;color:var(--ink2);line-height:1.6}
+
+/* ---------- menu ---------- */
+.menu-band{background:#ECE4D2;border-top:1px solid var(--bone3);border-bottom:1px solid var(--bone3)}
+.menu-grid{display:grid;grid-template-columns:1fr 372px;gap:clamp(40px,4.5vw,68px);align-items:start;margin-top:52px}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px clamp(30px,3.5vw,54px)}
+.mcat{margin-top:26px;min-width:0}
+.menu-cols>div>.mcat:first-child{margin-top:0}
+.mcat-t{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);padding-bottom:9px;border-bottom:1px solid rgba(94,21,36,.28);display:flex;align-items:baseline;gap:8px}
+.mcat-t i{font-family:'Cormorant Garamond',serif;font-style:italic;text-transform:none;letter-spacing:.02em;font-size:14px;color:var(--ink2)}
+.mi{display:flex;align-items:baseline;gap:10px;margin-top:13px}
+.mi-n{min-width:0;font-size:18.5px;font-weight:500;line-height:1.35}
+.mi-n i{display:block;font-size:15px;font-weight:400;font-style:italic;color:var(--ink2);line-height:1.4}
+.mi-dots{flex:1;min-width:20px;border-bottom:1px dotted rgba(51,34,31,.38);transform:translateY(-4px)}
+.pr{font-weight:600;font-size:17.5px;color:var(--wine);white-space:nowrap}
+.mi-duo{margin-top:12px;font-size:15.5px;font-style:italic;color:var(--ink2)}
+.mi-duo .pr{font-size:16px}
+.menu-chip{margin-top:30px;display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:var(--bone);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px}
+.menu-note{margin-top:14px;font-size:15.5px;font-style:italic;color:var(--ink2)}
+.board-side{position:sticky;top:92px}
+
+/* ---------- gallery ---------- */
+.gal-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.gal-wide{grid-column:1 / -1}
+.gal-wide img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 42%}
+.gal-p img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* ---------- reviews ---------- */
+.quote-band{background:linear-gradient(168deg,#65182A 0%,var(--wine) 55%,#4C101E 100%);color:var(--bone);padding:96px 0;position:relative;overflow:hidden}
+.quote-edge{position:absolute;inset:16px;border:1px solid rgba(241,235,223,.2);pointer-events:none}
+.quote-in{position:relative;z-index:2;text-align:center;max-width:900px;margin:0 auto;padding-inline:clamp(18px,4vw,48px)}
+.quote-in .kick{color:rgba(241,235,223,.75)}
+.quote-stars{margin-top:26px;letter-spacing:.34em;font-size:15px;color:var(--bone)}
+.bigq{margin-top:22px;font-size:clamp(26px,3.1vw,38px);line-height:1.5;font-style:italic;font-weight:400}
+.bigq .script{font-style:normal;font-size:1.55em;line-height:1;color:#EFD9C2;padding-inline:4px}
+.quote-by{margin-top:30px;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(241,235,223,.8)}
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.rev-card{background:var(--panel);border:1px solid var(--bone3);padding:34px 34px 30px;min-width:0;box-shadow:0 16px 40px rgba(51,34,31,.07)}
+.rev-stars{color:var(--wine);letter-spacing:.28em;font-size:13px}
+.rev-txt{margin-top:16px;font-size:19.5px;font-style:italic;line-height:1.65;color:#4A3A34}
+.rev-by{margin-top:18px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
+.rev-line{text-align:center;margin-top:44px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.rev-line .rt{color:var(--wine);font-weight:500}
+
+/* ---------- book ---------- */
+.book-panel{max-width:780px;margin:52px auto 0;background:var(--panel);border:1px solid rgba(94,21,36,.45);box-shadow:0 0 0 6px var(--bone),0 0 0 7px rgba(94,21,36,.35),0 28px 60px rgba(51,34,31,.12);padding:clamp(30px,4.5vw,54px)}
+.book-head{text-align:center}
+.book-script{font-size:clamp(52px,6.5vw,74px);line-height:1;color:var(--wine)}
+html.zh .book-script xzh{font-family:'Noto Serif TC',serif;font-size:.52em;font-weight:600}
+.book-sub{margin-top:14px;font-size:17.5px;font-style:italic;color:var(--ink2);max-width:48ch;margin-inline:auto}
+.bform{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px 22px}
+.bf{display:flex;flex-direction:column;gap:8px;min-width:0}
+.bf label{font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
+.fld{width:100%;background:#fff;border:1px solid var(--bone3);border-radius:2px;padding:13px 14px;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);letter-spacing:.03em;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+select.fld{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235E1524' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.fld:focus{outline:none;border-color:var(--wine)}
+.bform-send{grid-column:1 / -1;margin-top:6px;width:100%;padding:17px 26px;font-size:12px}
+.book-alt{margin-top:22px;text-align:center;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
+.book-alt a{color:var(--wine);text-decoration:none;border-bottom:1px solid rgba(94,21,36,.35);padding-bottom:2px}
+.book-fine{margin-top:16px;text-align:center;font-size:15px;font-style:italic;color:var(--ink2)}
+
+/* ---------- visit ---------- */
+.visit-band{background:#ECE4D2;border-top:1px solid var(--bone3)}
+.visit-grid2{display:grid;grid-template-columns:1fr minmax(0,440px);gap:44px clamp(44px,6vw,96px);margin-top:44px;align-items:start}
+.vi{border-top:1px solid rgba(94,21,36,.25);padding:18px 0 14px;min-width:0}
+.vi:first-child{border-top:0;padding-top:0}
+.vi-l{font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--wine)}
+.vi-v{margin-top:8px;font-size:19.5px;font-weight:500;line-height:1.5}
+.vi-v a{text-decoration:none;color:var(--ink);border-bottom:1px solid rgba(94,21,36,.3);padding-bottom:1px}
+.hours-card{background:var(--panel);border:1px solid rgba(94,21,36,.4);box-shadow:0 0 0 6px #ECE4D2,0 0 0 7px rgba(94,21,36,.28),0 26px 54px rgba(51,34,31,.12);padding:clamp(26px,3vw,38px)}
+.hp-t{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--wine);padding-bottom:12px;border-bottom:1px solid rgba(94,21,36,.28)}
+.hrow{display:flex;align-items:baseline;gap:10px;margin-top:13px;font-size:18px}
+.hrow .d{font-weight:500;min-width:0}
+.hrow .hrs{font-weight:600;white-space:nowrap}
+.hrow-late .d,.hrow-late .hrs{color:var(--wine)}
+.hp-note{margin-top:20px;color:var(--wine)}
+.hp-note .script{font-size:29px;line-height:1.1}
+html.zh .hp-note xzh{font-size:16px;font-style:italic}
+.visit-cta{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---------- footer ---------- */
+.foot{background:var(--wine-deep);color:var(--bone);text-align:center;padding:72px 0 58px;position:relative;overflow:hidden}
+.foot-mark{font-size:74px;line-height:.9;color:var(--bone)}
+.foot-caps{margin-top:14px;color:rgba(241,235,223,.8)}
+.foot-line{margin-top:22px;font-size:16.5px;color:rgba(241,235,223,.75)}
+.foot-line a{color:var(--bone);text-decoration:none;border-bottom:1px solid rgba(241,235,223,.35);padding-bottom:1px}
+.foot-c{margin-top:34px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(241,235,223,.5)}
+
+/* ---------- sticky bar ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;align-items:center;gap:12px;background:rgba(247,242,232,.97);border-top:1px solid var(--wine);box-shadow:0 -14px 34px rgba(51,34,31,.14);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.bar::before{content:"";position:absolute;top:3px;left:0;right:0;border-top:1px solid rgba(94,21,36,.3)}
+.bar-mark{font-size:30px;line-height:1;color:var(--wine);transform:translateY(-2px)}
+.bar-rate{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.14em;color:var(--ink2)}
+.bar-call{margin-left:auto;width:44px;height:44px;border:1px solid rgba(94,21,36,.45);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--wine)}
+.bar-book{display:inline-flex;align-items:center;gap:8px;background:var(--wine);color:var(--bone);text-decoration:none;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:14px 20px;border-radius:2px;white-space:nowrap}
+html.zh .bar-book xzh,html.zh .bar-rate xzh{font-family:'Noto Serif TC',serif}
+
+/* ---------- responsive ---------- */
+@media (min-width:721px){
+  .hero-in{padding-right:min(32vw,400px)}
+}
+@media (max-width:1024px){
+  .menu-grid{grid-template-columns:1fr 320px}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .nav-book{margin-left:auto}
+  .bar{display:flex}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .menu-grid{grid-template-columns:1fr}
+  .board-side{position:static;max-width:440px;margin:8px auto 0}
+  .rev-grid{grid-template-columns:1fr}
+}
+@media (max-width:840px){
+  .story-grid{grid-template-columns:1fr}
+  .hl-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
+  .menu-cols{grid-template-columns:1fr}
+  .mcat:nth-child(2){margin-top:26px}
+  .gal-grid{grid-template-columns:1fr}
+  .visit-grid2{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .sec{padding:64px 0}
+  .hero-in{margin:0;padding:84px 20px 0;align-items:flex-start}
+  .hero-lede{font-size:19px;margin-top:20px}
+  .hero-rate{margin-top:20px}
+  .hero-cta{margin-top:24px}
+  .hero-photo{position:static;order:9;width:min(58vw,230px);margin:34px 0 0 auto;padding:8px 8px 0;box-shadow:0 22px 44px rgba(0,0,0,.35)}
+  .hero{display:block}
+  .hero-mark{font-size:clamp(96px,26vw,120px)}
+  .lang{top:16px;right:16px}
+  .quote-band{padding:72px 0}
+  .bform{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .hero-cta .btn{padding:14px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-mark script" href="#top">Corks</a>
+    <div class="nav-links">
+      <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
+      <a href="#menu"><xen>Menu</xen><xzh>菜單</xzh></a>
+      <a href="#gallery"><xen>Gallery</xen><xzh>相簿</xzh></a>
+      <a href="#reviews"><xen>Reviews</xen><xzh>評語</xzh></a>
+      <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
+    </div>
+    <a class="btn btn-wine nav-book" href="#book"><xen>Book</xen><xzh>訂座</xzh></a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero grain" id="top">
+  <div class="hero-edge"></div>
+  <button class="lang" type="button" onclick="swapLang()" aria-label="Switch language"><xen>繁體中文</xen><xzh>English</xzh></button>
+  <div class="hero-in">
+    <h1 class="hero-mark script">Corks</h1>
+    <div class="caps hero-caps"><xen>Wine &amp; Bar · Hollywood Road, Sheung Wan</xen><xzh>葡萄酒吧 · 上環荷李活道</xzh></div>
+    <p class="hero-lede"><xen>Your neighbourhood wine den, on the corner of Hollywood Road.</xen><xzh>你的街坊酒館，就在荷李活道的街角。</xzh></p>
+    <div class="hero-rate">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span><b class="rt">4.8</b> · <xen>154 Google reviews</xen><xzh>154 則 Google 評語</xzh></span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-bone" href="#book"><xen>Book a table</xen><xzh>訂座</xzh></a>
+      <a class="btn btn-line" href="#menu"><xen>See the menu</xen><xzh>看菜單</xzh></a>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/03.jpg" alt="A glass of white wine at the window of CORKS, city lights behind">
+    </figure>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= STORY ================= -->
+<section class="sec" id="story">
+  <div class="wrap story-grid">
+    <div class="story-txt">
+      <div class="kick"><xen>Our story</xen><xzh>我們的故事</xzh></div>
+      <h2><xen>The corner room</xen><xzh>街角小店</xzh></h2>
+      <p><xen>CORKS is the neighbourhood wine den of Chris and Steph, two founders from France who now call Hong Kong home. They took a corner room on Hollywood Road, folded the glass front open to the street, and let the evening run on two things: good bottles, and no hurry.</xen><xzh>CORKS 是 Chris 和 Steph 的街坊酒館。兩位創辦人來自法國，如今以香港為家。他們在荷李活道租下一間街角小室，把玻璃摺門向街敞開，讓一個晚上只講兩件事：好酒，和不趕時間。</xzh></p>
+      <p><xen>The list leans home, from grower Champagne to easy reds by the glass, and the chalkboard does the cooking: saucisson, rillettes, cheeses cut at the counter. Happy hour is generous, the service charge does not exist. Come before dinner, stay past it.</xen><xzh>酒單帶著法國家鄉味，由小農香檳到易入口的杯裝紅酒；廚房則交給黑板：風乾腸、熟肉醬、吧檯即切芝士。Happy hour 夠慷慨，服務費不存在。晚飯前來，坐到晚飯後。</xzh></p>
+      <div class="story-sig script" aria-hidden="true">Sant&eacute;, 飲杯</div>
+    </div>
+    <figure class="frame">
+      <img src="img/01.jpg" alt="The CORKS corner shopfront on Hollywood Road at dusk, doors folded open">
+      <figcaption><xen>205C Hollywood Road, doors folded open</xen><xzh>荷李活道 205C，摺門全開</xzh></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section class="sec" id="plates" style="padding-top:20px">
+  <div class="wrap">
+    <div class="hl-head">
+      <div class="kick"><xen>At the counter</xen><xzh>吧檯之上</xzh></div>
+      <h2><xen>Small plates, long evenings</xen><xzh>小碟小食，長長夜晚</xzh></h2>
+    </div>
+    <div class="hl-grid">
+      <div class="hl-card">
+        <figure class="frame"><img src="img/05.jpg" alt="Charcuterie board with saucisson, brie and dried figs at the CORKS counter" style="object-position:50% 68%"></figure>
+        <div class="hl-t"><xen>The platter</xen><xzh>拼盤</xzh></div>
+        <p class="hl-c"><xen>Saucisson, brie, dried figs, cut when you order.</xen><xzh>風乾腸、布里芝士、無花果乾，即點即切。</xzh></p>
+      </div>
+      <div class="hl-card">
+        <figure class="frame"><div class="zoom zoomA"><img src="img/04.jpg" alt="Duck rillette with cornichons, cheese and a basket of bread"></div></figure>
+        <div class="hl-t"><xen>The spread</xen><xzh>熟肉醬</xzh></div>
+        <p class="hl-c"><xen>Duck rillette, cornichons, bread still warm.</xen><xzh>鴨肉醬、酸青瓜、還暖的麵包。</xzh></p>
+      </div>
+      <div class="hl-card">
+        <figure class="frame"><div class="zoom zoomB"><img src="img/01.jpg" alt="Inside the CORKS corner room, warm bulbs and high stools"></div></figure>
+        <div class="hl-t"><xen>The corner</xen><xzh>街角</xzh></div>
+        <p class="hl-c"><xen>Warm light, high stools, the street a step away.</xen><xzh>暖燈、高凳，街道只有一步之遙。</xzh></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="sec menu-band" id="menu">
+  <div class="wrap">
+    <div class="kick"><xen>From the chalkboard</xen><xzh>黑板菜單</xzh></div>
+    <h2><xen>Tonight, in chalk</xen><xzh>今晚，寫在黑板上</xzh></h2>
+    <p class="menu-note"><xen>Transcribed straight from the board at 205C. Prices in HK$.</xen><xzh>照 205C 店內黑板原樣抄錄，港幣定價。</xzh></p>
+    <div class="menu-grid">
+      <div>
+        <div class="menu-cols">
+          <div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Platters</xen><xzh>拼盤</xzh></div>
+              <div class="mi"><span class="mi-n">The Big Mix<i><xen>cheese and cold cuts</xen><xzh>芝士及凍肉</xzh></i></span></div>
+              <div class="mi"><span class="mi-n">Say Cheese<i><xen>all cheese</xen><xzh>全芝士</xzh></i></span></div>
+              <div class="mi"><span class="mi-n">Meet the Meats<i><xen>all cold cuts</xen><xzh>全凍肉</xzh></i></span></div>
+              <div class="mi-duo"><xen>each board · small</xen><xzh>每款拼盤 · 小</xzh> <b class="pr">HK$195</b> · <xen>large</xen><xzh>大</xzh> <b class="pr">HK$295</b></div>
+              <div class="mi"><span class="mi-n">Saucisson Madness<i><xen>dry sausage assortment</xen><xzh>風乾腸雜錦</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$185</b></div>
+              <div class="mi"><span class="mi-n">Iberian Ham<i><xen>curated, 52 months</xen><xzh>精選熟成 52 個月</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$250</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Single portions</xen><xzh>單點</xzh></div>
+              <div class="mi"><span class="mi-n"><xen>Pick one cheese or meat</xen><xzh>任選一款芝士或凍肉</xzh><i><xen>ask us!</xen><xzh>問問我們！</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$80</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Toasties</xen><xzh>多士</xzh></div>
+              <div class="mi"><span class="mi-n">Mini Truffle &amp; Comté Bites<i><xen>allow us some time</xen><xzh>需時準備</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$95</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t">Saucisson Guillotine</div>
+              <div class="mi"><span class="mi-n"><xen>Whole saucisson</xen><xzh>原條風乾腸</xzh><i><xen>to cut yourself</xen><xzh>自己動手切</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$170</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t">Corks Aperi&rsquo;Set</div>
+              <div class="mi"><span class="mi-n"><xen>Assortment of 3 snacks</xen><xzh>三款小食</xzh><i><xen>to start with</xen><xzh>開場之選</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$105</b></div>
+            </div>
+          </div>
+          <div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Spreads</xen><xzh>抹醬</xzh></div>
+              <div class="mi"><span class="mi-n">Tapenade<i><xen>olive paste</xen><xzh>橄欖醬</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$80</b></div>
+              <div class="mi"><span class="mi-n"><xen>Artichoke</xen><xzh>朝鮮薊</xzh></span><span class="mi-dots"></span><b class="pr">HK$120</b></div>
+              <div class="mi"><span class="mi-n"><xen>Tomato Parmesan</xen><xzh>番茄巴馬臣</xzh></span><span class="mi-dots"></span><b class="pr">HK$110</b></div>
+              <div class="mi"><span class="mi-n"><xen>Red Bell Pepper</xen><xzh>紅甜椒</xzh></span><span class="mi-dots"></span><b class="pr">HK$110</b></div>
+              <div class="mi"><span class="mi-n"><xen>Spreads Set</xen><xzh>抹醬套餐</xzh><i><xen>choose three</xen><xzh>任選三款</xzh></i></span><span class="mi-dots"></span><b class="pr">HK$285</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Rillettes &amp; Pâtés</xen><xzh>熟肉醬及肉批</xzh></div>
+              <div class="mi"><span class="mi-n">Duck Rillette</span><span class="mi-dots"></span><b class="pr">HK$75</b></div>
+              <div class="mi"><span class="mi-n">Salmon Rillette</span><span class="mi-dots"></span><b class="pr">HK$105</b></div>
+              <div class="mi"><span class="mi-n">Pork &amp; Mushroom Pâté</span><span class="mi-dots"></span><b class="pr">HK$85</b></div>
+            </div>
+            <div class="mcat">
+              <div class="mcat-t"><xen>Desserts</xen><xzh>甜品</xzh> <i><xen>allow us some time</xen><xzh>需時準備</xzh></i></div>
+              <div class="mi"><span class="mi-n">Chocolate Lava Cake</span><span class="mi-dots"></span><b class="pr">HK$80</b></div>
+              <div class="mi"><span class="mi-n">Apple Tatin Tartlet</span><span class="mi-dots"></span><b class="pr">HK$80</b></div>
+              <div class="mi"><span class="mi-n"><xen>1 dessert + 1 dessert wine glass</xen><xzh>甜品一客，配甜酒一杯</xzh></span><span class="mi-dots"></span><b class="pr">HK$148</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-chip"><span aria-hidden="true">★</span> <xen>No service charge</xen><xzh>不收服務費</xzh> <span aria-hidden="true">★</span></div>
+      </div>
+      <figure class="frame board-side">
+        <img src="img/02.jpg" alt="The CORKS chalkboard menu of finger foods, platters, spreads and toasties">
+        <figcaption><xen>The board itself, chalked by hand</xen><xzh>店內黑板，手寫原樣</xzh></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="hl-head">
+      <div class="kick"><xen>The room</xen><xzh>小店本身</xzh></div>
+      <h2><xen>Glasses up</xen><xzh>舉杯</xzh></h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="frame gal-wide">
+        <img src="img/01.jpg" alt="The corner of Hollywood Road at dusk, the CORKS room glowing">
+        <figcaption><xen>The corner of Hollywood Road at dusk</xen><xzh>黃昏時分的荷李活道街角</xzh></figcaption>
+      </figure>
+      <figure class="frame gal-p">
+        <img src="img/03.jpg" alt="A chilled glass at the window seat, bokeh lights of Sheung Wan behind">
+        <figcaption><xen>First pour at the window</xen><xzh>窗邊的第一杯</xzh></figcaption>
+      </figure>
+      <figure class="frame gal-p">
+        <img src="img/05.jpg" alt="A board of saucisson and cheese waiting on the counter">
+        <figcaption><xen>A board, before it reaches the table</xen><xzh>上桌前的拼盤</xzh></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews">
+  <div class="quote-band grain">
+    <div class="quote-edge"></div>
+    <div class="quote-in">
+      <div class="kick"><xen>Said at the bar</xen><xzh>座上客的話</xzh></div>
+      <div class="quote-stars" aria-hidden="true">★★★★★</div>
+      <blockquote class="bigq">&ldquo;I came here one evening. <span class="script">Autumn.</span> With someone I care about very much. We ordered a bottle of Monmarthe Champagne&rdquo;</blockquote>
+      <div class="quote-by">enikselom · <xen>Google review</xen><xzh>Google 評語</xzh></div>
+    </div>
+  </div>
+  <div class="sec" style="padding-top:72px">
+    <div class="wrap">
+      <div class="rev-grid">
+        <div class="rev-card">
+          <div class="rev-stars" aria-hidden="true">★★★★★</div>
+          <p class="rev-txt">&ldquo;Awesome little wine bar with an excellent happy hour deal, great wine selections, and really solid specials as well&rdquo;</p>
+          <div class="rev-by">Chris Price · <xen>Google review</xen><xzh>Google 評語</xzh></div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-stars" aria-hidden="true">★★★★★</div>
+          <p class="rev-txt">&ldquo;I just love being able to have a small walk and stop to have a pre-dinner wine&rdquo;</p>
+          <div class="rev-by">Jenna T Lauw · <xen>Google review</xen><xzh>Google 評語</xzh></div>
+        </div>
+      </div>
+      <div class="rev-line"><b class="rt">4.8</b> <xen>stars, from 154 Google reviews</xen><xzh>星，共 154 則 Google 評語</xzh></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="sec" id="book" style="padding-top:24px">
+  <div class="wrap">
+    <div class="book-panel">
+      <div class="book-head">
+        <div class="kick"><xen>Book direct</xen><xzh>直接訂座</xzh></div>
+        <div class="book-script script"><xen>Book your corner</xen><xzh>訂一個街角位</xzh></div>
+        <p class="book-sub"><xen>Message us on WhatsApp, we answer between pours. Nothing is set until we reply with a cheers.</xen><xzh>用 WhatsApp 留個訊息，我們斟酒之間就會回覆。收到我們的回覆，訂座才算數。</xzh></p>
+      </div>
+      <form class="bform" id="bookform">
+        <div class="bf">
+          <label for="bk-name"><xen>Your name</xen><xzh>你的名字</xzh></label>
+          <input class="fld" id="bk-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="bf">
+          <label for="bk-ppl"><xen>People</xen><xzh>人數</xzh></label>
+          <select class="fld" id="bk-ppl">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option><option>9+</option>
+          </select>
+        </div>
+        <div class="bf">
+          <label for="bk-date"><xen>Date</xen><xzh>日期</xzh></label>
+          <input class="fld" id="bk-date" type="date" required>
+        </div>
+        <div class="bf">
+          <label for="bk-time"><xen>Time</xen><xzh>時間</xzh></label>
+          <input class="fld" id="bk-time" type="time" step="900" required>
+        </div>
+        <button class="btn btn-wine bform-send" type="submit">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12a9.9 9.9 0 0 0 1.5 5.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.8-1.8-.9s-.4-.1-.6.1-.7.9-.9 1-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5a1.8 1.8 0 0 0 .3-.5.5.5 0 0 0 0-.5c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1 2.7 11.4 11.4 0 0 0 4.4 3.9 14.8 14.8 0 0 0 1.5.5 3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>
+          <xen>Book on WhatsApp</xen><xzh>WhatsApp 訂座</xzh>
+        </button>
+      </form>
+      <div class="book-alt"><xen>or call</xen><xzh>或致電</xzh> <a class="tel" href="tel:+85292585352">+852 9258 5352</a></div>
+      <p class="book-fine"><xen>Walk-ins are always welcome while stools last.</xen><xzh>不訂座直接來也歡迎，高凳坐滿為止。</xzh></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="sec visit-band" id="visit">
+  <div class="wrap">
+    <div class="kick"><xen>Find us</xen><xzh>到訪</xzh></div>
+    <h2><xen>205C, the corner of Hollywood Road</xen><xzh>荷李活道 205C 街角</xzh></h2>
+    <div class="visit-grid2">
+      <div>
+        <div class="vi">
+          <div class="vi-l"><xen>Address</xen><xzh>地址</xzh></div>
+          <address class="vi-v adr">205C Hollywood Rd, Sheung Wan, Hong Kong</address>
+        </div>
+        <div class="vi">
+          <div class="vi-l"><xen>Phone &amp; WhatsApp</xen><xzh>電話及 WhatsApp</xzh></div>
+          <div class="vi-v"><a class="tel" href="tel:+85292585352">+852 9258 5352</a></div>
+        </div>
+        <div class="vi">
+          <div class="vi-l"><xen>Also pouring</xen><xzh>其他分店</xzh></div>
+          <div class="vi-v"><xen>Causeway Bay · Wan Chai</xen><xzh>銅鑼灣 · 灣仔</xzh></div>
+        </div>
+        <div class="vi">
+          <div class="vi-l"><xen>Follow</xen><xzh>追蹤我們</xzh></div>
+          <div class="vi-v"><a target="_blank" rel="noopener" href="https://www.instagram.com/corks.hk/">@corks.hk</a></div>
+        </div>
+      </div>
+      <div class="hours-card">
+        <div class="hp-t"><xen>Opening hours</xen><xzh>營業時間</xzh></div>
+        <div class="hrow"><span class="d"><xen>Monday to Wednesday</xen><xzh>週一至週三</xzh></span><span class="mi-dots"></span><span class="hrs"><xen>15:30 to 23:30</xen><xzh>15:30 至 23:30</xzh></span></div>
+        <div class="hrow"><span class="d"><xen>Thursday</xen><xzh>週四</xzh></span><span class="mi-dots"></span><span class="hrs"><xen>15:30 to midnight</xen><xzh>15:30 至 00:00</xzh></span></div>
+        <div class="hrow"><span class="d"><xen>Friday</xen><xzh>週五</xzh></span><span class="mi-dots"></span><span class="hrs"><xen>15:30 to 23:30</xen><xzh>15:30 至 23:30</xzh></span></div>
+        <div class="hrow hrow-late"><span class="d"><xen>Saturday</xen><xzh>週六</xzh></span><span class="mi-dots"></span><span class="hrs"><xen>14:00 to 02:00</xen><xzh>14:00 至 02:00</xzh></span></div>
+        <div class="hrow"><span class="d"><xen>Sunday</xen><xzh>週日</xzh></span><span class="mi-dots"></span><span class="hrs"><xen>14:00 to midnight</xen><xzh>14:00 至 00:00</xzh></span></div>
+        <div class="hp-note"><xen><span class="script">Saturdays, last pours at two in the morning.</span></xen><xzh>週六，一直斟到凌晨兩點。</xzh></div>
+      </div>
+    </div>
+    <div class="visit-cta">
+      <a class="btn btn-wine" target="_blank" rel="noopener" href="https://wa.me/85292585352?text=Hello%20CORKS!%20I%27d%20like%20to%20book%20a%20table."><xen>WhatsApp us</xen><xzh>WhatsApp 我們</xzh></a>
+      <a class="btn btn-wline" target="_blank" rel="noopener" href="https://maps.google.com/?cid=1317992936339903494"><xen>Open in Google Maps</xen><xzh>在 Google 地圖打開</xzh></a>
+      <a class="btn btn-wline" target="_blank" rel="noopener" href="https://www.instagram.com/corks.hk/">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/><circle cx="12" cy="12" r="4.6"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>
+        @corks.hk
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot grain">
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="foot-mark script">Corks</div>
+    <div class="caps foot-caps"><xen>Wine &amp; Bar · Sheung Wan, Hong Kong</xen><xzh>葡萄酒吧 · 香港上環</xzh></div>
+    <div class="foot-line">205C Hollywood Rd · <a class="tel" href="tel:+85292585352">+852 9258 5352</a> · <a target="_blank" rel="noopener" href="https://www.instagram.com/corks.hk/">@corks.hk</a></div>
+    <div class="foot-c">© 2026 CORKS Wine &amp; Bar</div>
+  </div>
+</footer>
+
+<!-- ================= STICKY BAR ================= -->
+<div class="bar" role="navigation" aria-label="Quick booking">
+  <span class="bar-mark script" aria-hidden="true">Corks</span>
+  <span class="bar-rate">4.8 ★</span>
+  <a class="bar-call" href="tel:+85292585352" aria-label="Call CORKS">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4.5 3.5h4l2 4.6-2.4 1.9a13.8 13.8 0 0 0 5.9 5.9l1.9-2.4 4.6 2v4a1.6 1.6 0 0 1-1.7 1.6A17.9 17.9 0 0 1 2.9 5.2a1.6 1.6 0 0 1 1.6-1.7Z"/></svg>
+  </a>
+  <xen><a class="bar-book" target="_blank" rel="noopener" href="https://wa.me/85292585352?text=Hello%20CORKS!%20I%27d%20like%20to%20book%20a%20table.">Book a table</a></xen>
+  <xzh><a class="bar-book" target="_blank" rel="noopener" href="https://wa.me/85292585352?text=%E4%BD%A0%E5%A5%BD%20CORKS%EF%BC%81%E6%88%91%E6%83%B3%E8%A8%82%E5%BA%A7%E3%80%82">WhatsApp 訂座</a></xzh>
+</div>
+
+<script>
+function swapLang(){
+  var r=document.documentElement;
+  r.classList.toggle('zh');
+  r.setAttribute('lang', r.classList.contains('zh') ? 'zh-Hant' : 'en');
+}
+document.getElementById('bookform').addEventListener('submit', function(e){
+  e.preventDefault();
+  var n=document.getElementById('bk-name').value.trim();
+  var d=document.getElementById('bk-date').value;
+  var t=document.getElementById('bk-time').value;
+  var p=document.getElementById('bk-ppl').value;
+  var zh=document.documentElement.classList.contains('zh');
+  var msg = zh
+    ? '你好 CORKS！我想訂座。\n名字：'+n+'\n日期：'+d+'\n時間：'+t+'\n人數：'+p
+    : 'Hello CORKS! I would like to book a table.\nName: '+n+'\nDate: '+d+'\nTime: '+t+'\nPeople: '+p;
+  window.open('https://wa.me/85292585352?text='+encodeURIComponent(msg), '_blank', 'noopener');
+});
+</script>
+</body>
+</html>

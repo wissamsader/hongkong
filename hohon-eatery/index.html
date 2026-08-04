@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1E5B59">
+<meta name="description" content="HoHon Eatery, a neighbourhood pasta and burger joint in Sai Wan, Hong Kong. Charcoal bun burgers, homemade sausage rigatoni. Shop 3, 419M Queen's Rd West.">
+<title>HoHon Eatery · Pasta &amp; Burgers · Sai Wan, Hong Kong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --field:#1E5B59;   /* their shopfront paint */
+  --field2:#256a66;
+  --board:#173F3E;   /* their sign board */
+  --deep:#123736;
+  --ink:#0E2E2C;
+  --cream:#F4EDDB;
+  --cream2:#EAE0C8;
+  --ice:#BFDDE2;     /* their sign lettering */
+  --hair:rgba(191,221,226,.26);
+  --hairdark:rgba(14,46,44,.16);
+  --disp:'Bricolage Grotesque','Noto Sans TC',sans-serif;
+  --body:'Instrument Sans','Noto Sans TC',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--body);background:var(--field);color:var(--cream);font-size:16.5px;line-height:1.62;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+xen,xzh{display:contents}
+xzh{display:none;font-family:'Noto Sans TC',var(--body)}
+html.zh xen{display:none}
+html.zh xzh{display:contents}
+html.zh body{line-height:1.8}
+html.zh .disp,html.zh h1,html.zh h2,html.zh h3{letter-spacing:.02em}
+.wrap{width:min(1160px,100% - 48px);margin-inline:auto}
+@media (max-width:640px){.wrap{width:calc(100% - 32px)}}
+section{position:relative}
+.grain::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grain>*{position:relative;z-index:1}
+
+/* ---------- header ---------- */
+header.hero{background:var(--field);min-height:clamp(600px,92svh,820px);max-height:860px;display:flex;flex-direction:column;overflow:hidden}
+.nav{display:flex;align-items:center;gap:28px;padding:20px 0 14px}
+.nav .brand{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:.06em;color:var(--cream);white-space:nowrap}
+.nav .brand small{font-weight:500;color:var(--ice);letter-spacing:.3em;font-size:10px;display:block;margin-top:-2px}
+.nav nav{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav nav a{font-size:13.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ice);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s}
+.nav nav a:hover{color:var(--cream);border-color:var(--hair)}
+.callpill{background:var(--cream);color:var(--ink)!important;border-radius:3px;padding:10px 18px!important;border-bottom:none!important;font-weight:700!important;display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+.callpill:hover{background:#fff}
+.callpill svg{width:15px;height:15px}
+@media (max-width:940px){.nav nav a:not(.callpill){display:none}}
+.langchip{position:absolute;top:78px;right:max(24px,calc((100% - 1160px)/2));z-index:40;background:transparent;border:1px solid var(--hair);color:var(--ice);border-radius:3px;padding:7px 14px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
+.langchip:hover{background:var(--board);color:var(--cream)}
+@media (max-width:640px){.langchip{top:70px;right:16px}}
+
+.heroin{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 0 30px}
+.kicker{font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ice);font-weight:600;margin-bottom:20px}
+.slab{position:relative;z-index:2;background:var(--board);border:1px solid var(--hair);padding:24px 50px 20px;max-width:94%}
+.slab h1{font-family:var(--disp);font-weight:800;font-size:clamp(56px,8.4vw,98px);line-height:.94;letter-spacing:.015em;color:var(--cream)}
+.slab .sub{font-family:var(--disp);font-weight:500;font-size:clamp(15px,1.9vw,23px);letter-spacing:.55em;padding-left:.55em;color:var(--ice);margin-top:12px}
+.heroph{position:relative;z-index:1;width:min(620px,92%);margin-top:-44px;border:8px solid var(--cream);background:var(--cream);box-shadow:0 0 0 1px var(--hairdark)}
+.heroph .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
+.heroph img{width:100%;height:100%;object-fit:cover}
+.heroph .ph::before{content:"";position:absolute;inset:0 0 auto 0;height:56px;background:linear-gradient(180deg,rgba(23,63,62,.34),transparent);z-index:1;pointer-events:none}
+.hmeta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.hmeta .chip{border:1px solid var(--hair);border-radius:3px;padding:8px 15px;font-size:13px;letter-spacing:.06em;color:var(--ice);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.hmeta .chip b{color:var(--cream);font-weight:700}
+.hmeta .chip svg{width:13px;height:13px;flex:0 0 auto}
+@media (max-width:640px){
+  .heroin{padding:16px 0 24px}
+  .kicker{font-size:11px;margin-bottom:14px}
+  .slab{padding:18px 24px 16px}
+  .heroph{margin-top:-26px;border-width:6px}
+  .hmeta{margin-top:14px}
+}
+
+/* ---------- ticker band ---------- */
+.band{background:var(--cream);color:var(--ink);padding:20px 0}
+.band .row{display:flex;flex-wrap:wrap;justify-content:center;column-gap:34px;row-gap:8px}
+.band span{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.band span i{font-style:normal;color:var(--field);margin-right:34px}
+
+/* ---------- shared section furniture ---------- */
+.sec{padding:88px 0}
+@media (max-width:640px){.sec{padding:60px 0}}
+.overline{font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:.01em;margin-bottom:22px}
+.frame{border:8px solid var(--cream);background:var(--cream);box-shadow:0 0 0 1px var(--hairdark)}
+.frame .ph{overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover}
+@media (max-width:640px){.frame{border-width:6px}}
+
+/* ---------- story ---------- */
+.story{background:var(--cream);color:var(--ink)}
+.story .overline{color:var(--field)}
+.sgrid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:start}
+.story p{margin-bottom:18px;max-width:56ch}
+.schips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.schips .chip{border:1px solid var(--hairdark);border-radius:3px;padding:8px 15px;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--board)}
+.scol .frame{margin-bottom:22px}
+.scol .frame .ph{aspect-ratio:1012/430}
+.facts{background:var(--board);color:var(--cream);padding:26px 28px}
+.facts h3{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--ice);margin-bottom:14px}
+.facts ul{list-style:none}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:14.5px}
+.facts li:last-child{border-bottom:none}
+.facts li b{color:var(--ice);font-weight:600;text-align:right}
+@media (max-width:900px){.sgrid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- highlights ---------- */
+.high{background:var(--field)}
+.high .overline{color:var(--ice)}
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:12px}
+.card{background:var(--cream);color:var(--ink);padding:10px 10px 18px;box-shadow:0 0 0 1px var(--hairdark)}
+.card .ph{aspect-ratio:3/4;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover}
+.card h3{font-family:var(--disp);font-weight:800;font-size:19px;line-height:1.2;margin:16px 8px 3px}
+.card .zh{font-family:'Noto Sans TC',var(--body);font-size:14.5px;color:var(--field);font-weight:600;margin:0 8px 6px}
+.card p{font-size:14px;color:#41504d;margin:0 8px;line-height:1.55}
+@media (max-width:900px){.hgrid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}}
+
+/* ---------- gallery ---------- */
+.gal{background:var(--deep)}
+.gal .overline{color:var(--ice)}
+.gr{display:flex;justify-content:center;gap:22px;margin-top:26px}
+.gr .frame{height:100%}
+.gr .r43{aspect-ratio:4/3}
+.gr .r34{aspect-ratio:3/4}
+.gr .r916{aspect-ratio:9/15}
+.gr1{height:min(520px,44vw)}
+.gr2{height:min(470px,40vw);margin-top:22px}
+.gr .frame .ph{height:100%}
+.gtile{flex:1;background:var(--board);border:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center;padding:34px;min-width:0}
+.gtile .disp{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,27px);line-height:1.18;color:var(--cream);margin-bottom:12px}
+.gtile p{font-size:14px;color:var(--ice)}
+@media (max-width:900px){
+  .gr{flex-direction:column;height:auto;align-items:stretch}
+  .gr1,.gr2{height:auto}
+  .gr .frame{height:auto}
+  .gtile{padding:26px}
+}
+
+/* ---------- menu ---------- */
+.menu{background:var(--cream);color:var(--ink)}
+.menu .overline{color:var(--field)}
+.mgrid{display:grid;grid-template-columns:370px 1fr;gap:52px;align-items:start;margin-top:10px}
+.mphoto .frame{border-color:var(--cream2);background:var(--cream2)}
+.mphoto figcaption{font-size:13px;color:#5a6763;margin-top:12px;line-height:1.5}
+.set{background:var(--board);color:var(--cream);padding:30px 32px;margin-bottom:26px}
+.set header{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1px solid var(--hair);padding-bottom:16px;margin-bottom:8px}
+.set h3{font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:.02em}
+.set h3 span{font-family:'Noto Sans TC',var(--body);font-weight:700;font-size:17px;color:var(--ice);margin-left:10px}
+.set .pr{font-family:var(--disp);font-weight:800;font-size:24px;color:var(--ice);white-space:nowrap}
+.set ul{list-style:none}
+.set li{padding:13px 0;border-bottom:1px solid var(--hair)}
+.set li:last-child{border-bottom:none}
+.set li .en{font-weight:600;font-size:15.5px}
+.set li .tc{font-family:'Noto Sans TC',var(--body);font-size:13.5px;color:var(--ice);margin-top:2px}
+.set li.or{text-align:center;color:var(--ice);font-weight:700;letter-spacing:.3em;font-size:12px;text-transform:uppercase}
+.mnote{display:flex;gap:12px;align-items:baseline;font-size:14px;color:var(--board);font-weight:600;border:1px solid var(--hairdark);border-radius:3px;padding:14px 18px;margin-bottom:26px}
+.dinein{background:var(--cream2);padding:26px 28px}
+.dinein h3{font-family:var(--disp);font-weight:800;font-size:18px;margin-bottom:8px}
+.dinein p{font-size:14.5px;color:#41504d}
+@media (max-width:940px){.mgrid{grid-template-columns:1fr;gap:36px}.mphoto{max-width:420px}}
+
+/* ---------- reviews ---------- */
+.rev{background:var(--field)}
+.rev .overline{color:var(--ice)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:12px;align-items:stretch}
+.quote{background:var(--cream);color:var(--ink);padding:30px 30px 26px;display:flex;flex-direction:column}
+.quote .mark{font-family:var(--disp);font-weight:800;font-size:44px;line-height:.6;color:var(--field);margin-bottom:18px}
+.quote p{font-size:15.5px;line-height:1.6;flex:1}
+.quote footer{margin-top:20px;padding-top:14px;border-top:1px solid var(--hairdark)}
+.quote cite{font-style:normal;font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--board)}
+.quote small{display:block;font-size:12px;color:#5a6763;letter-spacing:.06em;margin-top:3px}
+.rate{background:var(--board);border:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px}
+.rate .big{font-family:var(--disp);font-weight:800;font-size:84px;line-height:1;color:var(--cream)}
+.rate .star{color:var(--ice);font-size:20px;letter-spacing:.2em;margin:10px 0 8px}
+.rate p{font-size:13.5px;color:var(--ice);letter-spacing:.08em}
+@media (max-width:900px){.rgrid{grid-template-columns:1fr}}
+
+/* ---------- book ---------- */
+.book{background:var(--board)}
+.book .overline{color:var(--ice)}
+.bgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+.book p.lead{max-width:52ch;margin-bottom:22px}
+.book .phone{display:flex;flex-direction:column;gap:4px;border:1px solid var(--hair);border-radius:3px;padding:16px 20px;width:fit-content;margin-bottom:18px}
+.book .phone span{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ice);font-weight:700}
+.book .phone a.tel{font-family:var(--disp);font-weight:800;font-size:24px;color:var(--cream)}
+.book .hint{font-size:13.5px;color:var(--ice)}
+.bform{background:var(--cream);color:var(--ink);padding:34px 34px 30px;box-shadow:0 0 0 1px var(--hairdark)}
+.bform .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.bform .frow.one{grid-template-columns:1fr}
+.bform label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--field);margin-bottom:6px}
+.bform input,.bform select{width:100%;border:1px solid var(--hairdark);border-radius:3px;background:#fff;color:var(--ink);font-family:inherit;font-size:15.5px;padding:12px 13px;appearance:none;-webkit-appearance:none}
+.bform input:focus,.bform select:focus{outline:2px solid var(--field);outline-offset:0}
+.bform select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%231E5B59'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.wabtn{width:100%;border:none;cursor:pointer;background:var(--field);color:var(--cream);font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:.04em;border-radius:3px;padding:17px 20px;display:flex;align-items:center;justify-content:center;gap:11px;transition:background .2s}
+.wabtn:hover{background:var(--field2)}
+.wabtn svg{width:19px;height:19px;flex:0 0 auto}
+.mailbtn{width:100%;margin-top:10px;border:1px solid var(--field);cursor:pointer;background:transparent;color:var(--field);font-family:var(--body);font-weight:700;font-size:14px;letter-spacing:.04em;border-radius:3px;padding:13px 20px;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .2s,color .2s}
+.mailbtn:hover{background:var(--field);color:var(--cream)}
+.mailbtn svg{width:16px;height:16px;flex:0 0 auto}
+.book .phone.eml{margin-top:-4px}
+.book .phone a.mailto{font-size:19px;word-break:break-all}
+.bform .fine{font-size:12.5px;color:#5a6763;margin-top:14px;line-height:1.55}
+@media (max-width:900px){.bgrid{grid-template-columns:1fr;gap:36px}.bform{padding:26px 22px 24px}.bform .frow{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit{background:var(--deep)}
+.visit .overline{color:var(--ice)}
+.vgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.vrow{padding:15px 0;border-bottom:1px solid var(--hair);display:flex;gap:24px;justify-content:space-between;align-items:baseline;font-size:15.5px}
+.vrow .lab{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ice);font-weight:700;flex:0 0 auto}
+.vrow .val{text-align:right}
+.vrow .val .addr{font-weight:600}
+.vrow .val small{display:block;font-size:13px;color:var(--ice);margin-top:2px}
+.vrow .hr{font-weight:700;color:var(--cream);white-space:nowrap}
+.vrow.closed .hr{color:var(--ice)}
+.vbtns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.pill{display:inline-flex;align-items:center;gap:9px;border-radius:3px;padding:13px 22px;font-weight:700;font-size:14.5px;letter-spacing:.04em;border:1px solid var(--hair);color:var(--cream);transition:background .2s,color .2s}
+.pill svg{width:16px;height:16px;flex:0 0 auto}
+.pill:hover{background:var(--board)}
+.pill.solid{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.pill.solid:hover{background:#fff}
+.vcol .frame .ph{aspect-ratio:1012/430}
+.vcol figcaption{font-size:13px;color:var(--ice);margin-top:12px}
+.vtile{background:var(--board);border:1px solid var(--hair);padding:22px 26px;margin-top:22px;font-size:15px}
+.vtile b{color:var(--ice)}
+@media (max-width:900px){.vgrid{grid-template-columns:1fr;gap:36px}.vrow{flex-direction:column;gap:4px;align-items:flex-start}.vrow .val{text-align:left}}
+
+/* ---------- footer ---------- */
+footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13.5px}
+.foot .frow2{display:flex;flex-wrap:wrap;gap:14px 34px;align-items:center;justify-content:space-between}
+.foot .fbrand{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:.08em;color:var(--cream)}
+.foot .addr{color:var(--ice)}
+.foot a.igl{font-weight:700;border-bottom:1px solid var(--hair);padding-bottom:1px}
+@media (max-width:900px){footer.foot{padding-bottom:120px}}
+
+/* ---------- sticky bar (phones) ---------- */
+.bar{display:none}
+@media (max-width:900px){
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;gap:10px;background:var(--cream);border-top:1px solid var(--hairdark);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .bar .bmini{display:flex;flex-direction:column;line-height:1.15;margin-right:2px}
+  .bar .bmini b{font-family:var(--disp);font-weight:800;font-size:12.5px;letter-spacing:.1em;color:var(--ink)}
+  .bar .bmini span{font-size:9.5px;letter-spacing:.16em;color:var(--field);font-weight:700;text-transform:uppercase}
+  .bar .bwa{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--field);color:var(--cream);border-radius:3px;padding:13px 8px;font-weight:700;font-size:13.5px;letter-spacing:.02em;white-space:nowrap}
+  .bar .bwa svg{width:17px;height:17px}
+  .bar .brd{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--field);border-radius:3px;color:var(--field)}
+  .bar .brd svg{width:18px;height:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero grain" id="top">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">HOHON<small>EATERY</small></div>
+      <nav>
+        <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
+        <a href="#menu"><xen>Menu</xen><xzh>餐牌</xzh></a>
+        <a href="#gallery"><xen>Gallery</xen><xzh>相集</xzh></a>
+        <a href="#reviews"><xen>Reviews</xen><xzh>評價</xzh></a>
+        <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
+        <a class="callpill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+          <xen>WhatsApp</xen><xzh>WhatsApp</xzh>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <button class="langchip" id="langBtn" type="button" aria-label="Language / 語言"><span id="langLabel">繁體</span></button>
+
+  <div class="heroin wrap">
+    <p class="kicker"><xen>Pasta &amp; burgers · Queen's Rd West · Sai Wan</xen><xzh>意粉與漢堡 · 皇后大道西 · 西環</xzh></p>
+    <div class="slab">
+      <h1>HOHON</h1>
+      <div class="sub">EATERY</div>
+    </div>
+    <div class="heroph">
+      <div class="ph"><img src="img/03.jpg" alt="Charcoal bun burger with crinkle-cut fries at HoHon Eatery"></div>
+    </div>
+    <div class="hmeta">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8L2.2 9.1l6.9-.8z"/></svg><b>4.7</b>&nbsp;<xen>· 165 Google reviews</xen><xzh>· 165 則 Google 評論</xzh></span>
+      <span class="chip"><b><xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh></b>&nbsp;·&nbsp;<b><xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></b></span>
+      <span class="chip"><xen>Closed Mondays</xen><xzh>逢星期一休息</xzh></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TICKER BAND ============ -->
+<div class="band">
+  <div class="wrap row">
+    <span><i>●</i><xen>Charcoal bun burgers</xen><xzh>炭黑包漢堡</xzh></span>
+    <span><i>●</i><xen>Crab rigatoni</xen><xzh>蟹肉粗管通粉</xzh></span>
+    <span><i>●</i><xen>Fried oysters</xen><xzh>香脆炸蠔</xzh></span>
+    <span><i>●</i><xen>Thai burgers</xen><xzh>泰式漢堡</xzh></span>
+    <span><i>●</i><xen>Jasmine tea gin</xen><xzh>茉莉花茶氈酒</xzh></span>
+    <span><i>●</i><xen>Catering sets</xen><xzh>外賣到會套餐</xzh></span>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="sec story" id="story">
+  <div class="wrap sgrid">
+    <div>
+      <p class="overline"><xen>The eatery</xen><xzh>小店故事</xzh></p>
+      <h2><xen>A neighbourhood pasta and burger joint</xen><xzh>街坊的意粉漢堡小店</xzh></h2>
+      <p><xen>Neighbourhood pasta and burger joint is what HoHon Eatery calls itself, and the description fits: a teal shopfront at the Shek Tong Tsui end of Queen's Road West, three minutes from the HKU exit, where the signature is a charcoal bun beef burger under Thai green curry sauce, backed by rigatoni with homemade sausage in creamy tomato sauce, roasted cauliflower, spicy beef and Thai burgers, with a jasmine tea gin cocktail on the drinks list.</xen><xzh>「街坊意粉漢堡小店」是 HoHon Eatery 對自己的稱呼，名副其實：皇后大道西近石塘咀的一面藍綠色門面，距港大站出口步行約三分鐘。招牌是泰式青咖喱醬炭黑包牛肉漢堡，還有自家製豬肉腸忌廉蕃茄汁粗管通粉、烤椰菜花、香辣牛肉與泰式漢堡，酒單上更有一杯茉莉花茶氈酒雞尾酒。</xzh></p>
+      <p><xen>Lunch runs 12:00 to 16:00, dinner 18:00 to 21:30, and on Mondays the room rests. There are seats inside and out, the team fronting the counter is known for steering visitors to the right plate, the space takes private dinners and catering sets, and the fastest way to reach them is the one their own Instagram gives out: a WhatsApp message.</xen><xzh>午市 12:00 至 16:00，晚市 18:00 至 21:30，逢星期一休息。店內店外均設座位，店員以樂於為客人推介菜式聞名，小店亦接受私人包場及外賣到會套餐。想聯絡他們，最快的方法正是他們 Instagram 上寫明的那一個：WhatsApp 短訊。</xzh></p>
+      <div class="schips">
+        <span class="chip"><xen>Private dining</xen><xzh>私人包場</xzh></span>
+        <span class="chip"><xen>Catering sets</xen><xzh>外賣到會</xzh></span>
+        <span class="chip"><xen>Tourist friendly</xen><xzh>對遊客友善</xzh></span>
+      </div>
+    </div>
+    <div class="scol">
+      <figure class="frame">
+        <div class="ph"><img src="img/01.jpg" alt="The teal HoHon Eatery signboard over the shopfront on Queen's Road West"></div>
+      </figure>
+      <div class="facts">
+        <h3><xen>At a glance</xen><xzh>一眼看清</xzh></h3>
+        <ul>
+          <li><xen>Kitchen</xen><xzh>菜系</xzh><b><xen>Pasta &amp; burgers</xen><xzh>意粉與漢堡</xzh></b></li>
+          <li><xen>Neighbourhood</xen><xzh>地區</xzh><b><xen>Shek Tong Tsui / Sai Wan</xen><xzh>石塘咀 / 西環</xzh></b></li>
+          <li><xen>From HKU exit</xen><xzh>距港大站出口</xzh><b><xen>3 minutes</xen><xzh>3 分鐘</xzh></b></li>
+          <li><xen>Seating</xen><xzh>座位</xzh><b><xen>Inside &amp; outdoor</xen><xzh>店內及戶外</xzh></b></li>
+          <li>Instagram<b>@hohoneatery · 4,183</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHTS ============ -->
+<section class="sec high grain">
+  <div class="wrap">
+    <p class="overline"><xen>Signatures</xen><xzh>招牌菜式</xzh></p>
+    <h2><xen>What the kitchen is known for</xen><xzh>廚房的拿手好戲</xzh></h2>
+    <div class="hgrid">
+      <article class="card">
+        <div class="ph"><img src="img/04.jpg" alt="Fried oysters with homemade mayo served in their shells"></div>
+        <h3>Fried Oyster, Homemade Mayo</h3>
+        <p class="zh">香脆炸蠔配自家製蛋黃醬</p>
+        <p><xen>Crumbed, fried and set back in the shell, a fixture of both catering sets.</xen><xzh>裹粉炸香後放回蠔殼上枱，兩款到會套餐都少不了它。</xzh></p>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="img/05.jpg" alt="A table spread of black bun burger, crinkle fries, sweet potato fries and rigatoni"></div>
+        <h3>The Rigatoni List</h3>
+        <p class="zh">粗管通粉系列</p>
+        <p><xen>Homemade sausage in creamy tomato, triple cheese with sakura ebi, seafood or crab: the pasta half of the name.</xen><xzh>自家製豬肉腸忌廉蕃茄汁、三重芝士櫻花蝦、海鮮或蟹肉：店名中「意粉」的那一半。</xzh></p>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="img/06.jpg" alt="Grilled halibut in a charcoal bun with frisee"></div>
+        <h3>Grilled Halibut, Charcoal Bun</h3>
+        <p class="zh">香煎比目魚炭黑包漢堡</p>
+        <p><xen>The charcoal bun again, this time around a seared fillet of halibut.</xen><xzh>同一個炭黑包，這次夾着香煎比目魚柳。</xzh></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec gal grain" id="gallery">
+  <div class="wrap">
+    <p class="overline"><xen>Gallery</xen><xzh>相集</xzh></p>
+    <h2><xen>The room and the plates</xen><xzh>店面與菜式</xzh></h2>
+    <div class="gr gr1">
+      <figure class="frame r43"><div class="ph"><img src="img/03.jpg" alt="Charcoal bun burger with crinkle fries and ketchup on a stoneware plate"></div></figure>
+      <figure class="frame r34"><div class="ph"><img src="img/04.jpg" alt="Three fried oysters with beetroot and homemade mayo"></div></figure>
+    </div>
+    <div class="gr gr2">
+      <figure class="frame r916"><div class="ph"><img src="img/06.jpg" alt="Halibut charcoal bun burger wrapped in paper beside fries"></div></figure>
+      <figure class="frame r34"><div class="ph"><img src="img/05.jpg" alt="Burgers, rigatoni and double fries across the table"></div></figure>
+      <div class="gtile">
+        <p class="disp"><xen>Shot in their room, on their plates.</xen><xzh>全部相片攝於店內，用他們自己的餐具。</xzh></p>
+        <p><xen>Nothing staged, nothing borrowed: the burgers, the shells and the teal paint are all theirs.</xen><xzh>沒有擺拍，沒有借來的道具：漢堡、蠔殼與藍綠色油漆，全部屬於他們。</xzh></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <p class="overline"><xen>Catering set menu</xen><xzh>外賣到會餐牌</xzh></p>
+    <h2><xen>Their own board, transcribed</xen><xzh>依照店家餐牌轉錄</xzh></h2>
+    <div class="mgrid">
+      <figure class="mphoto">
+        <div class="frame"><div class="ph"><img src="img/02.jpg" alt="HoHon Eatery's own catering set menu board with prices in HKD"></div></div>
+        <figcaption><xen>The catering board as they printed it, prices in HKD, shown untouched.</xen><xzh>店家自家印製的到會餐牌，港幣定價，原樣呈現。</xzh></figcaption>
+      </figure>
+      <div>
+        <div class="set">
+          <header>
+            <h3>Set for 4<span>4 人餐</span></h3>
+            <b class="pr">HKD 660</b>
+          </header>
+          <ul>
+            <li><div class="en">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
+            <li><div class="en">Fried Oyster, Homemade Mayo (10pcs)</div><div class="tc">香脆炸蠔配自家製蛋黃醬 (10隻)</div></li>
+            <li><div class="en">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">三重芝士煙肉櫻花蝦粗管通粉</div></li>
+            <li class="or">or 或</li>
+            <li><div class="en">Homemade Sausage Rigatoni, Tomato Cream Sauce</div><div class="tc">蕃茄忌廉汁豬肉粗管通粉</div></li>
+          </ul>
+        </div>
+        <div class="set">
+          <header>
+            <h3>Set for 8<span>8 人餐</span></h3>
+            <b class="pr">HKD 1,780</b>
+          </header>
+          <ul>
+            <li><div class="en">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
+            <li><div class="en">Kale Salad</div><div class="tc">羽衣甘藍沙律</div></li>
+            <li><div class="en">Brie Cheese &amp; Salami Platter</div><div class="tc">布里牛奶軟芝士 拼 莎樂美腸</div></li>
+            <li><div class="en">Fried Oyster, Homemade Mayo (20pcs)</div><div class="tc">香脆炸蠔配自家製蛋黃醬 (20隻)</div></li>
+            <li><div class="en">Homemade Meatball (Beef &amp; Pork), Tomato Sauce, Parmesan (8pcs)</div><div class="tc">自家製肉丸 (豬牛) 配巴馬臣芝士 (8粒)</div></li>
+            <li><div class="en">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">秘製三重芝士煙肉櫻花蝦粗管通粉</div></li>
+            <li><div class="en">Seafood Rigatoni, Tomato Prawn Sauce</div><div class="tc">自家蕃茄蝦汁海鮮粗管通粉</div></li>
+          </ul>
+        </div>
+        <div class="mnote">
+          <span>※</span>
+          <span><xen>Preorder 3 working days in advance is required.</xen><xzh>到會套餐需於 3 個工作天前預訂。</xzh></span>
+        </div>
+        <div class="dinein">
+          <h3><xen>In the room</xen><xzh>堂食</xzh></h3>
+          <p><xen>Dine-in is the pasta and burger list proper: the charcoal bun beef burger with Thai green curry sauce, Thai burgers, spicy beef, crab rigatoni, grilled halibut, roasted cauliflower, and a jasmine tea gin cocktail from the drinks list. Prices at the counter, seats inside and out.</xen><xzh>堂食是意粉與漢堡的正場：泰式青咖喱醬炭黑包牛肉漢堡、泰式漢堡、香辣牛肉、蟹肉粗管通粉、香煎比目魚、烤椰菜花，酒單上還有茉莉花茶氈酒。價錢請到店查詢，店內店外均設座位。</xzh></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="sec rev grain" id="reviews">
+  <div class="wrap">
+    <p class="overline"><xen>Reviews</xen><xzh>食客評價</xzh></p>
+    <h2><xen>What the room says</xen><xzh>食客怎樣說</xzh></h2>
+    <div class="rgrid">
+      <blockquote class="quote">
+        <div class="mark">“</div>
+        <p>Ordered beef burger with seaweed sauce and caramelised onions. It is amazing! The beef is juicy and the sauce is unexpected.</p>
+        <footer><cite>Lee Sadako</cite><small><xen>Google review</xen><xzh>Google 評論</xzh></small></footer>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="mark">“</div>
+        <p>Nice people fronting the restaurant, kind to tourists and great at recommending food choices. I had the crab rigatoni.</p>
+        <footer><cite>Jamie W</cite><small><xen>Google review</xen><xzh>Google 評論</xzh></small></footer>
+      </blockquote>
+      <div class="rate">
+        <div class="big">4.7</div>
+        <div class="star">★★★★★</div>
+        <p><xen>out of 5 · 165 Google reviews</xen><xzh>滿分 5 · 165 則 Google 評論</xzh></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK DIRECT ============ -->
+<section class="sec book grain" id="book">
+  <div class="wrap bgrid">
+    <div>
+      <p class="overline"><xen>Book direct</xen><xzh>直接訂位</xzh></p>
+      <h2><xen>Their line is WhatsApp. So book on WhatsApp.</xen><xzh>他們用 WhatsApp，訂位就用 WhatsApp。</xzh></h2>
+      <p class="lead"><xen>Their number is a mobile, and their own Instagram bio says it plainly: contact by WhatsApp. Fill in the form and the button opens WhatsApp with your booking already written out. The kitchen confirms by replying. Prefer writing at length? Their inbox is real too.</xen><xzh>他們的電話是手提號碼，Instagram 簡介亦寫得清楚：請以 WhatsApp 聯絡。填好表格，按鈕便會開啟 WhatsApp，訂位資料已替你寫好，店家回覆即確認。想詳細寫清楚？他們的電郵同樣真實可用。</xzh></p>
+      <div class="phone">
+        <span><xen>WhatsApp · mobile</xen><xzh>WhatsApp · 手提電話</xzh></span>
+        <a class="tel" href="tel:+85298521144">+852 9852 1144</a>
+      </div>
+      <div class="phone eml">
+        <span><xen>Email</xen><xzh>電郵</xzh></span>
+        <a class="tel mailto" href="mailto:hohoneatery@gmail.com">hohoneatery@gmail.com</a>
+      </div>
+      <p class="hint"><xen>Closed Mondays. Private dining and catering sets: mention it in your message.</xen><xzh>逢星期一休息。私人包場或到會套餐，請在訊息中註明。</xzh></p>
+    </div>
+    <form class="bform" id="bookForm" autocomplete="on">
+      <div class="frow one">
+        <div>
+          <label for="bname"><xen>Name</xen><xzh>姓名</xzh></label>
+          <input id="bname" name="name" type="text" aria-label="Name">
+        </div>
+      </div>
+      <div class="frow">
+        <div>
+          <label for="bdate"><xen>Date</xen><xzh>日期</xzh></label>
+          <input id="bdate" name="date" type="date" aria-label="Date">
+        </div>
+        <div>
+          <label for="btime"><xen>Time</xen><xzh>時間</xzh></label>
+          <input id="btime" name="time" type="time" aria-label="Time">
+        </div>
+      </div>
+      <div class="frow one">
+        <div>
+          <label for="bparty"><xen>Party size</xen><xzh>人數</xzh></label>
+          <select id="bparty" name="party" aria-label="Party size">
+            <option value="2" selected>2</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="pd">8+</option>
+          </select>
+        </div>
+      </div>
+      <button class="wabtn" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+        <xen>Open WhatsApp with your booking</xen><xzh>開啟 WhatsApp 傳送訂位資料</xzh>
+      </button>
+      <button class="mailbtn" type="button" id="mailBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
+        <xen>Send the same by email</xen><xzh>改以電郵傳送</xzh>
+      </button>
+      <p class="fine"><xen>No app forms, no middleman: the message goes straight to their own WhatsApp line or inbox.</xen><xzh>沒有中介、沒有預訂平台：訊息直接送到他們自己的 WhatsApp 或電郵。</xzh></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="sec visit grain" id="visit">
+  <div class="wrap vgrid">
+    <div>
+      <p class="overline"><xen>Visit</xen><xzh>到訪</xzh></p>
+      <h2><xen>Find the teal sign</xen><xzh>認住藍綠色招牌</xzh></h2>
+      <div class="vrow">
+        <span class="lab"><xen>Address</xen><xzh>地址</xzh></span>
+        <div class="val"><span class="addr">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun</span><small><xen>3 minutes from the HKU exit, at the western end of Sai Ying Pun</xen><xzh>距港大站出口步行 3 分鐘，西營盤西端</xzh></small></div>
+      </div>
+      <div class="vrow">
+        <span class="lab"><xen>Tue to Sun</xen><xzh>星期二至日</xzh></span>
+        <div class="val"><b class="hr"><xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh></b>&nbsp;·&nbsp;<b class="hr"><xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></b></div>
+      </div>
+      <div class="vrow closed">
+        <span class="lab"><xen>Monday</xen><xzh>星期一</xzh></span>
+        <div class="val"><b class="hr"><xen>Closed</xen><xzh>休息</xzh></b></div>
+      </div>
+      <div class="vrow">
+        <span class="lab"><xen>Phone</xen><xzh>電話</xzh></span>
+        <div class="val"><a class="tel hr" href="tel:+85298521144">+852 9852 1144</a></div>
+      </div>
+      <div class="vrow">
+        <span class="lab"><xen>Email</xen><xzh>電郵</xzh></span>
+        <div class="val"><a class="eml hr" href="mailto:hohoneatery@gmail.com">hohoneatery@gmail.com</a></div>
+      </div>
+      <div class="vbtns">
+        <a class="pill solid" href="https://maps.google.com/?cid=12783640006363385647" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <xen>Open in Google Maps</xen><xzh>在 Google 地圖開啟</xzh>
+        </a>
+        <a class="pill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+          WhatsApp
+        </a>
+        <a class="pill" href="https://www.instagram.com/hohoneatery" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm6.4-2.1a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+          @hohoneatery
+        </a>
+        <a class="pill" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.7V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V14h2.7v8h3.4z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+    <div class="vcol">
+      <figure class="frame">
+        <div class="ph"><img src="img/01.jpg" alt="The teal painted fascia and HOHON EATERY sign on Queen's Road West"></div>
+      </figure>
+      <figcaption><xen>Their own sign, their own paint: this teal is the one this page borrows.</xen><xzh>他們自己的招牌、自己的油漆：本頁的藍綠色正是取自這裏。</xzh></figcaption>
+      <div class="vtile"><xen><b>Good to know:</b> there are seats inside and out, and for Friday and weekend dinners a WhatsApp message ahead is the safe move.</xen><xzh><b>小提示：</b>店內店外均設座位，星期五及周末晚市最好先以 WhatsApp 留位。</xzh></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap frow2">
+    <div class="fbrand">HOHON EATERY</div>
+    <div class="addr">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun, Hong Kong</div>
+    <div>
+      <a class="igl" href="https://www.instagram.com/hohoneatery" target="_blank" rel="noopener">@hohoneatery</a>
+      &nbsp;·&nbsp;
+      <a class="igl" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY BAR (phones) ============ -->
+<div class="bar" role="navigation" aria-label="Quick actions">
+  <div class="bmini"><b>HOHON</b><span><xen>Sai Wan · HK</xen><xzh>西環</xzh></span></div>
+  <a class="bwa" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+    <xen>WhatsApp</xen><xzh>WhatsApp 訂位</xzh>
+  </a>
+  <a class="brd" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener" aria-label="Facebook, HoHon Eatery">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.7V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V14h2.7v8h3.4z"/></svg>
+  </a>
+  <a class="brd" href="https://www.instagram.com/hohoneatery" target="_blank" rel="noopener" aria-label="Instagram @hohoneatery">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm6.4-2.1a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+  </a>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById('langBtn');
+  var lab=document.getElementById('langLabel');
+  btn.addEventListener('click',function(){
+    var zh=!root.classList.contains('zh');
+    root.classList.toggle('zh',zh);
+    root.setAttribute('lang',zh?'zh-Hant':'en');
+    lab.textContent=zh?'EN':'繁體';
+  });
+  function buildMsg(){
+    var zh=root.classList.contains('zh');
+    var name=document.getElementById('bname').value.trim();
+    var date=document.getElementById('bdate').value;
+    var time=document.getElementById('btime').value;
+    var party=document.getElementById('bparty').value;
+    if(zh){
+      return '你好，HoHon Eatery！我想訂位。\n姓名：'+(name||'(未填)')+'\n日期：'+(date||'(未定)')+'\n時間：'+(time||'(未定)')+'\n人數：'+(party==='pd'?'8 位以上（私人包場查詢）':party+' 位');
+    }
+    return 'Hello HoHon Eatery! I would like to book a table.\nName: '+(name||'(to fill in)')+'\nDate: '+(date||'(to confirm)')+'\nTime: '+(time||'(to confirm)')+'\nParty: '+(party==='pd'?'more than 8 (private dining enquiry)':party+(party==='1'?' person':' people'));
+  }
+  document.getElementById('bookForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    window.open('https://wa.me/85298521144?text='+encodeURIComponent(buildMsg()),'_blank','noopener');
+  });
+  document.getElementById('mailBtn').addEventListener('click',function(){
+    var zh=root.classList.contains('zh');
+    var subj=zh?'訂位：HoHon Eatery':'Table booking, HoHon Eatery';
+    window.location.href='mailto:hohoneatery@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(buildMsg());
+  });
+})();
+</script>
+</body>
+</html>
