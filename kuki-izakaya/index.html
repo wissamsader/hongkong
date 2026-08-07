@@ -470,7 +470,7 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
 <body>
 
 <div class="langchip" role="group" aria-label="Language">
-  <button type="button" id="lang-en" class="on" onclick="setLang('en')">EN</button>
+  <button type="button" id="lang-en" class="on" onclick="setLang('en')" data-edit="t1" data-edit-label="Button: EN">EN</button>
   <button type="button" id="lang-zh" onclick="setLang('zh')">中文</button>
 </div>
 
@@ -478,10 +478,10 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   <nav>
     <a class="brand" href="#top">Kuki Izakaya <small>九鬼</small></a>
     <div class="navlinks">
-      <a href="#menu"><xen>Yakitori</xen><xzh>燒鳥</xzh></a>
-      <a href="#reviews"><xen>Reviews</xen><xzh>食評</xzh></a>
-      <a href="#visit"><xen>Visit</xen><xzh>位置</xzh></a>
-      <a class="btn nav-book navlinks-book" href="#book"><xen>Book a table</xen><xzh>立即訂座</xzh></a>
+      <a href="#menu"><xen data-edit="t2" data-edit-label="Text (EN): Yakitori">Yakitori</xen><xzh>燒鳥</xzh></a>
+      <a href="#reviews"><xen data-edit="t3" data-edit-label="Text (EN): Reviews">Reviews</xen><xzh>食評</xzh></a>
+      <a href="#visit"><xen data-edit="t4" data-edit-label="Text (EN): Visit">Visit</xen><xzh>位置</xzh></a>
+      <a class="btn nav-book navlinks-book" href="#book"><xen data-edit="t5" data-edit-label="Text (EN): Book a table">Book a table</xen><xzh>立即訂座</xzh></a>
     </div>
   </nav>
 
@@ -489,34 +489,34 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
     <aside class="vcol" aria-hidden="true">
       <span class="zhv">九鬼居酒屋</span>
       <span class="rule"></span>
-      <span class="env">Kuki Izakaya</span>
+      <span class="env" data-edit="t6" data-edit-label="Text: Kuki Izakaya">Kuki Izakaya</span>
       <span class="seal">九鬼</span>
     </aside>
 
     <div class="hero-copy">
-      <p class="kicker"><xen>Izakaya · Sai Ying Pun</xen><xzh>居酒屋 · 西營盤</xzh></p>
-      <h1><xen>Yakitori under the lanterns, sake within reach</xen><xzh>燈下燒鳥，杯中有酒</xzh></h1>
-      <p class="lede"><xen>Osaka-style kushikatsu and oden, fresh sashimi and a wide range of yakitori, in a small room on High Street that fills fast.</xen><xzh>大阪風串炸與關東煮、新鮮刺身、種類繁多的燒鳥，就在高街一間好快滿座的小店。</xzh></p>
+      <p class="kicker"><xen data-edit="t7" data-edit-label="Text (EN): Izakaya · Sai Ying Pun">Izakaya · Sai Ying Pun</xen><xzh>居酒屋 · 西營盤</xzh></p>
+      <h1><xen data-edit="t8" data-edit-label="Text (EN): Yakitori under the lanterns, sake with…">Yakitori under the lanterns, sake within reach</xen><xzh>燈下燒鳥，杯中有酒</xzh></h1>
+      <p class="lede"><xen data-edit="t9" data-edit-label="Text (EN): Osaka-style kushikatsu and oden, fresh…">Osaka-style kushikatsu and oden, fresh sashimi and a wide range of yakitori, in a small room on High Street that fills fast.</xen><xzh>大阪風串炸與關東煮、新鮮刺身、種類繁多的燒鳥，就在高街一間好快滿座的小店。</xzh></p>
       <div class="hero-chips">
-        <span class="chip"><span class="star">★</span> <b>4.7</b>&nbsp;<xen>· 106 Google reviews</xen><xzh>· 106 則 Google 評論</xzh></span>
-        <span class="chip"><xen><b>BYOB</b>&nbsp;friendly</xen><xzh>歡迎<b>自攜酒水</b></xzh></span>
-        <span class="chip"><xen>Limited tables, book ahead</xen><xzh>座位有限，請先訂座</xzh></span>
+        <span class="chip"><span class="star">★</span> <b data-edit="t10" data-edit-label="Text: 4.7">4.7</b>&nbsp;<xen data-edit="t11" data-edit-label="Text (EN): · 106 Google reviews">· 106 Google reviews</xen><xzh>· 106 則 Google 評論</xzh></span>
+        <span class="chip"><xen><b data-edit="t12" data-edit-label="Text: BYOB">BYOB</b>&nbsp;friendly</xen><xzh>歡迎<b>自攜酒水</b></xzh></span>
+        <span class="chip"><xen data-edit="t13" data-edit-label="Text (EN): Limited tables, book ahead">Limited tables, book ahead</xen><xzh>座位有限，請先訂座</xzh></span>
       </div>
       <div class="hero-cta">
         <a class="btn wa-quick" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
           <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.24.66-1.37 1.26-1.9 1.3-.5.05-1.14.24-3.84-.8-3.24-1.28-5.3-4.6-5.46-4.8-.16-.22-1.3-1.75-1.3-3.33 0-1.58.82-2.35 1.12-2.67.3-.32.64-.4.85-.4h.61c.2 0 .46-.07.72.55.26.64.9 2.2.97 2.36.08.16.13.35.03.56-.11.22-.16.35-.32.54-.16.2-.34.43-.48.58-.16.16-.33.33-.14.65.19.32.84 1.38 1.8 2.24 1.23 1.1 2.27 1.44 2.6 1.6.32.16.5.13.7-.08.19-.22.8-.94 1.02-1.26.21-.32.43-.27.72-.16.3.1 1.87.88 2.2 1.04.32.16.53.24.6.38.09.14.09.8-.15 1.5Z"/></svg>
-          <xen>Book on WhatsApp</xen><xzh>WhatsApp 訂座</xzh>
+          <xen data-edit="t14" data-edit-label="Text (EN): Book on WhatsApp">Book on WhatsApp</xen><xzh>WhatsApp 訂座</xzh>
         </a>
-        <a class="btn ghost" href="#menu"><xen>See the yakitori chart</xen><xzh>睇燒鳥菜單</xzh></a>
+        <a class="btn ghost" href="#menu"><xen data-edit="t15" data-edit-label="Text (EN): See the yakitori chart">See the yakitori chart</xen><xzh>睇燒鳥菜單</xzh></a>
       </div>
     </div>
 
     <figure class="hero-ph">
       <span class="inner"><img src="img/03.jpg?v=1211b576" alt="Unagi over rice in a lacquer box at Kuki Izakaya"></span>
-      <figcaption><xen>Unagi-ju, from the kitchen</xen><xzh>鰻魚飯，廚房直送</xzh></figcaption>
+      <figcaption><xen data-edit="t16" data-edit-label="Text (EN): Unagi-ju, from the kitchen">Unagi-ju, from the kitchen</xen><xzh>鰻魚飯，廚房直送</xzh></figcaption>
     </figure>
   </div>
-  <span class="scrolldn" aria-hidden="true"><xen>Scroll</xen><xzh>往下</xzh></span>
+  <span class="scrolldn" aria-hidden="true"><xen data-edit="t17" data-edit-label="Text (EN): Scroll">Scroll</xen><xzh>往下</xzh></span>
 </header>
 
 <!-- ================= STORY ================= -->
@@ -527,20 +527,20 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
         <div class="shead">
           <span class="zhtab" aria-hidden="true">小店故事</span>
           <div>
-            <h2><xen>A small room behind a red sign</xen><xzh>紅招牌後的小店</xzh></h2>
+            <h2><xen data-edit="t18" data-edit-label="Text (EN): A small room behind a red sign">A small room behind a red sign</xen><xzh>紅招牌後的小店</xzh></h2>
           </div>
         </div>
-        <p><xen><b>Kuki</b> sits behind its red samurai sign on High Street: a neighbourhood izakaya with an Osaka heart. Kushikatsu and oden are the house specialities, set in a seasonal Japanese kitchen with a touch of Western influence, from casual bites and hot plates to skewers, mains and desserts.</xen><xzh><b>九鬼</b>就在高街那塊紅色武士招牌後面：一間帶著大阪靈魂的街坊居酒屋。串炸與關東煮是本店招牌，配上帶點西式風格的季節日本料理，由輕食、鐵板到串燒、主菜與甜品都有。</xzh></p>
-        <p><xen>Tables are few and the room fills fast, so booking ahead is the local habit. Bring your own bottle if you like, Kuki is BYOB friendly. And if you cannot decide, ask for Ivan, the host who happily makes recommendations.</xen><xzh>座位不多，好快滿座，街坊都習慣先訂位。想飲自己那支酒？無問題，九鬼歡迎自攜酒水。唔知點揀的話，可以搵店長 Ivan，佢好樂意幫你推介。</xzh></p>
+        <p><xen><b data-edit="t19" data-edit-label="Text: Kuki">Kuki</b> sits behind its red samurai sign on High Street: a neighbourhood izakaya with an Osaka heart. Kushikatsu and oden are the house specialities, set in a seasonal Japanese kitchen with a touch of Western influence, from casual bites and hot plates to skewers, mains and desserts.</xen><xzh><b>九鬼</b>就在高街那塊紅色武士招牌後面：一間帶著大阪靈魂的街坊居酒屋。串炸與關東煮是本店招牌，配上帶點西式風格的季節日本料理，由輕食、鐵板到串燒、主菜與甜品都有。</xzh></p>
+        <p><xen data-edit="t20" data-edit-label="Text (EN): Tables are few and the room fills fast…">Tables are few and the room fills fast, so booking ahead is the local habit. Bring your own bottle if you like, Kuki is BYOB friendly. And if you cannot decide, ask for Ivan, the host who happily makes recommendations.</xen><xzh>座位不多，好快滿座，街坊都習慣先訂位。想飲自己那支酒？無問題，九鬼歡迎自攜酒水。唔知點揀的話，可以搵店長 Ivan，佢好樂意幫你推介。</xzh></p>
         <div class="facts">
-          <div class="fact"><b><xen>Kushikatsu and oden</xen><xzh>串炸・關東煮</xzh></b><xen>The Osaka specialities of the house.</xen><xzh>本店招牌，正宗大阪風味。</xzh></div>
-          <div class="fact"><b><xen>BYOB friendly</xen><xzh>歡迎自攜</xzh></b><xen>Bring a bottle to share, the izakaya way.</xen><xzh>帶支好酒同朋友分享，居酒屋式隨意。</xzh></div>
-          <div class="fact"><b><xen>Ask for Ivan</xen><xzh>可以搵 Ivan</xzh></b><xen>A great host who will happily make recommendations.</xen><xzh>親切店長，樂意為你推介。</xzh></div>
+          <div class="fact"><b><xen data-edit="t21" data-edit-label="Text (EN): Kushikatsu and oden">Kushikatsu and oden</xen><xzh>串炸・關東煮</xzh></b><xen data-edit="t22" data-edit-label="Text (EN): The Osaka specialities of the house.">The Osaka specialities of the house.</xen><xzh>本店招牌，正宗大阪風味。</xzh></div>
+          <div class="fact"><b><xen data-edit="t23" data-edit-label="Text (EN): BYOB friendly">BYOB friendly</xen><xzh>歡迎自攜</xzh></b><xen data-edit="t24" data-edit-label="Text (EN): Bring a bottle to share, the izakaya w…">Bring a bottle to share, the izakaya way.</xen><xzh>帶支好酒同朋友分享，居酒屋式隨意。</xzh></div>
+          <div class="fact"><b><xen data-edit="t25" data-edit-label="Text (EN): Ask for Ivan">Ask for Ivan</xen><xzh>可以搵 Ivan</xzh></b><xen data-edit="t26" data-edit-label="Text (EN): A great host who will happily make rec…">A great host who will happily make recommendations.</xen><xzh>親切店長，樂意為你推介。</xzh></div>
         </div>
       </div>
       <figure class="frame story-ph">
         <span class="ph"><img src="img/01.jpg?v=eb1d6de2" alt="Kuki Izakaya storefront on High Street, Sai Ying Pun"></span>
-        <figcaption class="cap"><span><xen>80-86 High St, Sai Ying Pun</xen><xzh>西營盤高街 80-86 號</xzh></span><span>01</span></figcaption>
+        <figcaption class="cap"><span><xen data-edit="t27" data-edit-label="Text (EN): 80-86 High St, Sai Ying Pun">80-86 High St, Sai Ying Pun</xen><xzh>西營盤高街 80-86 號</xzh></span><span data-edit="t28" data-edit-label="Text: 01">01</span></figcaption>
       </figure>
     </div>
   </div>
@@ -552,25 +552,25 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
     <div class="shead">
       <span class="zhtab" aria-hidden="true">招牌之選</span>
       <div>
-        <h2><xen>From the counter</xen><xzh>檯面上的幾味</xzh></h2>
-        <p class="ssub"><xen>A large menu of food and drinks, in small plates meant for sharing.</xen><xzh>豐富的美食與酒單，以小皿形式，最啱share。</xzh></p>
+        <h2><xen data-edit="t29" data-edit-label="Text (EN): From the counter">From the counter</xen><xzh>檯面上的幾味</xzh></h2>
+        <p class="ssub"><xen data-edit="t30" data-edit-label="Text (EN): A large menu of food and drinks, in sm…">A large menu of food and drinks, in small plates meant for sharing.</xen><xzh>豐富的美食與酒單，以小皿形式，最啱share。</xzh></p>
       </div>
     </div>
     <div class="cards">
       <figure class="card">
         <span class="ph"><img src="img/06.jpg?v=3f1e9882" alt="Yakitori skewers on a dark plate"></span>
-        <h3><xen>Yakitori, stick by stick</xen><xzh>燒鳥，一串一串</xzh></h3>
-        <p><xen>A wide range of skewers spanning 19 cuts, grilled to order.</xen><xzh>19 款部位任你揀，即叫即燒。</xzh></p>
+        <h3><xen data-edit="t31" data-edit-label="Text (EN): Yakitori, stick by stick">Yakitori, stick by stick</xen><xzh>燒鳥，一串一串</xzh></h3>
+        <p><xen data-edit="t32" data-edit-label="Text (EN): A wide range of skewers spanning 19 cu…">A wide range of skewers spanning 19 cuts, grilled to order.</xen><xzh>19 款部位任你揀，即叫即燒。</xzh></p>
       </figure>
       <figure class="card">
         <span class="ph"><img src="img/04.jpg?v=385a59dc" alt="Chirashi bowl with fresh tuna sashimi"></span>
-        <h3><xen>Fresh sashimi</xen><xzh>新鮮刺身</xzh></h3>
-        <p><xen>Sashimi and chirashi, the fresh side of the counter.</xen><xzh>刺身與散壽司，檯面上最鮮的一邊。</xzh></p>
+        <h3><xen data-edit="t33" data-edit-label="Text (EN): Fresh sashimi">Fresh sashimi</xen><xzh>新鮮刺身</xzh></h3>
+        <p><xen data-edit="t34" data-edit-label="Text (EN): Sashimi and chirashi, the fresh side o…">Sashimi and chirashi, the fresh side of the counter.</xen><xzh>刺身與散壽司，檯面上最鮮的一邊。</xzh></p>
       </figure>
       <figure class="card">
         <span class="ph"><img src="img/05.jpg?v=a600a6c0" alt="Abalone small plate with spring onion and nori"></span>
-        <h3><xen>Small bites</xen><xzh>小皿料理</xzh></h3>
-        <p><xen>A good variety of small bites, made for a long evening.</xen><xzh>多款下酒小食，陪你慢慢圍爐。</xzh></p>
+        <h3><xen data-edit="t35" data-edit-label="Text (EN): Small bites">Small bites</xen><xzh>小皿料理</xzh></h3>
+        <p><xen data-edit="t36" data-edit-label="Text (EN): A good variety of small bites, made fo…">A good variety of small bites, made for a long evening.</xen><xzh>多款下酒小食，陪你慢慢圍爐。</xzh></p>
       </figure>
     </div>
   </div>
@@ -582,62 +582,62 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
     <div class="shead">
       <span class="zhtab" aria-hidden="true">大阪風味</span>
       <div>
-        <h2><xen>Kushikatsu, oden and the yakitori chart</xen><xzh>串炸、關東煮與燒鳥圖鑑</xzh></h2>
-        <p class="ssub"><xen>Kushikatsu and oden, both Osaka dishes, are the specialities of the house. Below them, the full yakitori chart transcribed from the house print, prices in HK$.</xen><xzh>串炸與關東煮同屬大阪料理，是本店招牌。下面是照足店內原版圖鑑的燒鳥全單，價錢以港幣計。</xzh></p>
+        <h2><xen data-edit="t37" data-edit-label="Text (EN): Kushikatsu, oden and the yakitori char…">Kushikatsu, oden and the yakitori chart</xen><xzh>串炸、關東煮與燒鳥圖鑑</xzh></h2>
+        <p class="ssub"><xen data-edit="t38" data-edit-label="Text (EN): Kushikatsu and oden, both Osaka dishes…">Kushikatsu and oden, both Osaka dishes, are the specialities of the house. Below them, the full yakitori chart transcribed from the house print, prices in HK$.</xen><xzh>串炸與關東煮同屬大阪料理，是本店招牌。下面是照足店內原版圖鑑的燒鳥全單，價錢以港幣計。</xzh></p>
       </div>
     </div>
     <div class="specs">
       <div class="spec">
         <span class="zhbig">串炸</span>
-        <h3><xen>Kushikatsu</xen><xzh>串炸</xzh></h3>
-        <p><xen>Osaka's crisp breaded skewers, the house speciality. Ask for the day's line-up, prices in store.</xen><xzh>大阪名物酥脆炸串，本店招牌。當日供應請向店員查詢，價錢以店內為準。</xzh></p>
+        <h3><xen data-edit="t39" data-edit-label="Text (EN): Kushikatsu">Kushikatsu</xen><xzh>串炸</xzh></h3>
+        <p><xen data-edit="t40" data-edit-label="Text (EN): Osaka's crisp breaded skewers, the hou…">Osaka's crisp breaded skewers, the house speciality. Ask for the day's line-up, prices in store.</xen><xzh>大阪名物酥脆炸串，本店招牌。當日供應請向店員查詢，價錢以店內為準。</xzh></p>
       </div>
       <div class="spec">
         <span class="zhbig">關東煮</span>
-        <h3><xen>Oden</xen><xzh>關東煮</xzh></h3>
-        <p><xen>Dashi-simmered comfort, Osaka's other staple. Ask what is in the pot tonight, prices in store.</xen><xzh>高湯慢煮的暖心料理，大阪另一經典。今晚煮咩可以問店員，價錢以店內為準。</xzh></p>
+        <h3><xen data-edit="t41" data-edit-label="Text (EN): Oden">Oden</xen><xzh>關東煮</xzh></h3>
+        <p><xen data-edit="t42" data-edit-label="Text (EN): Dashi-simmered comfort, Osaka's other …">Dashi-simmered comfort, Osaka's other staple. Ask what is in the pot tonight, prices in store.</xen><xzh>高湯慢煮的暖心料理，大阪另一經典。今晚煮咩可以問店員，價錢以店內為準。</xzh></p>
       </div>
       <div class="spec">
         <span class="zhbig">季節</span>
-        <h3><xen>Seasonal kitchen</xen><xzh>季節料理</xzh></h3>
-        <p><xen>Seasonal Japanese cooking with a touch of Western influence: casual bites, hot plates, mains and desserts.</xen><xzh>帶點西式風格的季節日本料理：輕食、鐵板、主菜與甜品。</xzh></p>
+        <h3><xen data-edit="t43" data-edit-label="Text (EN): Seasonal kitchen">Seasonal kitchen</xen><xzh>季節料理</xzh></h3>
+        <p><xen data-edit="t44" data-edit-label="Text (EN): Seasonal Japanese cooking with a touch…">Seasonal Japanese cooking with a touch of Western influence: casual bites, hot plates, mains and desserts.</xen><xzh>帶點西式風格的季節日本料理：輕食、鐵板、主菜與甜品。</xzh></p>
       </div>
     </div>
     <div class="menu-grid">
       <div>
         <ul class="mlist">
-          <li class="mi"><span class="mn"><xen>Comb</xen><xzh>雞冠</xzh></span><i class="dots"></i><b class="pr">$58</b></li>
-          <li class="mi"><span class="mn"><xen>Neck</xen><xzh>雞頸肉</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Tender</xen><xzh>雞柳</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Drumstick</xen><xzh>雞翼元</xzh></span><i class="dots"></i><b class="pr">$38</b></li>
-          <li class="mi"><span class="mn"><xen>Wing</xen><xzh>雞翼</xzh></span><i class="dots"></i><b class="pr">$28</b></li>
-          <li class="mi"><span class="mn"><xen>Chicken with spring onion</xen><xzh>大蔥雞肉</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Thigh</xen><xzh>雞腿肉</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Tail</xen><xzh>雞尾</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Heart</xen><xzh>雞心</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Hatsumoto</xen><xzh>雞心元</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Liver</xen><xzh>雞肝</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Testicle</xen><xzh>雞白子</xzh></span><i class="dots"></i><b class="pr">$68</b></li>
-          <li class="mi"><span class="mn"><xen>Breast cartilage</xen><xzh>雞胸軟骨</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Gizzard</xen><xzh>雞腎</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Outside skirt</xen><xzh>雞橫膈膜</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Chicken chochin</xen><xzh>提燈</xzh></span><i class="dots"></i><b class="pr">$48</b></li>
-          <li class="mi"><span class="mn"><xen>Minced chicken stick with egg</xen><xzh>免治雞肉棒</xzh></span><i class="dots"></i><b class="pr">$68</b></li>
-          <li class="mi"><span class="mn"><xen>Skin</xen><xzh>雞皮</xzh></span><i class="dots"></i><b class="pr">$38</b></li>
-          <li class="mi"><span class="mn"><xen>Shrimp with chicken skin</xen><xzh>雞皮虎蝦</xzh></span><i class="dots"></i><b class="pr">$68</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t45" data-edit-label="Text (EN): Comb">Comb</xen><xzh>雞冠</xzh></span><i class="dots"></i><b class="pr" data-edit="t46" data-edit-label="Text: $58">$58</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t47" data-edit-label="Text (EN): Neck">Neck</xen><xzh>雞頸肉</xzh></span><i class="dots"></i><b class="pr" data-edit="t48" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t49" data-edit-label="Text (EN): Tender">Tender</xen><xzh>雞柳</xzh></span><i class="dots"></i><b class="pr" data-edit="t50" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t51" data-edit-label="Text (EN): Drumstick">Drumstick</xen><xzh>雞翼元</xzh></span><i class="dots"></i><b class="pr" data-edit="t52" data-edit-label="Text: $38">$38</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t53" data-edit-label="Text (EN): Wing">Wing</xen><xzh>雞翼</xzh></span><i class="dots"></i><b class="pr" data-edit="t54" data-edit-label="Text: $28">$28</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t55" data-edit-label="Text (EN): Chicken with spring onion">Chicken with spring onion</xen><xzh>大蔥雞肉</xzh></span><i class="dots"></i><b class="pr" data-edit="t56" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t57" data-edit-label="Text (EN): Thigh">Thigh</xen><xzh>雞腿肉</xzh></span><i class="dots"></i><b class="pr" data-edit="t58" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t59" data-edit-label="Text (EN): Tail">Tail</xen><xzh>雞尾</xzh></span><i class="dots"></i><b class="pr" data-edit="t60" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t61" data-edit-label="Text (EN): Heart">Heart</xen><xzh>雞心</xzh></span><i class="dots"></i><b class="pr" data-edit="t62" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t63" data-edit-label="Text (EN): Hatsumoto">Hatsumoto</xen><xzh>雞心元</xzh></span><i class="dots"></i><b class="pr" data-edit="t64" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t65" data-edit-label="Text (EN): Liver">Liver</xen><xzh>雞肝</xzh></span><i class="dots"></i><b class="pr" data-edit="t66" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t67" data-edit-label="Text (EN): Testicle">Testicle</xen><xzh>雞白子</xzh></span><i class="dots"></i><b class="pr" data-edit="t68" data-edit-label="Text: $68">$68</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t69" data-edit-label="Text (EN): Breast cartilage">Breast cartilage</xen><xzh>雞胸軟骨</xzh></span><i class="dots"></i><b class="pr" data-edit="t70" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t71" data-edit-label="Text (EN): Gizzard">Gizzard</xen><xzh>雞腎</xzh></span><i class="dots"></i><b class="pr" data-edit="t72" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t73" data-edit-label="Text (EN): Outside skirt">Outside skirt</xen><xzh>雞橫膈膜</xzh></span><i class="dots"></i><b class="pr" data-edit="t74" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t75" data-edit-label="Text (EN): Chicken chochin">Chicken chochin</xen><xzh>提燈</xzh></span><i class="dots"></i><b class="pr" data-edit="t76" data-edit-label="Text: $48">$48</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t77" data-edit-label="Text (EN): Minced chicken stick with egg">Minced chicken stick with egg</xen><xzh>免治雞肉棒</xzh></span><i class="dots"></i><b class="pr" data-edit="t78" data-edit-label="Text: $68">$68</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t79" data-edit-label="Text (EN): Skin">Skin</xen><xzh>雞皮</xzh></span><i class="dots"></i><b class="pr" data-edit="t80" data-edit-label="Text: $38">$38</b></li>
+          <li class="mi"><span class="mn"><xen data-edit="t81" data-edit-label="Text (EN): Shrimp with chicken skin">Shrimp with chicken skin</xen><xzh>雞皮虎蝦</xzh></span><i class="dots"></i><b class="pr" data-edit="t82" data-edit-label="Text: $68">$68</b></li>
         </ul>
         <div class="mnotes">
-          <span><xen>10% service charge applies</xen><xzh>另收 10% 服務費</xzh></span>
-          <span><xen>Chart images for reference only</xen><xzh>圖片僅供參考</xzh></span>
+          <span><xen data-edit="t83" data-edit-label="Text (EN): 10% service charge applies">10% service charge applies</xen><xzh>另收 10% 服務費</xzh></span>
+          <span><xen data-edit="t84" data-edit-label="Text (EN): Chart images for reference only">Chart images for reference only</xen><xzh>圖片僅供參考</xzh></span>
         </div>
         <div class="beyond">
-          <b><xen>Beyond the grill</xen><xzh>爐邊以外</xzh></b>
-          <span><xen>Fresh sashimi, small bites and a long drinks list run alongside the chart. Ask Ivan for the day's picks, prices in store.</xen><xzh>新鮮刺身、小食同一長串酒單與圖鑑並行。當日精選可以問 Ivan，價錢以店內為準。</xzh></span>
+          <b><xen data-edit="t85" data-edit-label="Text (EN): Beyond the grill">Beyond the grill</xen><xzh>爐邊以外</xzh></b>
+          <span><xen data-edit="t86" data-edit-label="Text (EN): Fresh sashimi, small bites and a long …">Fresh sashimi, small bites and a long drinks list run alongside the chart. Ask Ivan for the day's picks, prices in store.</xen><xzh>新鮮刺身、小食同一長串酒單與圖鑑並行。當日精選可以問 Ivan，價錢以店內為準。</xzh></span>
         </div>
       </div>
       <figure class="frame chartpanel">
         <span class="ph"><img src="img/02.jpg?v=51a6499b" alt="Kuki Izakaya illustrated yakitori chart with prices"></span>
-        <figcaption><xen>The house chart, as printed</xen><xzh>店內原版圖鑑</xzh></figcaption>
+        <figcaption><xen data-edit="t87" data-edit-label="Text (EN): The house chart, as printed">The house chart, as printed</xen><xzh>店內原版圖鑑</xzh></figcaption>
       </figure>
     </div>
   </div>
@@ -648,26 +648,26 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   <div class="wrap">
     <div class="rev-head">
       <div class="score">
-        <span class="num">4.7</span>
-        <span class="of"><xen>from 106 Google reviews</xen><xzh>106 則 Google 評論</xzh></span>
+        <span class="num" data-edit="t88" data-edit-label="Text: 4.7">4.7</span>
+        <span class="of"><xen data-edit="t89" data-edit-label="Text (EN): from 106 Google reviews">from 106 Google reviews</xen><xzh>106 則 Google 評論</xzh></span>
       </div>
-      <h2><xen>What the neighbourhood says</xen><xzh>街坊點講</xzh></h2>
+      <h2><xen data-edit="t90" data-edit-label="Text (EN): What the neighbourhood says">What the neighbourhood says</xen><xzh>街坊點講</xzh></h2>
     </div>
     <div class="rev-grid">
       <div class="rev">
         <span class="stars">★★★★★</span>
-        <q>"Good variety of small bites. Great for hanging out BYOB with good company. Limited tables so reservation recommended"</q>
-        <span class="who"><b>Daniel Yeung</b> · <xen>Google review</xen><xzh>Google 評論</xzh></span>
+        <q data-edit="t91" data-edit-label="Quote: 'Good variety of small bites. Great fo…">"Good variety of small bites. Great for hanging out BYOB with good company. Limited tables so reservation recommended"</q>
+        <span class="who"><b data-edit="t92" data-edit-label="Text: Daniel Yeung">Daniel Yeung</b> · <xen data-edit="t93" data-edit-label="Text (EN): Google review">Google review</xen><xzh>Google 評論</xzh></span>
       </div>
       <div class="rev">
         <span class="stars">★★★★★</span>
-        <q>"A great Izakaya that offers a large menu of food and drinks. Ivan is a great host and will happily make recommendations"</q>
-        <span class="who"><b>Herpius Derpus</b> · <xen>Google review</xen><xzh>Google 評論</xzh></span>
+        <q data-edit="t94" data-edit-label="Quote: 'A great Izakaya that offers a large m…">"A great Izakaya that offers a large menu of food and drinks. Ivan is a great host and will happily make recommendations"</q>
+        <span class="who"><b data-edit="t95" data-edit-label="Text: Herpius Derpus">Herpius Derpus</b> · <xen data-edit="t96" data-edit-label="Text (EN): Google review">Google review</xen><xzh>Google 評論</xzh></span>
       </div>
       <div class="rev">
         <span class="stars">★★★★★</span>
-        <q>"Nestled at Sai Ying Pun district, an izakaya restaurant that serves fresh sashimi and a wide range of yakitori"</q>
-        <span class="who"><b>Wayne Tun</b> · <xen>Google review</xen><xzh>Google 評論</xzh></span>
+        <q data-edit="t97" data-edit-label="Quote: 'Nestled at Sai Ying Pun district, an …">"Nestled at Sai Ying Pun district, an izakaya restaurant that serves fresh sashimi and a wide range of yakitori"</q>
+        <span class="who"><b data-edit="t98" data-edit-label="Text: Wayne Tun">Wayne Tun</b> · <xen data-edit="t99" data-edit-label="Text (EN): Google review">Google review</xen><xzh>Google 評論</xzh></span>
       </div>
     </div>
   </div>
@@ -681,29 +681,29 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
         <div class="book-copy">
           <div class="shead" style="margin-bottom:0">
             <span class="zhtab" aria-hidden="true">立即訂座</span>
-            <h2><xen>Book a table over WhatsApp</xen><xzh>用 WhatsApp 訂座</xzh></h2>
+            <h2><xen data-edit="t100" data-edit-label="Text (EN): Book a table over WhatsApp">Book a table over WhatsApp</xen><xzh>用 WhatsApp 訂座</xzh></h2>
           </div>
-          <p><xen>Tables are limited and the room fills fast. Send your details below, they land straight in the izakaya's WhatsApp, and the team confirms by reply.</xen><xzh>座位有限，好快滿座。填好資料，訊息會直接送到店家 WhatsApp，店員會回覆確認。</xzh></p>
+          <p><xen data-edit="t101" data-edit-label="Text (EN): Tables are limited and the room fills …">Tables are limited and the room fills fast. Send your details below, they land straight in the izakaya's WhatsApp, and the team confirms by reply.</xen><xzh>座位有限，好快滿座。填好資料，訊息會直接送到店家 WhatsApp，店員會回覆確認。</xzh></p>
           <div class="why">
             "Limited tables so reservation recommended"
-            <i><xen>Daniel Yeung, Google review</xen><xzh>Daniel Yeung，Google 評論</xzh></i>
+            <i><xen data-edit="t102" data-edit-label="Text (EN): Daniel Yeung, Google review">Daniel Yeung, Google review</xen><xzh>Daniel Yeung，Google 評論</xzh></i>
           </div>
         </div>
         <form class="bform" onsubmit="return false">
           <div class="field span2">
-            <label for="bk-name"><xen>Your name</xen><xzh>姓名</xzh></label>
+            <label for="bk-name"><xen data-edit="t103" data-edit-label="Text (EN): Your name">Your name</xen><xzh>姓名</xzh></label>
             <input id="bk-name" type="text" autocomplete="name" data-en="e.g. Chris Wong" data-zh="例：Chris Wong" placeholder="e.g. Chris Wong">
           </div>
           <div class="field">
-            <label for="bk-date"><xen>Date</xen><xzh>日期</xzh></label>
+            <label for="bk-date"><xen data-edit="t104" data-edit-label="Text (EN): Date">Date</xen><xzh>日期</xzh></label>
             <input id="bk-date" type="date">
           </div>
           <div class="field">
-            <label for="bk-time"><xen>Time</xen><xzh>時間</xzh></label>
+            <label for="bk-time"><xen data-edit="t105" data-edit-label="Text (EN): Time">Time</xen><xzh>時間</xzh></label>
             <input id="bk-time" type="time" value="19:30">
           </div>
           <div class="field span2">
-            <label for="bk-party"><xen>Party size</xen><xzh>人數</xzh></label>
+            <label for="bk-party"><xen data-edit="t106" data-edit-label="Text (EN): Party size">Party size</xen><xzh>人數</xzh></label>
             <select id="bk-party">
               <option>1</option><option>2</option><option selected>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option>
@@ -713,13 +713,13 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
           <div class="field span2">
             <a class="btn wa-send" id="bk-send" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
               <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.24.66-1.37 1.26-1.9 1.3-.5.05-1.14.24-3.84-.8-3.24-1.28-5.3-4.6-5.46-4.8-.16-.22-1.3-1.75-1.3-3.33 0-1.58.82-2.35 1.12-2.67.3-.32.64-.4.85-.4h.61c.2 0 .46-.07.72.55.26.64.9 2.2.97 2.36.08.16.13.35.03.56-.11.22-.16.35-.32.54-.16.2-.34.43-.48.58-.16.16-.33.33-.14.65.19.32.84 1.38 1.8 2.24 1.23 1.1 2.27 1.44 2.6 1.6.32.16.5.13.7-.08.19-.22.8-.94 1.02-1.26.21-.32.43-.27.72-.16.3.1 1.87.88 2.2 1.04.32.16.53.24.6.38.09.14.09.8-.15 1.5Z"/></svg>
-              <xen>Send booking request</xen><xzh>送出訂座訊息</xzh>
+              <xen data-edit="t107" data-edit-label="Text (EN): Send booking request">Send booking request</xen><xzh>送出訂座訊息</xzh>
             </a>
           </div>
           <div class="book-alt">
-            <span><xen>Prefer to talk?</xen><xzh>想直接傾？</xzh></span>
-            <a href="tel:+85295059692"><xen>Call +852 9505 9692</xen><xzh>致電 +852 9505 9692</xzh></a>
-            <a href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener">@kukiizakaya</a>
+            <span><xen data-edit="t108" data-edit-label="Text (EN): Prefer to talk?">Prefer to talk?</xen><xzh>想直接傾？</xzh></span>
+            <a href="tel:+85295059692"><xen data-edit="t109" data-edit-label="Text (EN): Call +852 9505 9692">Call +852 9505 9692</xen><xzh>致電 +852 9505 9692</xzh></a>
+            <a href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener" data-edit="t110" data-edit-label="Button / link: @kukiizakaya">@kukiizakaya</a>
           </div>
         </form>
       </div>
@@ -734,61 +734,61 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
       <div>
         <div class="shead">
           <span class="zhtab" aria-hidden="true">位置交通</span>
-          <h2><xen>Find the red sign</xen><xzh>認住紅招牌</xzh></h2>
+          <h2><xen data-edit="t111" data-edit-label="Text (EN): Find the red sign">Find the red sign</xen><xzh>認住紅招牌</xzh></h2>
         </div>
         <div class="vrow">
-          <span class="vk"><xen>Address</xen><xzh>地址</xzh></span>
-          <span class="vv"><span class="ad">Shop A &amp; B, G/F, Lai Yin Court, 80-86 High St, Sai Ying Pun, Hong Kong</span></span>
+          <span class="vk"><xen data-edit="t112" data-edit-label="Text (EN): Address">Address</xen><xzh>地址</xzh></span>
+          <span class="vv"><span class="ad" data-edit="t113" data-edit-label="Text: Shop A &amp; B, G/F, Lai Yin Court, 80…">Shop A &amp; B, G/F, Lai Yin Court, 80-86 High St, Sai Ying Pun, Hong Kong</span></span>
         </div>
         <div class="vrow">
-          <span class="vk"><xen>Phone</xen><xzh>電話</xzh></span>
-          <span class="vv"><a class="ph-num" href="tel:+85295059692">+852 9505 9692</a></span>
+          <span class="vk"><xen data-edit="t114" data-edit-label="Text (EN): Phone">Phone</xen><xzh>電話</xzh></span>
+          <span class="vv"><a class="ph-num" href="tel:+85295059692" data-edit="t115" data-edit-label="Button / link: +852 9505 9692">+852 9505 9692</a></span>
         </div>
         <div class="vrow">
-          <span class="vk"><xen>Hours</xen><xzh>營業時間</xzh></span>
-          <span class="vv"><span class="hr-note"><xen>Message us on WhatsApp for today's hours and tables</xen><xzh>當日營業時間及訂座，請以 WhatsApp 查詢</xzh></span></span>
+          <span class="vk"><xen data-edit="t116" data-edit-label="Text (EN): Hours">Hours</xen><xzh>營業時間</xzh></span>
+          <span class="vv"><span class="hr-note"><xen data-edit="t117" data-edit-label="Text (EN): Message us on WhatsApp for today's hou…">Message us on WhatsApp for today's hours and tables</xen><xzh>當日營業時間及訂座，請以 WhatsApp 查詢</xzh></span></span>
         </div>
         <div class="vrow">
-          <span class="vk"><xen>Follow</xen><xzh>追蹤</xzh></span>
-          <span class="vv"><a class="ph-num iglink" href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener">@kukiizakaya</a></span>
+          <span class="vk"><xen data-edit="t118" data-edit-label="Text (EN): Follow">Follow</xen><xzh>追蹤</xzh></span>
+          <span class="vv"><a class="ph-num iglink" href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener" data-edit="t119" data-edit-label="Button / link: @kukiizakaya">@kukiizakaya</a></span>
         </div>
         <div class="vrow">
-          <span class="vk"><xen>Good to know</xen><xzh>小提示</xzh></span>
-          <span class="vv"><xen>BYOB friendly, and you will find us on Hong Kong's dog-friendly dining lists.</xen><xzh>歡迎自攜酒水，我們亦見於香港狗狗友善餐廳名單。</xzh></span>
+          <span class="vk"><xen data-edit="t120" data-edit-label="Text (EN): Good to know">Good to know</xen><xzh>小提示</xzh></span>
+          <span class="vv"><xen data-edit="t121" data-edit-label="Text (EN): BYOB friendly, and you will find us on…">BYOB friendly, and you will find us on Hong Kong's dog-friendly dining lists.</xen><xzh>歡迎自攜酒水，我們亦見於香港狗狗友善餐廳名單。</xzh></span>
         </div>
         <div class="visit-cta">
-          <a class="btn" href="https://maps.google.com/?cid=2583115242879917593" target="_blank" rel="noopener"><xen>Open in Google Maps</xen><xzh>開啟 Google 地圖</xzh></a>
-          <a class="btn ghost wa-quick" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen>WhatsApp us</xen><xzh>WhatsApp 我哋</xzh></a>
+          <a class="btn" href="https://maps.google.com/?cid=2583115242879917593" target="_blank" rel="noopener"><xen data-edit="t122" data-edit-label="Text (EN): Open in Google Maps">Open in Google Maps</xen><xzh>開啟 Google 地圖</xzh></a>
+          <a class="btn ghost wa-quick" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen data-edit="t123" data-edit-label="Text (EN): WhatsApp us">WhatsApp us</xen><xzh>WhatsApp 我哋</xzh></a>
         </div>
       </div>
       <aside class="hboard">
-        <p class="hb-kick"><xen>The house way</xen><xzh>九鬼流</xzh></p>
-        <p class="hb-title"><xen>An evening at Kuki, in four moves</xen><xzh>九鬼的一夜，四步入門</xzh></p>
+        <p class="hb-kick"><xen data-edit="t124" data-edit-label="Text (EN): The house way">The house way</xen><xzh>九鬼流</xzh></p>
+        <p class="hb-title"><xen data-edit="t125" data-edit-label="Text (EN): An evening at Kuki, in four moves">An evening at Kuki, in four moves</xen><xzh>九鬼的一夜，四步入門</xzh></p>
         <ol class="hb-list">
           <li>
-            <b class="hb-no">01</b>
-            <span class="hb-tx"><i><xen>Book your table first</xen><xzh>記得先訂座</xzh></i>
-            <xen>Seats go early, send a WhatsApp and the team confirms.</xen><xzh>座位唔多，WhatsApp 留個言，店員會覆你確認。</xzh></span>
+            <b class="hb-no" data-edit="t126" data-edit-label="Text: 01">01</b>
+            <span class="hb-tx"><i><xen data-edit="t127" data-edit-label="Text (EN): Book your table first">Book your table first</xen><xzh>記得先訂座</xzh></i>
+            <xen data-edit="t128" data-edit-label="Text (EN): Seats go early, send a WhatsApp and th…">Seats go early, send a WhatsApp and the team confirms.</xen><xzh>座位唔多，WhatsApp 留個言，店員會覆你確認。</xzh></span>
           </li>
           <li>
-            <b class="hb-no">02</b>
-            <span class="hb-tx"><i><xen>Start from Osaka</xen><xzh>由大阪開始</xzh></i>
-            <xen>Kushikatsu and oden, the two specialities of the house.</xen><xzh>串炸同關東煮，本店兩大招牌。</xzh></span>
+            <b class="hb-no" data-edit="t129" data-edit-label="Text: 02">02</b>
+            <span class="hb-tx"><i><xen data-edit="t130" data-edit-label="Text (EN): Start from Osaka">Start from Osaka</xen><xzh>由大阪開始</xzh></i>
+            <xen data-edit="t131" data-edit-label="Text (EN): Kushikatsu and oden, the two specialit…">Kushikatsu and oden, the two specialities of the house.</xen><xzh>串炸同關東煮，本店兩大招牌。</xzh></span>
           </li>
           <li>
-            <b class="hb-no">03</b>
-            <span class="hb-tx"><i><xen>Bring your own bottle</xen><xzh>帶支酒嚟</xzh></i>
-            <xen>BYOB friendly, open what you love the izakaya way.</xen><xzh>歡迎自攜酒水，鍾意飲乜就開乜。</xzh></span>
+            <b class="hb-no" data-edit="t132" data-edit-label="Text: 03">03</b>
+            <span class="hb-tx"><i><xen data-edit="t133" data-edit-label="Text (EN): Bring your own bottle">Bring your own bottle</xen><xzh>帶支酒嚟</xzh></i>
+            <xen data-edit="t134" data-edit-label="Text (EN): BYOB friendly, open what you love the …">BYOB friendly, open what you love the izakaya way.</xen><xzh>歡迎自攜酒水，鍾意飲乜就開乜。</xzh></span>
           </li>
           <li>
-            <b class="hb-no">04</b>
-            <span class="hb-tx"><i><xen>Let Ivan choose</xen><xzh>交畀 Ivan 揀</xzh></i>
-            <xen>19 cuts on the yakitori chart, and a host who loves to recommend.</xen><xzh>燒鳥圖鑑足足 19 款，店長最鍾意幫你推介。</xzh></span>
+            <b class="hb-no" data-edit="t135" data-edit-label="Text: 04">04</b>
+            <span class="hb-tx"><i><xen data-edit="t136" data-edit-label="Text (EN): Let Ivan choose">Let Ivan choose</xen><xzh>交畀 Ivan 揀</xzh></i>
+            <xen data-edit="t137" data-edit-label="Text (EN): 19 cuts on the yakitori chart, and a h…">19 cuts on the yakitori chart, and a host who loves to recommend.</xen><xzh>燒鳥圖鑑足足 19 款，店長最鍾意幫你推介。</xzh></span>
           </li>
         </ol>
         <div class="hb-foot">
           <span class="hb-stamp" aria-hidden="true">九鬼</span>
-          <span class="hb-sig">九鬼居酒屋 · <xen>Sai Ying Pun</xen><xzh>西營盤</xzh></span>
+          <span class="hb-sig">九鬼居酒屋 · <xen data-edit="t138" data-edit-label="Text (EN): Sai Ying Pun">Sai Ying Pun</xen><xzh>西營盤</xzh></span>
         </div>
       </aside>
     </div>
@@ -799,7 +799,7 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
   <div class="wrap f-in">
     <div>
       <div class="f-brand">Kuki Izakaya <small>九鬼居酒屋</small></div>
-      <div class="f-meta">Shop A &amp; B, G/F, Lai Yin Court, 80-86 High St, Sai Ying Pun, Hong Kong<br><xen>Izakaya · kushikatsu · oden · fresh sashimi · yakitori · BYOB friendly</xen><xzh>居酒屋 · 串炸 · 關東煮 · 新鮮刺身 · 燒鳥 · 歡迎自攜酒水</xzh></div>
+      <div class="f-meta">Shop A &amp; B, G/F, Lai Yin Court, 80-86 High St, Sai Ying Pun, Hong Kong<br><xen data-edit="t139" data-edit-label="Text (EN): Izakaya · kushikatsu · oden · fresh sa…">Izakaya · kushikatsu · oden · fresh sashimi · yakitori · BYOB friendly</xen><xzh>居酒屋 · 串炸 · 關東煮 · 新鮮刺身 · 燒鳥 · 歡迎自攜酒水</xzh></div>
     </div>
     <div class="f-soc">
       <a href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener" aria-label="Instagram">
@@ -821,19 +821,19 @@ footer{border-top:1px solid var(--line2);padding:44px 0 120px;background:#120d09
     <span class="tray-seal" aria-hidden="true">九鬼</span>
     <a class="t-act t-wa wa-quick" href="https://wa.me/85295059692?text=Hello%20Kuki%20Izakaya!%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
       <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.24.66-1.37 1.26-1.9 1.3-.5.05-1.14.24-3.84-.8-3.24-1.28-5.3-4.6-5.46-4.8-.16-.22-1.3-1.75-1.3-3.33 0-1.58.82-2.35 1.12-2.67.3-.32.64-.4.85-.4h.61c.2 0 .46-.07.72.55.26.64.9 2.2.97 2.36.08.16.13.35.03.56-.11.22-.16.35-.32.54-.16.2-.34.43-.48.58-.16.16-.33.33-.14.65.19.32.84 1.38 1.8 2.24 1.23 1.1 2.27 1.44 2.6 1.6.32.16.5.13.7-.08.19-.22.8-.94 1.02-1.26.21-.32.43-.27.72-.16.3.1 1.87.88 2.2 1.04.32.16.53.24.6.38.09.14.09.8-.15 1.5Z"/></svg>
-      <span><xen>WhatsApp</xen><xzh>訂座</xzh></span>
+      <span><xen data-edit="t140" data-edit-label="Text (EN): WhatsApp">WhatsApp</xen><xzh>訂座</xzh></span>
     </a>
     <a class="t-act" href="tel:+85295059692">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a13 13 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
-      <span><xen>Call</xen><xzh>致電</xzh></span>
+      <span><xen data-edit="t141" data-edit-label="Text (EN): Call">Call</xen><xzh>致電</xzh></span>
     </a>
     <a class="t-act" href="#menu">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
-      <span><xen>Menu</xen><xzh>菜單</xzh></span>
+      <span><xen data-edit="t142" data-edit-label="Text (EN): Menu">Menu</xen><xzh>菜單</xzh></span>
     </a>
     <a class="t-act" href="https://www.instagram.com/kukiizakaya" target="_blank" rel="noopener">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-      <span>IG</span>
+      <span data-edit="t143" data-edit-label="Text: IG">IG</span>
     </a>
   </div>
 </div>

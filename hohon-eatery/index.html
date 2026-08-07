@@ -47,13 +47,44 @@ section{position:relative}
 /* ---------- hero: one full-bleed photograph, the type is the composition ---------- */
 header.hero{position:relative;overflow:hidden;background:var(--ink);min-height:clamp(600px,92svh,820px);max-height:860px}
 .hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:29% 46%}
-header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,25,23,.55) 0%,rgba(10,25,23,.16) 26%,rgba(8,20,18,.04) 50%,rgba(8,20,18,.40) 100%)}
+header.hero{background:radial-gradient(78% 62% at 50% 40%,#26706d 0%,#1E5B59 46%,#123736 100%)}
+header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(8,20,18,.30) 0%,rgba(8,20,18,0) 22%,rgba(8,20,18,0) 62%,rgba(8,20,18,.42) 100%)}
 .htop{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:24px clamp(16px,2.4vw,34px)}
 .bookbox{border:1px solid rgba(244,237,219,.92);color:var(--cream);padding:13px 22px;font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(10,25,23,.18);transition:background .2s,color .2s;white-space:nowrap}
 .bookbox:hover{background:var(--cream);color:var(--ink)}
 .haddr{flex:1;text-align:center;font-size:13px;font-weight:600;letter-spacing:.13em;color:var(--cream);opacity:.94;min-width:0}
 .langchip{background:rgba(10,25,23,.18);border:1px solid rgba(244,237,219,.6);color:var(--cream);border-radius:3px;padding:12px 16px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
 .langchip:hover{background:var(--cream);color:var(--ink)}
+/* ---------- scroll-assembled burger ----------
+   Five cut-out layers stacked on the teal field. As the hero scrolls, they draw together into
+   one burger; scrolling back apart explodes it again. Pure CSS scroll-driven animation, no
+   library, no JavaScript. Browsers without animation-timeline simply get the assembled burger,
+   which is the correct still image, so nothing is lost. Reduced-motion gets the same still. */
+.stack{position:absolute;left:50%;top:50%;translate:-50% -58%;z-index:4;
+  width:min(38vw,360px);aspect-ratio:1/1.34;pointer-events:none;
+  filter:drop-shadow(0 34px 46px rgba(0,0,0,.42))}
+.ly{position:absolute;left:50%;translate:-50% 0;width:100%;height:auto;display:block}
+.ly1{top:14%;width:98%}
+.ly2{top:36%;width:92%}
+.ly3{top:47%;width:88%}
+.ly4{top:60%;width:96%}
+.ly5{top:73%;width:80%}
+@keyframes ex1{to{translate:-50% -78px}}
+@keyframes ex2{to{translate:-50% -34px}}
+@keyframes ex4{to{translate:-50% 34px}}
+@keyframes ex5{to{translate:-50% 78px}}
+@supports (animation-timeline: scroll()){
+  @media (prefers-reduced-motion: no-preference){
+    .ly1{animation:ex1 linear both;animation-timeline:scroll();animation-range:0 62vh}
+    .ly2{animation:ex2 linear both;animation-timeline:scroll();animation-range:0 62vh}
+    .ly4{animation:ex4 linear both;animation-timeline:scroll();animation-range:0 62vh}
+    .ly5{animation:ex5 linear both;animation-timeline:scroll();animation-range:0 62vh}
+  }
+}
+@media (max-width:820px){
+  .stack{width:min(66vw,320px)}
+  }
+
 .hbottom{position:absolute;left:0;right:0;bottom:0;z-index:2;
   padding:0 clamp(26px,4.6vw,76px) clamp(22px,3.2vw,48px)}
 h1.hword{margin:0;line-height:0}
@@ -256,10 +287,16 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 
 <!-- ============ HERO: full-bleed photograph, wordmark bleeding off both edges ============ -->
 <header class="hero" id="top">
-  <img class="hbg" src="img/07.jpg?v=5c2534a3" alt="The charcoal bun fried chicken burger with crinkle-cut fries, on HoHon Eatery's own table">
+  <div class="stack" aria-hidden="true">
+    <img class="ly ly1" src="img/10.png?v=b94a5fd2" alt="">
+    <img class="ly ly2" src="img/11.png?v=b9bd0742" alt="">
+    <img class="ly ly3" src="img/12.png?v=aa619d16" alt="">
+    <img class="ly ly4" src="img/13.png?v=76bf28bb" alt="">
+    <img class="ly ly5" src="img/14.png?v=de54f025" alt="">
+  </div>
   <div class="htop">
-    <a class="bookbox" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen>Book a table</xen><xzh>訂位</xzh></a>
-    <p class="haddr">Shop 3, 419M Queen's Rd West · Sai Wan, Hong Kong</p>
+    <a class="bookbox" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen data-edit="t1" data-edit-label="Text (EN): Book a table">Book a table</xen><xzh>訂位</xzh></a>
+    <p class="haddr" data-edit="t2" data-edit-label="Text: Shop 3, 419M Queen's Rd West · Sai Wan…">Shop 3, 419M Queen's Rd West · Sai Wan, Hong Kong</p>
     <button class="langchip" id="langBtn" type="button" aria-label="Language / 語言"><span id="langLabel">繁體</span></button>
   </div>
   <div class="hbottom">
@@ -270,15 +307,15 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ NAV (below the fold, sticks on scroll) ============ -->
 <div class="nav2">
   <div class="wrap in">
-    <div class="brand">HOHON EATERY</div>
+    <div class="brand" data-edit="t3" data-edit-label="Text: HOHON EATERY">HOHON EATERY</div>
     <nav>
-      <a href="#story"><xen>Story</xen><xzh>故事</xzh></a>
-      <a href="#menu"><xen>Menu</xen><xzh>餐牌</xzh></a>
-      <a href="#reviews"><xen>Reviews</xen><xzh>評價</xzh></a>
-      <a href="#visit"><xen>Visit</xen><xzh>到訪</xzh></a>
+      <a href="#story"><xen data-edit="t4" data-edit-label="Text (EN): Story">Story</xen><xzh>故事</xzh></a>
+      <a href="#menu"><xen data-edit="t5" data-edit-label="Text (EN): Menu">Menu</xen><xzh>餐牌</xzh></a>
+      <a href="#reviews"><xen data-edit="t6" data-edit-label="Text (EN): Reviews">Reviews</xen><xzh>評價</xzh></a>
+      <a href="#visit"><xen data-edit="t7" data-edit-label="Text (EN): Visit">Visit</xen><xzh>到訪</xzh></a>
       <a class="callpill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
-        <xen>WhatsApp</xen><xzh>WhatsApp</xzh>
+        <xen data-edit="t8" data-edit-label="Text (EN): WhatsApp">WhatsApp</xen><xzh>WhatsApp</xzh>
       </a>
     </nav>
   </div>
@@ -288,19 +325,19 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <section class="duo grain">
   <div class="wrap duogrid">
     <a class="dcol" href="#menu">
-      <span class="dbig"><xen>PASTA</xen><xzh>意粉</xzh></span>
-      <span class="dlab"><xen>View the menu</xen><xzh>查看餐牌</xzh></span>
+      <span class="dbig"><xen data-edit="t9" data-edit-label="Text (EN): PASTA">PASTA</xen><xzh>意粉</xzh></span>
+      <span class="dlab"><xen data-edit="t10" data-edit-label="Text (EN): View the menu">View the menu</xen><xzh>查看餐牌</xzh></span>
     </a>
     <div class="dmeta">
-      <div class="dr">4.7</div>
+      <div class="dr" data-edit="t11" data-edit-label="Text: 4.7">4.7</div>
       <div class="ds">★★★★★</div>
-      <p><xen>165 Google reviews</xen><xzh>165 則 Google 評論</xzh></p>
-      <p><xen>Tue to Sun</xen><xzh>星期二至日</xzh> · <xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh> · <xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></p>
-      <p><xen>Closed Mondays</xen><xzh>逢星期一休息</xzh></p>
+      <p><xen data-edit="t12" data-edit-label="Text (EN): 165 Google reviews">165 Google reviews</xen><xzh>165 則 Google 評論</xzh></p>
+      <p><xen data-edit="t13" data-edit-label="Text (EN): Tue to Sun">Tue to Sun</xen><xzh>星期二至日</xzh> · <xen data-edit="t14" data-edit-label="Text (EN): 12:00 to 16:00">12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh> · <xen data-edit="t15" data-edit-label="Text (EN): 18:00 to 21:30">18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></p>
+      <p><xen data-edit="t16" data-edit-label="Text (EN): Closed Mondays">Closed Mondays</xen><xzh>逢星期一休息</xzh></p>
     </div>
     <a class="dcol" href="#menu">
-      <span class="dbig"><xen>BURGERS</xen><xzh>漢堡</xzh></span>
-      <span class="dlab"><xen>View the menu</xen><xzh>查看餐牌</xzh></span>
+      <span class="dbig"><xen data-edit="t17" data-edit-label="Text (EN): BURGERS">BURGERS</xen><xzh>漢堡</xzh></span>
+      <span class="dlab"><xen data-edit="t18" data-edit-label="Text (EN): View the menu">View the menu</xen><xzh>查看餐牌</xzh></span>
     </a>
   </div>
 </section>
@@ -308,12 +345,12 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ TICKER BAND ============ -->
 <div class="band">
   <div class="wrap row">
-    <span><i>●</i><xen>Charcoal bun burgers</xen><xzh>炭黑包漢堡</xzh></span>
-    <span><i>●</i><xen>Crab rigatoni</xen><xzh>蟹肉粗管通粉</xzh></span>
-    <span><i>●</i><xen>Fried oysters</xen><xzh>香脆炸蠔</xzh></span>
-    <span><i>●</i><xen>Thai burgers</xen><xzh>泰式漢堡</xzh></span>
-    <span><i>●</i><xen>Jasmine tea gin</xen><xzh>茉莉花茶氈酒</xzh></span>
-    <span><i>●</i><xen>Catering sets</xen><xzh>外賣到會套餐</xzh></span>
+    <span><i>●</i><xen data-edit="t19" data-edit-label="Text (EN): Charcoal bun burgers">Charcoal bun burgers</xen><xzh>炭黑包漢堡</xzh></span>
+    <span><i>●</i><xen data-edit="t20" data-edit-label="Text (EN): Crab rigatoni">Crab rigatoni</xen><xzh>蟹肉粗管通粉</xzh></span>
+    <span><i>●</i><xen data-edit="t21" data-edit-label="Text (EN): Fried oysters">Fried oysters</xen><xzh>香脆炸蠔</xzh></span>
+    <span><i>●</i><xen data-edit="t22" data-edit-label="Text (EN): Thai burgers">Thai burgers</xen><xzh>泰式漢堡</xzh></span>
+    <span><i>●</i><xen data-edit="t23" data-edit-label="Text (EN): Jasmine tea gin">Jasmine tea gin</xen><xzh>茉莉花茶氈酒</xzh></span>
+    <span><i>●</i><xen data-edit="t24" data-edit-label="Text (EN): Catering sets">Catering sets</xen><xzh>外賣到會套餐</xzh></span>
   </div>
 </div>
 
@@ -321,28 +358,28 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <section class="sec story" id="story">
   <div class="wrap sgrid">
     <div>
-      <p class="overline"><xen>The eatery</xen><xzh>小店故事</xzh></p>
-      <h2><xen>A neighbourhood pasta and burger joint</xen><xzh>街坊的意粉漢堡小店</xzh></h2>
-      <p><xen>Neighbourhood pasta and burger joint is what HoHon Eatery calls itself, and the description fits: a teal shopfront at the Shek Tong Tsui end of Queen's Road West, three minutes from the HKU exit, where the signature is a charcoal bun beef burger under Thai green curry sauce, backed by rigatoni with homemade sausage in creamy tomato sauce, roasted cauliflower, spicy beef and Thai burgers, with a jasmine tea gin cocktail on the drinks list.</xen><xzh>「街坊意粉漢堡小店」是 HoHon Eatery 對自己的稱呼，名副其實：皇后大道西近石塘咀的一面藍綠色門面，距港大站出口步行約三分鐘。招牌是泰式青咖喱醬炭黑包牛肉漢堡，還有自家製豬肉腸忌廉蕃茄汁粗管通粉、烤椰菜花、香辣牛肉與泰式漢堡，酒單上更有一杯茉莉花茶氈酒雞尾酒。</xzh></p>
-      <p><xen>Lunch runs 12:00 to 16:00, dinner 18:00 to 21:30, and on Mondays the room rests. There are seats inside and out, the team fronting the counter is known for steering visitors to the right plate, the space takes private dinners and catering sets, and the fastest way to reach them is the one their own Instagram gives out: a WhatsApp message.</xen><xzh>午市 12:00 至 16:00，晚市 18:00 至 21:30，逢星期一休息。店內店外均設座位，店員以樂於為客人推介菜式聞名，小店亦接受私人包場及外賣到會套餐。想聯絡他們，最快的方法正是他們 Instagram 上寫明的那一個：WhatsApp 短訊。</xzh></p>
+      <p class="overline"><xen data-edit="t25" data-edit-label="Text (EN): The eatery">The eatery</xen><xzh>小店故事</xzh></p>
+      <h2><xen data-edit="t26" data-edit-label="Text (EN): A neighbourhood pasta and burger joint">A neighbourhood pasta and burger joint</xen><xzh>街坊的意粉漢堡小店</xzh></h2>
+      <p><xen data-edit="t27" data-edit-label="Text (EN): Neighbourhood pasta and burger joint i…">Neighbourhood pasta and burger joint is what HoHon Eatery calls itself, and the description fits: a teal shopfront at the Shek Tong Tsui end of Queen's Road West, three minutes from the HKU exit, where the signature is a charcoal bun beef burger under Thai green curry sauce, backed by rigatoni with homemade sausage in creamy tomato sauce, roasted cauliflower, spicy beef and Thai burgers, with a jasmine tea gin cocktail on the drinks list.</xen><xzh>「街坊意粉漢堡小店」是 HoHon Eatery 對自己的稱呼，名副其實：皇后大道西近石塘咀的一面藍綠色門面，距港大站出口步行約三分鐘。招牌是泰式青咖喱醬炭黑包牛肉漢堡，還有自家製豬肉腸忌廉蕃茄汁粗管通粉、烤椰菜花、香辣牛肉與泰式漢堡，酒單上更有一杯茉莉花茶氈酒雞尾酒。</xzh></p>
+      <p><xen data-edit="t28" data-edit-label="Text (EN): Lunch runs 12:00 to 16:00, dinner 18:0…">Lunch runs 12:00 to 16:00, dinner 18:00 to 21:30, and on Mondays the room rests. There are seats inside and out, the team fronting the counter is known for steering visitors to the right plate, the space takes private dinners and catering sets, and the fastest way to reach them is the one their own Instagram gives out: a WhatsApp message.</xen><xzh>午市 12:00 至 16:00，晚市 18:00 至 21:30，逢星期一休息。店內店外均設座位，店員以樂於為客人推介菜式聞名，小店亦接受私人包場及外賣到會套餐。想聯絡他們，最快的方法正是他們 Instagram 上寫明的那一個：WhatsApp 短訊。</xzh></p>
       <div class="schips">
-        <span class="chip"><xen>Private dining</xen><xzh>私人包場</xzh></span>
-        <span class="chip"><xen>Catering sets</xen><xzh>外賣到會</xzh></span>
-        <span class="chip"><xen>Tourist friendly</xen><xzh>對遊客友善</xzh></span>
+        <span class="chip"><xen data-edit="t29" data-edit-label="Text (EN): Private dining">Private dining</xen><xzh>私人包場</xzh></span>
+        <span class="chip"><xen data-edit="t30" data-edit-label="Text (EN): Catering sets">Catering sets</xen><xzh>外賣到會</xzh></span>
+        <span class="chip"><xen data-edit="t31" data-edit-label="Text (EN): Tourist friendly">Tourist friendly</xen><xzh>對遊客友善</xzh></span>
       </div>
     </div>
     <div class="scol">
       <figure class="frame">
-        <div class="ph"><img src="img/03.jpg?v=fb93804a" alt="The charcoal bun burger with crinkle fries and ketchup on a stoneware plate"></div>
+        <div class="ph"><img src="img/03.jpg?v=1d37d3c2" alt="The charcoal bun burger with crinkle fries and ketchup on a stoneware plate"></div>
       </figure>
       <div class="facts">
-        <h3><xen>At a glance</xen><xzh>一眼看清</xzh></h3>
+        <h3><xen data-edit="t32" data-edit-label="Text (EN): At a glance">At a glance</xen><xzh>一眼看清</xzh></h3>
         <ul>
-          <li><xen>Kitchen</xen><xzh>菜系</xzh><b><xen>Pasta &amp; burgers</xen><xzh>意粉與漢堡</xzh></b></li>
-          <li><xen>Neighbourhood</xen><xzh>地區</xzh><b><xen>Shek Tong Tsui / Sai Wan</xen><xzh>石塘咀 / 西環</xzh></b></li>
-          <li><xen>From HKU exit</xen><xzh>距港大站出口</xzh><b><xen>3 minutes</xen><xzh>3 分鐘</xzh></b></li>
-          <li><xen>Seating</xen><xzh>座位</xzh><b><xen>Inside &amp; outdoor</xen><xzh>店內及戶外</xzh></b></li>
-          <li>Instagram<b>@hohoneatery · 4,183</b></li>
+          <li><xen data-edit="t33" data-edit-label="Text (EN): Kitchen">Kitchen</xen><xzh>菜系</xzh><b><xen data-edit="t34" data-edit-label="Text (EN): Pasta &amp; burgers">Pasta &amp; burgers</xen><xzh>意粉與漢堡</xzh></b></li>
+          <li><xen data-edit="t35" data-edit-label="Text (EN): Neighbourhood">Neighbourhood</xen><xzh>地區</xzh><b><xen data-edit="t36" data-edit-label="Text (EN): Shek Tong Tsui / Sai Wan">Shek Tong Tsui / Sai Wan</xen><xzh>石塘咀 / 西環</xzh></b></li>
+          <li><xen data-edit="t37" data-edit-label="Text (EN): From HKU exit">From HKU exit</xen><xzh>距港大站出口</xzh><b><xen data-edit="t38" data-edit-label="Text (EN): 3 minutes">3 minutes</xen><xzh>3 分鐘</xzh></b></li>
+          <li><xen data-edit="t39" data-edit-label="Text (EN): Seating">Seating</xen><xzh>座位</xzh><b><xen data-edit="t40" data-edit-label="Text (EN): Inside &amp; outdoor">Inside &amp; outdoor</xen><xzh>店內及戶外</xzh></b></li>
+          <li>Instagram<b data-edit="t41" data-edit-label="Text: @hohoneatery · 4,183">@hohoneatery · 4,183</b></li>
         </ul>
       </div>
     </div>
@@ -352,26 +389,26 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ HIGHLIGHTS ============ -->
 <section class="sec high grain">
   <div class="wrap">
-    <p class="overline"><xen>Signatures</xen><xzh>招牌菜式</xzh></p>
-    <h2><xen>What the kitchen is known for</xen><xzh>廚房的拿手好戲</xzh></h2>
+    <p class="overline"><xen data-edit="t42" data-edit-label="Text (EN): Signatures">Signatures</xen><xzh>招牌菜式</xzh></p>
+    <h2><xen data-edit="t43" data-edit-label="Text (EN): What the kitchen is known for">What the kitchen is known for</xen><xzh>廚房的拿手好戲</xzh></h2>
     <div class="hgrid">
       <article class="card">
-        <div class="ph"><img src="img/04.jpg?v=655ca5f1" alt="Fried oysters with homemade mayo served in their shells"></div>
-        <h3>Fried Oyster, Homemade Mayo</h3>
+        <div class="ph"><img src="img/04.jpg?v=bb46ec9d" alt="Fried oysters with homemade mayo served in their shells"></div>
+        <h3 data-edit="t44" data-edit-label="Heading: Fried Oyster, Homemade Mayo">Fried Oyster, Homemade Mayo</h3>
         <p class="zh">香脆炸蠔配自家製蛋黃醬</p>
-        <p><xen>Crumbed, fried and set back in the shell, a fixture of both catering sets.</xen><xzh>裹粉炸香後放回蠔殼上枱，兩款到會套餐都少不了它。</xzh></p>
+        <p><xen data-edit="t45" data-edit-label="Text (EN): Crumbed, fried and set back in the she…">Crumbed, fried and set back in the shell, a fixture of both catering sets.</xen><xzh>裹粉炸香後放回蠔殼上枱，兩款到會套餐都少不了它。</xzh></p>
       </article>
       <article class="card">
-        <div class="ph"><img src="img/05.jpg?v=086b0423" alt="A table spread of black bun burger, crinkle fries, sweet potato fries and rigatoni"></div>
-        <h3>The Rigatoni List</h3>
+        <div class="ph"><img src="img/05.jpg?v=37701623" alt="A table spread of black bun burger, crinkle fries, sweet potato fries and rigatoni"></div>
+        <h3 data-edit="t46" data-edit-label="Heading: The Rigatoni List">The Rigatoni List</h3>
         <p class="zh">粗管通粉系列</p>
-        <p><xen>Homemade sausage in creamy tomato, triple cheese with sakura ebi, seafood or crab: the pasta half of the name.</xen><xzh>自家製豬肉腸忌廉蕃茄汁、三重芝士櫻花蝦、海鮮或蟹肉：店名中「意粉」的那一半。</xzh></p>
+        <p><xen data-edit="t47" data-edit-label="Text (EN): Homemade sausage in creamy tomato, tri…">Homemade sausage in creamy tomato, triple cheese with sakura ebi, seafood or crab: the pasta half of the name.</xen><xzh>自家製豬肉腸忌廉蕃茄汁、三重芝士櫻花蝦、海鮮或蟹肉：店名中「意粉」的那一半。</xzh></p>
       </article>
       <article class="card">
-        <div class="ph"><img src="img/06.jpg?v=6a609eda" alt="Grilled halibut in a charcoal bun with frisee"></div>
-        <h3>Grilled Halibut, Charcoal Bun</h3>
+        <div class="ph"><img src="img/06.jpg?v=de4ca87f" alt="Grilled halibut in a charcoal bun with frisee"></div>
+        <h3 data-edit="t48" data-edit-label="Heading: Grilled Halibut, Charcoal Bun">Grilled Halibut, Charcoal Bun</h3>
         <p class="zh">香煎比目魚炭黑包漢堡</p>
-        <p><xen>The charcoal bun again, this time around a seared fillet of halibut.</xen><xzh>同一個炭黑包，這次夾着香煎比目魚柳。</xzh></p>
+        <p><xen data-edit="t49" data-edit-label="Text (EN): The charcoal bun again, this time arou…">The charcoal bun again, this time around a seared fillet of halibut.</xen><xzh>同一個炭黑包，這次夾着香煎比目魚柳。</xzh></p>
       </article>
     </div>
   </div>
@@ -380,49 +417,49 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ MENU ============ -->
 <section class="sec menu" id="menu">
   <div class="wrap">
-    <p class="overline"><xen>Catering set menu</xen><xzh>外賣到會餐牌</xzh></p>
-    <h2><xen>Their own board, transcribed</xen><xzh>依照店家餐牌轉錄</xzh></h2>
+    <p class="overline"><xen data-edit="t50" data-edit-label="Text (EN): Catering set menu">Catering set menu</xen><xzh>外賣到會餐牌</xzh></p>
+    <h2><xen data-edit="t51" data-edit-label="Text (EN): Their own board, transcribed">Their own board, transcribed</xen><xzh>依照店家餐牌轉錄</xzh></h2>
     <div class="mgrid">
       <figure class="mphoto">
-        <div class="frame"><div class="ph"><img src="img/02.jpg?v=90c70ac7" alt="HoHon Eatery's own catering set menu board with prices in HKD"></div></div>
-        <figcaption><xen>The catering board as they printed it, prices in HKD, shown untouched.</xen><xzh>店家自家印製的到會餐牌，港幣定價，原樣呈現。</xzh></figcaption>
+        <div class="frame"><div class="ph"><img src="img/02.jpg?v=79dabe74" alt="HoHon Eatery's own catering set menu board with prices in HKD"></div></div>
+        <figcaption><xen data-edit="t52" data-edit-label="Text (EN): The catering board as they printed it,…">The catering board as they printed it, prices in HKD, shown untouched.</xen><xzh>店家自家印製的到會餐牌，港幣定價，原樣呈現。</xzh></figcaption>
       </figure>
       <div>
         <div class="set">
           <header>
-            <h3>Set for 4<span>4 人餐</span></h3>
-            <b class="pr">HKD 660</b>
+            <h3>Set for 4<span data-edit="t53" data-edit-label="Text: 4 人餐">4 人餐</span></h3>
+            <b class="pr" data-edit="t54" data-edit-label="Text: HKD 660">HKD 660</b>
           </header>
           <ul>
-            <li><div class="en">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
-            <li><div class="en">Fried Oyster, Homemade Mayo (10pcs)</div><div class="tc">香脆炸蠔配自家製蛋黃醬 (10隻)</div></li>
-            <li><div class="en">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">三重芝士煙肉櫻花蝦粗管通粉</div></li>
-            <li class="or">or 或</li>
-            <li><div class="en">Homemade Sausage Rigatoni, Tomato Cream Sauce</div><div class="tc">蕃茄忌廉汁豬肉粗管通粉</div></li>
+            <li><div class="en" data-edit="t55" data-edit-label="Text: Burrata, Tomato, Aged Balsamic">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
+            <li><div class="en" data-edit="t56" data-edit-label="Text: Fried Oyster, Homemade Mayo (10pcs)">Fried Oyster, Homemade Mayo (10pcs)</div><div class="tc" data-edit="t57" data-edit-label="Text: 香脆炸蠔配自家製蛋黃醬 (10隻)">香脆炸蠔配自家製蛋黃醬 (10隻)</div></li>
+            <li><div class="en" data-edit="t58" data-edit-label="Text: Triple Cheesy Rigatoni, Bacon &amp; Sa…">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">三重芝士煙肉櫻花蝦粗管通粉</div></li>
+            <li class="or" data-edit="t59" data-edit-label="List item: or 或">or 或</li>
+            <li><div class="en" data-edit="t60" data-edit-label="Text: Homemade Sausage Rigatoni, Tomato Crea…">Homemade Sausage Rigatoni, Tomato Cream Sauce</div><div class="tc">蕃茄忌廉汁豬肉粗管通粉</div></li>
           </ul>
         </div>
         <div class="set">
           <header>
-            <h3>Set for 8<span>8 人餐</span></h3>
-            <b class="pr">HKD 1,780</b>
+            <h3>Set for 8<span data-edit="t61" data-edit-label="Text: 8 人餐">8 人餐</span></h3>
+            <b class="pr" data-edit="t62" data-edit-label="Text: HKD 1,780">HKD 1,780</b>
           </header>
           <ul>
-            <li><div class="en">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
-            <li><div class="en">Kale Salad</div><div class="tc">羽衣甘藍沙律</div></li>
-            <li><div class="en">Brie Cheese &amp; Salami Platter</div><div class="tc">布里牛奶軟芝士 拼 莎樂美腸</div></li>
-            <li><div class="en">Fried Oyster, Homemade Mayo (20pcs)</div><div class="tc">香脆炸蠔配自家製蛋黃醬 (20隻)</div></li>
-            <li><div class="en">Homemade Meatball (Beef &amp; Pork), Tomato Sauce, Parmesan (8pcs)</div><div class="tc">自家製肉丸 (豬牛) 配巴馬臣芝士 (8粒)</div></li>
-            <li><div class="en">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">秘製三重芝士煙肉櫻花蝦粗管通粉</div></li>
-            <li><div class="en">Seafood Rigatoni, Tomato Prawn Sauce</div><div class="tc">自家蕃茄蝦汁海鮮粗管通粉</div></li>
+            <li><div class="en" data-edit="t63" data-edit-label="Text: Burrata, Tomato, Aged Balsamic">Burrata, Tomato, Aged Balsamic</div><div class="tc">軟心水牛芝士蕃茄陳醋汁沙律</div></li>
+            <li><div class="en" data-edit="t64" data-edit-label="Text: Kale Salad">Kale Salad</div><div class="tc">羽衣甘藍沙律</div></li>
+            <li><div class="en" data-edit="t65" data-edit-label="Text: Brie Cheese &amp; Salami Platter">Brie Cheese &amp; Salami Platter</div><div class="tc">布里牛奶軟芝士 拼 莎樂美腸</div></li>
+            <li><div class="en" data-edit="t66" data-edit-label="Text: Fried Oyster, Homemade Mayo (20pcs)">Fried Oyster, Homemade Mayo (20pcs)</div><div class="tc" data-edit="t67" data-edit-label="Text: 香脆炸蠔配自家製蛋黃醬 (20隻)">香脆炸蠔配自家製蛋黃醬 (20隻)</div></li>
+            <li><div class="en" data-edit="t68" data-edit-label="Text: Homemade Meatball (Beef &amp; Pork), T…">Homemade Meatball (Beef &amp; Pork), Tomato Sauce, Parmesan (8pcs)</div><div class="tc" data-edit="t69" data-edit-label="Text: 自家製肉丸 (豬牛) 配巴馬臣芝士 (8粒)">自家製肉丸 (豬牛) 配巴馬臣芝士 (8粒)</div></li>
+            <li><div class="en" data-edit="t70" data-edit-label="Text: Triple Cheesy Rigatoni, Bacon &amp; Sa…">Triple Cheesy Rigatoni, Bacon &amp; Sakura Ebi</div><div class="tc">秘製三重芝士煙肉櫻花蝦粗管通粉</div></li>
+            <li><div class="en" data-edit="t71" data-edit-label="Text: Seafood Rigatoni, Tomato Prawn Sauce">Seafood Rigatoni, Tomato Prawn Sauce</div><div class="tc">自家蕃茄蝦汁海鮮粗管通粉</div></li>
           </ul>
         </div>
         <div class="mnote">
           <span>※</span>
-          <span><xen>Preorder 3 working days in advance is required.</xen><xzh>到會套餐需於 3 個工作天前預訂。</xzh></span>
+          <span><xen data-edit="t72" data-edit-label="Text (EN): Preorder 3 working days in advance is …">Preorder 3 working days in advance is required.</xen><xzh>到會套餐需於 3 個工作天前預訂。</xzh></span>
         </div>
         <div class="dinein">
-          <h3><xen>In the room</xen><xzh>堂食</xzh></h3>
-          <p><xen>Dine-in is the pasta and burger list proper: the charcoal bun beef burger with Thai green curry sauce, Thai burgers, spicy beef, crab rigatoni, grilled halibut, roasted cauliflower, and a jasmine tea gin cocktail from the drinks list. Prices at the counter, seats inside and out.</xen><xzh>堂食是意粉與漢堡的正場：泰式青咖喱醬炭黑包牛肉漢堡、泰式漢堡、香辣牛肉、蟹肉粗管通粉、香煎比目魚、烤椰菜花，酒單上還有茉莉花茶氈酒。價錢請到店查詢，店內店外均設座位。</xzh></p>
+          <h3><xen data-edit="t73" data-edit-label="Text (EN): In the room">In the room</xen><xzh>堂食</xzh></h3>
+          <p><xen data-edit="t74" data-edit-label="Text (EN): Dine-in is the pasta and burger list p…">Dine-in is the pasta and burger list proper: the charcoal bun beef burger with Thai green curry sauce, Thai burgers, spicy beef, crab rigatoni, grilled halibut, roasted cauliflower, and a jasmine tea gin cocktail from the drinks list. Prices at the counter, seats inside and out.</xen><xzh>堂食是意粉與漢堡的正場：泰式青咖喱醬炭黑包牛肉漢堡、泰式漢堡、香辣牛肉、蟹肉粗管通粉、香煎比目魚、烤椰菜花，酒單上還有茉莉花茶氈酒。價錢請到店查詢，店內店外均設座位。</xzh></p>
         </div>
       </div>
     </div>
@@ -432,23 +469,23 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ REVIEWS ============ -->
 <section class="sec rev grain" id="reviews">
   <div class="wrap">
-    <p class="overline"><xen>Reviews</xen><xzh>食客評價</xzh></p>
-    <h2><xen>What the room says</xen><xzh>食客怎樣說</xzh></h2>
+    <p class="overline"><xen data-edit="t75" data-edit-label="Text (EN): Reviews">Reviews</xen><xzh>食客評價</xzh></p>
+    <h2><xen data-edit="t76" data-edit-label="Text (EN): What the room says">What the room says</xen><xzh>食客怎樣說</xzh></h2>
     <div class="rgrid">
       <blockquote class="quote">
         <div class="mark">“</div>
-        <p>Ordered beef burger with seaweed sauce and caramelised onions. It is amazing! The beef is juicy and the sauce is unexpected.</p>
-        <footer><cite>Lee Sadako</cite><small><xen>Google review</xen><xzh>Google 評論</xzh></small></footer>
+        <p data-edit="t77" data-edit-label="Text: Ordered beef burger with seaweed sauce…">Ordered beef burger with seaweed sauce and caramelised onions. It is amazing! The beef is juicy and the sauce is unexpected.</p>
+        <footer><cite data-edit="t78" data-edit-label="Credit: Lee Sadako">Lee Sadako</cite><small><xen data-edit="t79" data-edit-label="Text (EN): Google review">Google review</xen><xzh>Google 評論</xzh></small></footer>
       </blockquote>
       <blockquote class="quote">
         <div class="mark">“</div>
-        <p>Nice people fronting the restaurant, kind to tourists and great at recommending food choices. I had the crab rigatoni.</p>
-        <footer><cite>Jamie W</cite><small><xen>Google review</xen><xzh>Google 評論</xzh></small></footer>
+        <p data-edit="t80" data-edit-label="Text: Nice people fronting the restaurant, k…">Nice people fronting the restaurant, kind to tourists and great at recommending food choices. I had the crab rigatoni.</p>
+        <footer><cite data-edit="t81" data-edit-label="Credit: Jamie W">Jamie W</cite><small><xen data-edit="t82" data-edit-label="Text (EN): Google review">Google review</xen><xzh>Google 評論</xzh></small></footer>
       </blockquote>
       <div class="rate">
-        <div class="big">4.7</div>
+        <div class="big" data-edit="t83" data-edit-label="Text: 4.7">4.7</div>
         <div class="star">★★★★★</div>
-        <p><xen>out of 5 · 165 Google reviews</xen><xzh>滿分 5 · 165 則 Google 評論</xzh></p>
+        <p><xen data-edit="t84" data-edit-label="Text (EN): out of 5 · 165 Google reviews">out of 5 · 165 Google reviews</xen><xzh>滿分 5 · 165 則 Google 評論</xzh></p>
       </div>
     </div>
   </div>
@@ -458,39 +495,39 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <section class="sec book grain" id="book">
   <div class="wrap bgrid">
     <div>
-      <p class="overline"><xen>Book direct</xen><xzh>直接訂位</xzh></p>
-      <h2><xen>Their line is WhatsApp. So book on WhatsApp.</xen><xzh>他們用 WhatsApp，訂位就用 WhatsApp。</xzh></h2>
-      <p class="lead"><xen>Their number is a mobile, and their own Instagram bio says it plainly: contact by WhatsApp. Fill in the form and the button opens WhatsApp with your booking already written out. The kitchen confirms by replying. Prefer writing at length? Their inbox is real too.</xen><xzh>他們的電話是手提號碼，Instagram 簡介亦寫得清楚：請以 WhatsApp 聯絡。填好表格，按鈕便會開啟 WhatsApp，訂位資料已替你寫好，店家回覆即確認。想詳細寫清楚？他們的電郵同樣真實可用。</xzh></p>
+      <p class="overline"><xen data-edit="t85" data-edit-label="Text (EN): Book direct">Book direct</xen><xzh>直接訂位</xzh></p>
+      <h2><xen data-edit="t86" data-edit-label="Text (EN): Their line is WhatsApp. So book on Wha…">Their line is WhatsApp. So book on WhatsApp.</xen><xzh>他們用 WhatsApp，訂位就用 WhatsApp。</xzh></h2>
+      <p class="lead"><xen data-edit="t87" data-edit-label="Text (EN): Their number is a mobile, and their ow…">Their number is a mobile, and their own Instagram bio says it plainly: contact by WhatsApp. Fill in the form and the button opens WhatsApp with your booking already written out. The kitchen confirms by replying. Prefer writing at length? Their inbox is real too.</xen><xzh>他們的電話是手提號碼，Instagram 簡介亦寫得清楚：請以 WhatsApp 聯絡。填好表格，按鈕便會開啟 WhatsApp，訂位資料已替你寫好，店家回覆即確認。想詳細寫清楚？他們的電郵同樣真實可用。</xzh></p>
       <div class="phone">
-        <span><xen>WhatsApp · mobile</xen><xzh>WhatsApp · 手提電話</xzh></span>
-        <a class="tel" href="tel:+85298521144">+852 9852 1144</a>
+        <span><xen data-edit="t88" data-edit-label="Text (EN): WhatsApp · mobile">WhatsApp · mobile</xen><xzh>WhatsApp · 手提電話</xzh></span>
+        <a class="tel" href="tel:+85298521144" data-edit="t89" data-edit-label="Button / link: +852 9852 1144">+852 9852 1144</a>
       </div>
       <div class="phone eml">
-        <span><xen>Email</xen><xzh>電郵</xzh></span>
-        <a class="tel mailto" href="mailto:hohoneatery@gmail.com">hohoneatery@gmail.com</a>
+        <span><xen data-edit="t90" data-edit-label="Text (EN): Email">Email</xen><xzh>電郵</xzh></span>
+        <a class="tel mailto" href="mailto:hohoneatery@gmail.com" data-edit="t91" data-edit-label="Button / link: hohoneatery@gmail.com">hohoneatery@gmail.com</a>
       </div>
-      <p class="hint"><xen>Closed Mondays. Private dining and catering sets: mention it in your message.</xen><xzh>逢星期一休息。私人包場或到會套餐，請在訊息中註明。</xzh></p>
+      <p class="hint"><xen data-edit="t92" data-edit-label="Text (EN): Closed Mondays. Private dining and cat…">Closed Mondays. Private dining and catering sets: mention it in your message.</xen><xzh>逢星期一休息。私人包場或到會套餐，請在訊息中註明。</xzh></p>
     </div>
     <form class="bform" id="bookForm" autocomplete="on">
       <div class="frow one">
         <div>
-          <label for="bname"><xen>Name</xen><xzh>姓名</xzh></label>
+          <label for="bname"><xen data-edit="t93" data-edit-label="Text (EN): Name">Name</xen><xzh>姓名</xzh></label>
           <input id="bname" name="name" type="text" aria-label="Name">
         </div>
       </div>
       <div class="frow">
         <div>
-          <label for="bdate"><xen>Date</xen><xzh>日期</xzh></label>
+          <label for="bdate"><xen data-edit="t94" data-edit-label="Text (EN): Date">Date</xen><xzh>日期</xzh></label>
           <input id="bdate" name="date" type="date" aria-label="Date">
         </div>
         <div>
-          <label for="btime"><xen>Time</xen><xzh>時間</xzh></label>
+          <label for="btime"><xen data-edit="t95" data-edit-label="Text (EN): Time">Time</xen><xzh>時間</xzh></label>
           <input id="btime" name="time" type="time" aria-label="Time">
         </div>
       </div>
       <div class="frow one">
         <div>
-          <label for="bparty"><xen>Party size</xen><xzh>人數</xzh></label>
+          <label for="bparty"><xen data-edit="t96" data-edit-label="Text (EN): Party size">Party size</xen><xzh>人數</xzh></label>
           <select id="bparty" name="party" aria-label="Party size">
             <option value="2" selected>2</option>
             <option value="1">1</option>
@@ -506,13 +543,13 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
       </div>
       <button class="wabtn" type="submit">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
-        <xen>Open WhatsApp with your booking</xen><xzh>開啟 WhatsApp 傳送訂位資料</xzh>
+        <xen data-edit="t97" data-edit-label="Text (EN): Open WhatsApp with your booking">Open WhatsApp with your booking</xen><xzh>開啟 WhatsApp 傳送訂位資料</xzh>
       </button>
       <button class="mailbtn" type="button" id="mailBtn">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
-        <xen>Send the same by email</xen><xzh>改以電郵傳送</xzh>
+        <xen data-edit="t98" data-edit-label="Text (EN): Send the same by email">Send the same by email</xen><xzh>改以電郵傳送</xzh>
       </button>
-      <p class="fine"><xen>No app forms, no middleman: the message goes straight to their own WhatsApp line or inbox.</xen><xzh>沒有中介、沒有預訂平台：訊息直接送到他們自己的 WhatsApp 或電郵。</xzh></p>
+      <p class="fine"><xen data-edit="t99" data-edit-label="Text (EN): No app forms, no middleman: the messag…">No app forms, no middleman: the message goes straight to their own WhatsApp line or inbox.</xen><xzh>沒有中介、沒有預訂平台：訊息直接送到他們自己的 WhatsApp 或電郵。</xzh></p>
     </form>
   </div>
 </section>
@@ -521,32 +558,32 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <section class="sec visit grain" id="visit">
   <div class="wrap vgrid">
     <div>
-      <p class="overline"><xen>Visit</xen><xzh>到訪</xzh></p>
-      <h2><xen>Find the teal sign</xen><xzh>認住藍綠色招牌</xzh></h2>
+      <p class="overline"><xen data-edit="t100" data-edit-label="Text (EN): Visit">Visit</xen><xzh>到訪</xzh></p>
+      <h2><xen data-edit="t101" data-edit-label="Text (EN): Find the teal sign">Find the teal sign</xen><xzh>認住藍綠色招牌</xzh></h2>
       <div class="vrow">
-        <span class="lab"><xen>Address</xen><xzh>地址</xzh></span>
-        <div class="val"><span class="addr">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun</span><small><xen>3 minutes from the HKU exit, at the western end of Sai Ying Pun</xen><xzh>距港大站出口步行 3 分鐘，西營盤西端</xzh></small></div>
+        <span class="lab"><xen data-edit="t102" data-edit-label="Text (EN): Address">Address</xen><xzh>地址</xzh></span>
+        <div class="val"><span class="addr" data-edit="t103" data-edit-label="Text: Shop 3, 419M Queen's Rd West, Sai Wan,…">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun</span><small><xen data-edit="t104" data-edit-label="Text (EN): 3 minutes from the HKU exit, at the we…">3 minutes from the HKU exit, at the western end of Sai Ying Pun</xen><xzh>距港大站出口步行 3 分鐘，西營盤西端</xzh></small></div>
       </div>
       <div class="vrow">
-        <span class="lab"><xen>Tue to Sun</xen><xzh>星期二至日</xzh></span>
-        <div class="val"><b class="hr"><xen>12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh></b>&nbsp;·&nbsp;<b class="hr"><xen>18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></b></div>
+        <span class="lab"><xen data-edit="t105" data-edit-label="Text (EN): Tue to Sun">Tue to Sun</xen><xzh>星期二至日</xzh></span>
+        <div class="val"><b class="hr"><xen data-edit="t106" data-edit-label="Text (EN): 12:00 to 16:00">12:00 to 16:00</xen><xzh>12:00 至 16:00</xzh></b>&nbsp;·&nbsp;<b class="hr"><xen data-edit="t107" data-edit-label="Text (EN): 18:00 to 21:30">18:00 to 21:30</xen><xzh>18:00 至 21:30</xzh></b></div>
       </div>
       <div class="vrow closed">
-        <span class="lab"><xen>Monday</xen><xzh>星期一</xzh></span>
-        <div class="val"><b class="hr"><xen>Closed</xen><xzh>休息</xzh></b></div>
+        <span class="lab"><xen data-edit="t108" data-edit-label="Text (EN): Monday">Monday</xen><xzh>星期一</xzh></span>
+        <div class="val"><b class="hr"><xen data-edit="t109" data-edit-label="Text (EN): Closed">Closed</xen><xzh>休息</xzh></b></div>
       </div>
       <div class="vrow">
-        <span class="lab"><xen>Phone</xen><xzh>電話</xzh></span>
-        <div class="val"><a class="tel hr" href="tel:+85298521144">+852 9852 1144</a></div>
+        <span class="lab"><xen data-edit="t110" data-edit-label="Text (EN): Phone">Phone</xen><xzh>電話</xzh></span>
+        <div class="val"><a class="tel hr" href="tel:+85298521144" data-edit="t111" data-edit-label="Button / link: +852 9852 1144">+852 9852 1144</a></div>
       </div>
       <div class="vrow">
-        <span class="lab"><xen>Email</xen><xzh>電郵</xzh></span>
-        <div class="val"><a class="eml hr" href="mailto:hohoneatery@gmail.com">hohoneatery@gmail.com</a></div>
+        <span class="lab"><xen data-edit="t112" data-edit-label="Text (EN): Email">Email</xen><xzh>電郵</xzh></span>
+        <div class="val"><a class="eml hr" href="mailto:hohoneatery@gmail.com" data-edit="t113" data-edit-label="Button / link: hohoneatery@gmail.com">hohoneatery@gmail.com</a></div>
       </div>
       <div class="vbtns">
         <a class="pill solid" href="https://maps.google.com/?cid=12783640006363385647" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
-          <xen>Open in Google Maps</xen><xzh>在 Google 地圖開啟</xzh>
+          <xen data-edit="t114" data-edit-label="Text (EN): Open in Google Maps">Open in Google Maps</xen><xzh>在 Google 地圖開啟</xzh>
         </a>
         <a class="pill" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
@@ -564,10 +601,10 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
     </div>
     <div class="vcol">
       <figure class="frame">
-        <div class="ph"><img src="img/01.jpg?v=b64d4b32" alt="The teal painted fascia and HOHON EATERY sign on Queen's Road West"></div>
+        <div class="ph"><img src="img/01.jpg?v=7fa88efe" alt="The teal painted fascia and HOHON EATERY sign on Queen's Road West"></div>
       </figure>
-      <figcaption><xen>Their own sign, their own paint: this teal is the one this page borrows.</xen><xzh>他們自己的招牌、自己的油漆：本頁的藍綠色正是取自這裏。</xzh></figcaption>
-      <div class="vtile"><xen><b>Good to know:</b> there are seats inside and out, and for Friday and weekend dinners a WhatsApp message ahead is the safe move.</xen><xzh><b>小提示：</b>店內店外均設座位，星期五及周末晚市最好先以 WhatsApp 留位。</xzh></div>
+      <figcaption><xen data-edit="t115" data-edit-label="Text (EN): Their own sign, their own paint: this …">Their own sign, their own paint: this teal is the one this page borrows.</xen><xzh>他們自己的招牌、自己的油漆：本頁的藍綠色正是取自這裏。</xzh></figcaption>
+      <div class="vtile"><xen><b data-edit="t116" data-edit-label="Text: Good to know:">Good to know:</b> there are seats inside and out, and for Friday and weekend dinners a WhatsApp message ahead is the safe move.</xen><xzh><b>小提示：</b>店內店外均設座位，星期五及周末晚市最好先以 WhatsApp 留位。</xzh></div>
     </div>
   </div>
 </section>
@@ -575,22 +612,22 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
   <div class="wrap frow2">
-    <div class="fbrand">HOHON EATERY</div>
-    <div class="addr">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun, Hong Kong</div>
+    <div class="fbrand" data-edit="t117" data-edit-label="Text: HOHON EATERY">HOHON EATERY</div>
+    <div class="addr" data-edit="t118" data-edit-label="Text: Shop 3, 419M Queen's Rd West, Sai Wan,…">Shop 3, 419M Queen's Rd West, Sai Wan, Sai Ying Pun, Hong Kong</div>
     <div>
-      <a class="igl" href="https://www.instagram.com/hohoneatery" target="_blank" rel="noopener">@hohoneatery</a>
+      <a class="igl" href="https://www.instagram.com/hohoneatery" target="_blank" rel="noopener" data-edit="t119" data-edit-label="Button / link: @hohoneatery">@hohoneatery</a>
       &nbsp;·&nbsp;
-      <a class="igl" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener">Facebook</a>
+      <a class="igl" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener" data-edit="t120" data-edit-label="Button / link: Facebook">Facebook</a>
     </div>
   </div>
 </footer>
 
 <!-- ============ STICKY BAR (phones) ============ -->
 <div class="bar" role="navigation" aria-label="Quick actions">
-  <div class="bmini"><b>HOHON</b><span><xen>Sai Wan · HK</xen><xzh>西環</xzh></span></div>
+  <div class="bmini"><b data-edit="t121" data-edit-label="Text: HOHON">HOHON</b><span><xen data-edit="t122" data-edit-label="Text (EN): Sai Wan · HK">Sai Wan · HK</xen><xzh>西環</xzh></span></div>
   <a class="bwa" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.4-.7-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.7 1.6.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
-    <xen>WhatsApp</xen><xzh>WhatsApp 訂位</xzh>
+    <xen data-edit="t123" data-edit-label="Text (EN): WhatsApp">WhatsApp</xen><xzh>WhatsApp 訂位</xzh>
   </a>
   <a class="brd" href="https://www.facebook.com/hohoneatery" target="_blank" rel="noopener" aria-label="Facebook, HoHon Eatery">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.7V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V14h2.7v8h3.4z"/></svg>
