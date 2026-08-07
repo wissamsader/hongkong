@@ -47,37 +47,13 @@ section{position:relative}
 /* ---------- hero: one full-bleed photograph, the type is the composition ---------- */
 header.hero{position:relative;overflow:hidden;background:var(--ink);min-height:clamp(600px,92svh,820px);max-height:860px}
 .hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:29% 46%}
-header.hero{background:radial-gradient(78% 62% at 50% 40%,#26706d 0%,#1E5B59 46%,#123736 100%)}
-header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(8,20,18,.30) 0%,rgba(8,20,18,0) 22%,rgba(8,20,18,0) 62%,rgba(8,20,18,.42) 100%)}
+header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,25,23,.55) 0%,rgba(10,25,23,.16) 26%,rgba(8,20,18,.04) 50%,rgba(8,20,18,.40) 100%)}
 .htop{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:24px clamp(16px,2.4vw,34px)}
 .bookbox{border:1px solid rgba(244,237,219,.92);color:var(--cream);padding:13px 22px;font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(10,25,23,.18);transition:background .2s,color .2s;white-space:nowrap}
 .bookbox:hover{background:var(--cream);color:var(--ink)}
 .haddr{flex:1;text-align:center;font-size:13px;font-weight:600;letter-spacing:.13em;color:var(--cream);opacity:.94;min-width:0}
 .langchip{background:rgba(10,25,23,.18);border:1px solid rgba(244,237,219,.6);color:var(--cream);border-radius:3px;padding:12px 16px;font-size:12.5px;font-weight:700;letter-spacing:.14em;cursor:pointer;transition:background .2s,color .2s}
 .langchip:hover{background:var(--cream);color:var(--ink)}
-/* ---------- scroll-assembled burger ----------
-   Five cut-out layers of their own charcoal-bun chicken burger. At rest it is one tight,
-   assembled burger. Scrolling pulls the layers apart and scrolling back closes it again, and
-   the whole stack breathes on a slow idle so the hero is alive before anyone touches the wheel.
-   Separation is driven by --sep from a tiny inline scroll handler (no library): the CSS-only
-   animation-timeline version rendered as a dead still image in his browser. */
-.stack{position:absolute;left:50%;top:50%;translate:-50% -54%;z-index:4;
-  width:min(44vw,420px);aspect-ratio:1/1.12;pointer-events:none;
-  filter:drop-shadow(0 40px 54px rgba(0,0,0,.46));
-  animation:bob 11s ease-in-out infinite}
-.ly{position:absolute;left:50%;width:100%;height:auto;display:block;
-  transform:translate(-50%,var(--sep,0px))}
-.ly1{top:0;width:98%}
-.ly2{top:28%;width:92%}
-.ly3{top:41%;width:88%}
-.ly4{top:55%;width:96%}
-.ly5{top:68%;width:80%}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@media (prefers-reduced-motion:reduce){.stack{animation:none}}
-@media (max-width:820px){
-  .stack{width:min(70vw,340px)}
-  }
-
 .hbottom{position:absolute;left:0;right:0;bottom:0;z-index:2;
   padding:0 clamp(26px,4.6vw,76px) clamp(22px,3.2vw,48px)}
 h1.hword{margin:0;line-height:0}
@@ -280,13 +256,7 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 
 <!-- ============ HERO: full-bleed photograph, wordmark bleeding off both edges ============ -->
 <header class="hero" id="top">
-  <div class="stack" aria-hidden="true">
-    <img class="ly ly1" src="img/10.webp?v=4e2540f1" alt="">
-    <img class="ly ly2" src="img/11.webp?v=47c412ef" alt="">
-    <img class="ly ly3" src="img/12.webp?v=49a72d9e" alt="">
-    <img class="ly ly4" src="img/13.webp?v=1a9b2020" alt="">
-    <img class="ly ly5" src="img/14.webp?v=e588cc69" alt="">
-  </div>
+  <img class="hbg" src="img/07.jpg?v=e7254b81" alt="The charcoal bun fried chicken burger with crinkle-cut fries, on HoHon Eatery's own table">
   <div class="htop">
     <a class="bookbox" href="https://wa.me/85298521144?text=Hello%20HoHon%20Eatery%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener"><xen data-edit="t1" data-edit-label="Text (EN): Book a table">Book a table</xen><xzh>訂位</xzh></a>
     <p class="haddr" data-edit="t2" data-edit-label="Text: Shop 3, 419M Queen's Rd West · Sai Wan…">Shop 3, 419M Queen's Rd West · Sai Wan, Hong Kong</p>
@@ -633,27 +603,6 @@ footer.foot{background:#0D2C2B;color:var(--ice);padding:40px 0 46px;font-size:13
 <script>
 (function(){
   var root=document.documentElement;
-
-  /* hero burger: layers pull apart as the hero scrolls, and close again on the way back up. */
-  var stack=document.querySelector('.stack');
-  if(stack&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
-    var lys=Array.prototype.slice.call(stack.querySelectorAll('.ly')),
-        amp=[-1,-0.42,0,0.44,1], queued=false;
-    var place=function(){
-      queued=false;
-      var span=Math.max(240,window.innerHeight*0.62),
-          y=window.pageYOffset||root.scrollTop||0,
-          p=Math.min(1,Math.max(0,y/span)),
-          e=p*p*(3-2*p), reach=Math.min(132,window.innerHeight*0.16);
-      for(var i=0;i<lys.length;i++){
-        lys[i].style.setProperty('--sep',(amp[i]*e*reach).toFixed(1)+'px');
-      }
-    };
-    var queue=function(){ if(!queued){queued=true;requestAnimationFrame(place);} };
-    addEventListener('scroll',queue,{passive:true});
-    addEventListener('resize',queue,{passive:true});
-    place();
-  }
   var btn=document.getElementById('langBtn');
   var lab=document.getElementById('langLabel');
   btn.addEventListener('click',function(){
