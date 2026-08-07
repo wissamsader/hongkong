@@ -100,10 +100,8 @@ html[data-lang="zh"] .ce{display:none}
   min-height:clamp(680px,98svh,900px);max-height:960px;
   display:flex;flex-direction:column;overflow:hidden}
 /* the cut out sparks, pure CSS, no drawn objects: they are punctuation, not props */
-.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;
-  background:var(--cream);opacity:.9;pointer-events:none}
-.hero::before{width:14px;height:14px;left:12%;top:26%}
-.hero::after{width:9px;height:9px;right:15%;top:62%}
+/* the reference throws cut-out sparks around its wordmark. Two lone dots read as stray marks,
+   so they are gone: the sticker wordmark carries the hero on its own. */
 .hero-in{order:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:clamp(52px,7vw,92px) clamp(20px,5vw,64px) 0;position:relative;z-index:2}
 .hk2{font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:rgba(23,15,12,.72);
@@ -200,6 +198,10 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
   font-size:14px;letter-spacing:.06em;color:var(--cream)}
 .set p{margin-top:10px;font-size:14px;color:rgba(239,224,203,.78)}
 .menuph{margin-top:clamp(32px,4vw,52px);max-width:520px}
+/* the photo and the closing note share the width so the right half is not left empty */
+.menuph{float:left;margin-right:clamp(24px,3vw,44px)}
+.hint{overflow:hidden}
+@media (max-width:760px){.menuph{float:none;margin-right:0;max-width:none}}
 .menuph img{aspect-ratio:3/4}
 .hint{margin-top:20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
   color:rgba(239,224,203,.6);max-width:40em}
@@ -280,15 +282,18 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
 .bar .bc{background:var(--red);color:var(--cream);font-weight:700}
 @media (min-width:901px){.bar{display:none}}
 
+.card.c1,.card.c2,.card.c3{background:var(--cream)}
+.mcol{min-width:0}
+.bar .b2,.bar .b3{color:var(--cream)}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 <style data-fx-orn>
 /* gate 20 living ornament: the two cut-out sparks breathe, nothing else moves. */
-@keyframes sparkA{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.16);opacity:1}}
-@keyframes sparkB{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.22);opacity:.95}}
-.hero::before{animation:sparkA 9s ease-in-out infinite}
-.hero::after{animation:sparkB 11s ease-in-out infinite}
-@media (prefers-reduced-motion: reduce){.hero::before,.hero::after{animation:none}}
+/* gate 20 living ornament: the rating star breathes, nothing else moves. */
+@keyframes twinkle{0%,100%{opacity:.85}50%{opacity:1}}
+.trust .st{animation:twinkle 8s ease-in-out infinite;display:inline-block}
+@media (prefers-reduced-motion: reduce){.trust .st{animation:none}}
 </style>
 </head>
 <body>
@@ -309,7 +314,7 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
 <button class="chip" id="chip" type="button"><span class="ce">繁體中文</span><span class="cz" data-edit="t8" data-edit-label="Text: English">English</span></button>
 
 <header class="hero" id="top">
-  <figure class="hero-ph"><img src="img/10.jpg?v=e8d7d33d" alt="The long communal table at NOJO, laid and lit before service"></figure>
+  <figure class="hero-ph"><img src="img/10.jpg?v=834e76be" alt="The long communal table at NOJO, laid and lit before service"></figure>
   <div class="hero-in">
     <p class="k"><xen data-edit="t9" data-edit-label="Text (EN): Central · Hong Kong">Central · Hong Kong</xen><xzh>香港 · 中環</xzh></p>
     <p class="hk2" data-edit="t10" data-edit-label="Text: H CODE · THE STEPS · 45 POTTINGER ST">H CODE · THE STEPS · 45 POTTINGER ST</p>
@@ -347,7 +352,7 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
         <p><xen data-edit="t29" data-edit-label="Text (EN): The kitchen cooks ramen with an izakay…">The kitchen cooks ramen with an izakaya heart and a noticeable Western touch. The soup is made by simmering free-range chicken for eight hours, noodles are lifted to order, and around the bowl sit plates built for sake: sakura shrimp and corn tempura, sake lees fried chicken, kelp and butter fries. The cellar stays small and personal, nine sakes from four family breweries in Fukuoka, Ehime and Yamanashi.</xen><xzh>廚房以居酒屋的心做拉麵，帶一點西式筆觸。湯底以走地雞熬足八小時，麵條即點即煮;碗旁是為清酒而生的小食：櫻花蝦粟米天婦羅、酒粕醃漬炸雞、昆布牛油薯條。酒藏小而個人，九款清酒來自福岡、愛媛、山梨的四間家族酒藏。</xzh></p>
       </div>
       <figure class="frame">
-        <img src="img/11.jpg?v=019927a4" alt="The bar room at NOJO, filament bulbs low over the timber">
+        <img src="img/11.jpg?v=1dda5663" alt="The bar room at NOJO, filament bulbs low over the timber">
         <figcaption class="fcap"><span><xen data-edit="t30" data-edit-label="Text (EN): The bar room, bulbs hung low">The bar room, bulbs hung low</xen><xzh>吧檯，燈泡低垂</xzh></span><span data-edit="t31" data-edit-label="Text: CENTRAL, HK">CENTRAL, HK</span></figcaption>
       </figure>
     </div>
@@ -360,13 +365,13 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
     <h2><xen data-edit="t33" data-edit-label="Text (EN): From the kitchen">From the kitchen</xen><xzh>廚房直送</xzh></h2>
     <div class="cards">
       <article class="card c1">
-        <div class="im"><img src="img/02.jpg?v=50edcda7" alt="Noodles lifted from a bowl of eight-hour chicken broth ramen at NOJO"></div>
+        <div class="im"><img src="img/02.jpg?v=36eea4a1" alt="Noodles lifted from a bowl of eight-hour chicken broth ramen at NOJO"></div>
         <p class="ci" data-edit="t34" data-edit-label="Text: 01">01</p>
         <h3><xen data-edit="t35" data-edit-label="Text (EN): Eight-hour chicken broth ramen">Eight-hour chicken broth ramen</xen><xzh>八小時雞湯拉麵</xzh></h3>
         <p><xen data-edit="t36" data-edit-label="Text (EN): Free-range chicken, simmered for eight…">Free-range chicken, simmered for eight hours</xen><xzh>走地雞，熬足八小時</xzh></p>
       </article>
       <article class="card c2">
-        <div class="im"><img src="img/07.jpg?v=3ab81006" alt="Sake lees fried chicken with green chillies at NOJO"></div>
+        <div class="im"><img src="img/07.jpg?v=02a28d26" alt="Sake lees fried chicken with green chillies at NOJO"></div>
         <p class="ci" data-edit="t37" data-edit-label="Text: 02">02</p>
         <h3><xen data-edit="t38" data-edit-label="Text (EN): Sake lees fried chicken">Sake lees fried chicken</xen><xzh>酒粕醃漬炸雞</xzh></h3>
         <p><xen data-edit="t39" data-edit-label="Text (EN): From the izakaya side of the menu">From the izakaya side of the menu</xen><xzh>居酒屋小食一列</xzh></p>
@@ -463,7 +468,7 @@ h1.big{font-family:var(--disp);font-size:clamp(68px,14.5vw,196px);line-height:.8
       </div>
     </div>
     <figure class="frame menuph">
-      <img src="img/16.jpg?v=65a9a784" alt="The printed NOJO ramen list, photographed on the counter">
+      <img src="img/16.jpg?v=16ac62ee" alt="The printed NOJO ramen list, photographed on the counter">
       <figcaption class="fcap"><span><xen data-edit="t150" data-edit-label="Text (EN): The printed list, as it stands on the …">The printed list, as it stands on the counter</xen><xzh>櫃檯上的印刷酒單</xzh></span><span data-edit="t151" data-edit-label="Text: HKD">HKD</span></figcaption>
     </figure>
     <p class="hint"><xen data-edit="t152" data-edit-label="Text (EN): The kitchen menu is printed in house. …">The kitchen menu is printed in house. For tonight's dishes and prices, ask at the door or call ahead.</xen><xzh>廚房菜單於店內提供。當晚菜式及價格，歡迎到店查詢或致電了解。</xzh></p>
