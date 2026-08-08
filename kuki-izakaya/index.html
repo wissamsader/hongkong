@@ -117,6 +117,15 @@ header#top nav{position:relative;z-index:8;display:flex;align-items:center;gap:2
 .langchip button{background:transparent;border:0;color:var(--red);cursor:pointer;
   font-family:var(--body);font-size:10.5px;letter-spacing:.14em;padding:8px 13px}
 .langchip button.on{background:var(--red);color:var(--paper)}
+@media (max-width:900px){
+  .langchip{top:auto;bottom:calc(var(--frame) + 62px);right:calc(var(--frame) + 12px);
+    box-shadow:0 6px 18px rgba(36,31,28,.14)}
+}
+@media (max-width:420px){
+  header#top nav{gap:12px;padding-bottom:18px}
+  .brand{width:64px;height:64px;font-size:12px}
+  .navlinks-book{padding:11px 18px;font-size:13.5px}
+}
 
 /* ---------- hero: the enormous red wordmark, then the photograph inside the frame ---------- */
 .hero-in{position:static;display:block;max-width:1280px;margin:0 auto;
@@ -140,7 +149,8 @@ header#top nav{position:relative;z-index:8;display:flex;align-items:center;gap:2
 .hero-ph{position:relative;margin:clamp(20px,2.6vw,34px) auto 0;
   max-width:1280px;padding:0 clamp(18px,3.4vw,52px)}
 .hero-ph .inner{display:block;position:relative}
-.hero-ph img{width:100%;height:clamp(340px,54vw,640px);object-fit:cover;filter:none}
+.hero-ph img{width:100%;height:clamp(340px,54vw,640px);object-fit:cover;filter:none;
+  transform-origin:50% 55%;will-change:transform}
 .hero-ph figcaption{position:absolute;left:clamp(30px,4.6vw,70px);bottom:clamp(22px,3vw,42px);
   z-index:3;max-width:26em;background:rgba(28,25,23,.92);color:#F4F1EA;
   padding:clamp(16px,2vw,24px) clamp(18px,2.2vw,26px);font-family:var(--body);
@@ -372,8 +382,8 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,5.4vw,74px) 0 clamp(9
     </div>
 
     <figure class="hero-ph">
-      <span class="inner"><img src="img/01.jpg?v=492cc02f" alt="The room at Kuki Izakaya, tables laid under the posters"></span>
-      <figcaption><xen data-edit="t16" data-edit-label="Text (EN): The counter, most evenings">The counter, most evenings</xen><xzh>吧檯，大部分夜晚的樣子</xzh></figcaption>
+      <span class="inner"><img src="img/01.jpg?v=6c7f039b" alt="Noodles lifted from the bowl at Kuki Izakaya"></span>
+      <figcaption><xen data-edit="t16" data-edit-label="Text (EN): Lifted to order, at the counter">Lifted to order, at the counter</xen><xzh>即叫即撈，就在吧檯</xzh></figcaption>
     </figure>
   </div>
   <span class="scrolldn" aria-hidden="true"><xen data-edit="t17" data-edit-label="Text (EN): Scroll">Scroll</xen><xzh>往下</xzh></span>
@@ -399,7 +409,7 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,5.4vw,74px) 0 clamp(9
         </div>
       </div>
       <figure class="frame story-ph">
-        <span class="ph"><img src="img/02.jpg?v=74efe93a" alt="The Kuki Izakaya shopfront on High Street at night, red lanterns lit"></span>
+        <span class="ph"><img src="img/02.jpg?v=a7512bdb" alt="The Kuki Izakaya shopfront on High Street at night, red lanterns lit"></span>
         <figcaption class="cap"><span><xen data-edit="t27" data-edit-label="Text (EN): 80-86 High St, Sai Ying Pun">80-86 High St, Sai Ying Pun</xen><xzh>西營盤高街 80-86 號</xzh></span><span data-edit="t28" data-edit-label="Text: 01">01</span></figcaption>
       </figure>
     </div>
@@ -418,17 +428,17 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,5.4vw,74px) 0 clamp(9
     </div>
     <div class="cards">
       <figure class="card">
-        <span class="ph"><img src="img/03.jpg?v=8fa1b61b" alt="A yakitori skewer held over the dipping egg at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/03.jpg?v=64b9d3c2" alt="A yakitori skewer held over the dipping egg at Kuki Izakaya"></span>
         <h3><xen data-edit="t31" data-edit-label="Text (EN): Yakitori, stick by stick">Yakitori, stick by stick</xen><xzh>燒鳥，一串一串</xzh></h3>
         <p><xen data-edit="t32" data-edit-label="Text (EN): A wide range of skewers spanning 19 cu…">A wide range of skewers spanning 19 cuts, grilled to order.</xen><xzh>19 款部位任你揀，即叫即燒。</xzh></p>
       </figure>
       <figure class="card">
-        <span class="ph"><img src="img/04.jpg?v=62597ecf" alt="A sashimi platter on the wooden board at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/04.jpg?v=b4a1aec5" alt="A sashimi platter on the wooden board at Kuki Izakaya"></span>
         <h3><xen data-edit="t33" data-edit-label="Text (EN): Fresh sashimi">Fresh sashimi</xen><xzh>新鮮刺身</xzh></h3>
         <p><xen data-edit="t34" data-edit-label="Text (EN): Sashimi and chirashi, the fresh side o…">Sashimi and chirashi, the fresh side of the counter.</xen><xzh>刺身與散壽司，檯面上最鮮的一邊。</xzh></p>
       </figure>
       <figure class="card">
-        <span class="ph"><img src="img/08.jpg?v=d8118985" alt="A grilled scallop in its shell at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/08.jpg?v=380d7cd8" alt="A grilled scallop in its shell at Kuki Izakaya"></span>
         <h3><xen data-edit="t35" data-edit-label="Text (EN): Small bites">Small bites</xen><xzh>小皿料理</xzh></h3>
         <p><xen data-edit="t36" data-edit-label="Text (EN): A good variety of small bites, made fo…">A good variety of small bites, made for a long evening.</xen><xzh>多款下酒小食，陪你慢慢圍爐。</xzh></p>
       </figure>
@@ -496,7 +506,7 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,5.4vw,74px) 0 clamp(9
         </div>
       </div>
       <figure class="frame chartpanel">
-        <span class="ph"><img src="img/20.jpg?v=33c61538" alt="The Kuki Izakaya illustrated yakitori chart with prices"></span>
+        <span class="ph"><img src="img/20.jpg?v=a7e45bcd" alt="The Kuki Izakaya illustrated yakitori chart with prices"></span>
         <figcaption><xen data-edit="t87" data-edit-label="Text (EN): The house chart, as printed">The house chart, as printed</xen><xzh>店內原版圖鑑</xzh></figcaption>
       </figure>
     </div>
@@ -841,6 +851,37 @@ function updateBooking(){
   addEventListener('scroll', queue, {passive:true});
   addEventListener('resize', queue, {passive:true});
   paint();
+
+  /* --- the photographs, the reference's other scroll move ---------------- */
+  var figs = [].slice.call(document.querySelectorAll('.hero-ph, .frame, .ph'))
+                .map(function(f){ return {f:f, img:f.querySelector('img'),
+                                          cap:f.querySelector('figcaption')}; })
+                .filter(function(o){ return o.img; });
+  function shots(){
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    figs.forEach(function(o){
+      var r = o.f.getBoundingClientRect();
+      if(r.bottom < -120 || r.top > vh + 120) return;
+      var p = (vh - r.top) / (vh * 0.85);
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      var e = p * p * (3 - 2 * p);
+      o.img.style.transform = 'scale(' + (1.09 - 0.09 * e).toFixed(4) + ')';
+      if(o.cap){
+        o.cap.style.opacity = e;
+        o.cap.style.transform = 'translate3d(0,' + ((1 - e) * 22).toFixed(1) + 'px,0)';
+      }
+    });
+    sq = false;
+  }
+  var sq = false;
+  function squeue(){ if(!sq){ sq = true; requestAnimationFrame(shots); } }
+  figs.forEach(function(o){
+    o.img.style.transform = 'scale(1.09)';
+    if(o.cap){ o.cap.style.opacity = 0; }
+  });
+  addEventListener('scroll', squeue, {passive:true});
+  addEventListener('resize', squeue, {passive:true});
+  shots();
 })();
 </script>
 </body>
