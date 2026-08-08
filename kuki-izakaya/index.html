@@ -9,296 +9,322 @@
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%23b0371f"/><text x="32" y="46" font-size="40" text-anchor="middle" fill="%23f6e8d2" font-family="serif">九</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Bitter:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================================
    Kuki Izakaya, Sai Ying Pun.
-   Reference: awwwards.com, Moncalisse (moncalisse.com/en).
-   What is taken: a near black page, ONE cinematic photograph running full bleed
-   and darkened almost into the field so the type sits straight on it, and all
-   chrome stripped back to hairlines and small wide tracked capitals. Nothing
-   competes with the picture. Nothing on this page moves on scroll.
-   Photography: their own Instagram, @kukiizakaya (gate 32). See REFERENCES.md.
+   Reference: damaria-roma.webflow.io (Da Maria, Roma), studied 2026-08-09.
+   Taken from it: a warm paper field, ONE red carrying every heading, badge and
+   rule, a hairline red frame drawn inset around the whole page, a circular red
+   badge top left and an outlined pill top right, section headings set enormous
+   in a high contrast serif, photographs run full width inside the frame with a
+   dark caption block laid over the lower left, and the booking call to action
+   as a solid red panel.
+   Its type pairing too: Playfair Display for display, Bitter for body.
+   THE SCROLL ANIMATION: the reference uses GSAP SplitText + ScrollTrigger +
+   Lenis. Those are on his banned list (gate 20) and a library is not needed:
+   the same effect is one small inline script that wraps each character and
+   scrubs opacity plus a small x drift against scroll progress. See the script
+   at the end of the document.
+   Photography: their own Instagram, @kukiizakaya (gate 32).
    ========================================================================= */
 :root{
-  --bg:#0B0A09;
-  --bg2:#121110;
-  --panel:#171514;
-  --ink:#F3EDE4;
-  --mut:#A79C8E;
-  --dim:#9A8F81;
-  --red:#B8301F;      /* their lantern red */
-  --red2:#E0574A;     /* the same red, lifted for text on near black */
-  --amber:#D9A05B;
-  --line:rgba(243,237,228,.14);
-  --disp:'Shippori Mincho','Noto Serif TC',Georgia,serif;
-  --body:'Zen Kaku Gothic New','Noto Sans TC',system-ui,sans-serif;
+  --paper:#F2EFE7;
+  --paper2:#EAE5DA;
+  --panel:#FBF9F4;
+  --red:#C43A34;          /* the one colour, from the reference, pulled to their lantern red */
+  --red2:#A62B26;
+  --ink:#241F1C;
+  --mut:#5C544D;
+  --dim:#6A6259;
+  --line:rgba(196,58,52,.34);
+  --line2:rgba(36,31,28,.16);
+  --disp:'Playfair Display',Georgia,serif;
+  --body:'Bitter',Georgia,serif;
+  --frame:clamp(10px,1.6vw,22px);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:78px}
-body{background:var(--bg);color:var(--mut);font-family:var(--body);font-weight:300;
-  font-size:16.5px;line-height:1.8;overflow-x:clip}
-img{display:block;max-width:100%}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--paper);color:var(--mut);font-family:var(--body);font-weight:300;
+  font-size:16px;line-height:1.75;overflow-x:clip;position:relative;
+  padding:var(--frame)}
+/* the hairline frame the reference draws inset around the whole page */
+body::before{content:"";position:fixed;inset:var(--frame);border:1px solid var(--red);
+  pointer-events:none;z-index:90}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--red);color:var(--ink)}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::selection{background:var(--red);color:var(--paper)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 html[data-lang="en"] xzh,html[lang="en"] xzh{display:none}
 html[data-lang="zh"] xen,html[lang="zh-Hant"] xen{display:none}
 
-.wrap,.inner:not(.hero-ph .inner){max-width:1180px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)}
+.wrap,.inner:not(.hero-ph .inner){max-width:1280px;margin:0 auto;
+  padding-inline:clamp(18px,3.4vw,52px)}
 .hero-ph .inner{max-width:none;margin:0;padding:0}
-section{padding:clamp(78px,9.5vw,140px) 0;position:relative}
-h1,h2,h3,h4{font-family:var(--disp);font-weight:400;color:var(--ink);letter-spacing:.02em}
-h2{font-size:clamp(28px,4vw,52px);line-height:1.14;max-width:15em}
-h3{font-size:20px;line-height:1.3}
-p{font-size:16.5px}
-.kicker{font-family:var(--body);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;
-  color:var(--amber);margin-bottom:16px}
-.lede{margin-top:18px;max-width:34em;color:var(--mut)}
+section{padding:clamp(64px,8vw,120px) 0;position:relative}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:500;color:var(--red);letter-spacing:-.01em}
+h2{font-size:clamp(40px,8.4vw,130px);line-height:.92;text-transform:uppercase}
+h3{font-size:21px;line-height:1.25;color:var(--ink)}
+p{font-size:16px}
+
+/* the small italic serif label the reference uses everywhere */
+.shead,.kicker,.cap,.vk,.hb-kick,.tk2,.ph-num,.of,.who,.ssub-k{
+  font-family:var(--disp);font-style:italic;font-weight:400;font-size:14px;
+  letter-spacing:.01em;color:var(--red);text-transform:none}
+.shead{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.zhtab{font-style:normal;font-family:var(--body);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--dim)}
+.ssub{margin-top:16px;max-width:34em;color:var(--mut)}
 .rule{display:block;height:1px;background:var(--line)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font-family:var(--body);font-size:11.5px;font-weight:400;letter-spacing:.2em;
-  text-transform:uppercase;padding:15px 28px;cursor:pointer;
-  border:1px solid var(--red);background:var(--red);color:var(--ink);transition:background .3s,border-color .3s}
-.btn:hover{background:#9A2818;border-color:#9A2818}
-.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-.btn.ghost:hover{border-color:var(--amber);background:transparent}
+  font-family:var(--body);font-weight:400;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;padding:15px 30px;cursor:pointer;border-radius:100px;
+  border:1px solid var(--red);background:transparent;color:var(--red);
+  transition:background .3s,color .3s}
+.btn:hover{background:var(--red);color:var(--paper)}
+.btn.wa-quick,.btn.wa-send,.btn.nav-book{background:var(--red);color:var(--paper)}
+.btn.wa-quick:hover,.btn.wa-send:hover,.btn.nav-book:hover{background:var(--red2);border-color:var(--red2)}
+.btn.ghost{border-color:var(--line2);color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.ghost.wa-quick,.btn.ghost.wa-send{background:var(--red);color:var(--paper);border-color:var(--red)}
+.btn.ghost.wa-quick:hover,.btn.ghost.wa-send:hover{background:var(--red2);border-color:var(--red2);color:var(--paper)}
 .ic{width:15px;height:15px;flex:0 0 auto}
 
-/* ---------- nav, a hairline over the photograph ---------- */
-header#top{position:relative;min-height:clamp(640px,96svh,900px);max-height:940px;
-  display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
-header#top nav{position:relative;z-index:6;display:flex;align-items:center;gap:26px;
-  max-width:1180px;width:100%;margin:0 auto;padding:22px clamp(20px,5vw,64px)}
-.brand{font-family:var(--disp);font-size:19px;letter-spacing:.16em;color:var(--ink)}
-.brand small{font-size:14px;letter-spacing:.1em;color:var(--amber);margin-left:6px}
-.navlinks{margin-left:auto;display:flex;align-items:center;gap:26px}
-.navlinks a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
-  opacity:.8;transition:opacity .25s}
-.navlinks a:hover{opacity:1}
-.navlinks-book{padding:11px 20px}
-@media (max-width:920px){.navlinks a:not(.navlinks-book){display:none}}
+/* ---------- nav: the circular badge left, the outlined pill right ---------- */
+header#top{position:relative;min-height:auto;max-height:none;display:block;overflow:visible;
+  background:transparent;padding-top:clamp(14px,2vw,26px)}
+header#top::after{display:none}
+header#top nav{position:relative;z-index:8;display:flex;align-items:center;gap:20px;
+  max-width:1280px;margin:0 auto;padding:0 clamp(18px,3.4vw,52px) clamp(22px,3vw,34px)}
+.brand{display:inline-grid;place-items:center;text-align:center;width:clamp(76px,7vw,94px);
+  height:clamp(76px,7vw,94px);border-radius:50%;background:var(--red);color:var(--paper);
+  font-family:var(--disp);font-style:italic;font-size:clamp(13px,1.2vw,16px);line-height:1.05;
+  letter-spacing:.02em;flex:0 0 auto}
+.brand small{display:block;font-size:11px;font-style:normal;opacity:.9;margin-top:2px}
+.navlinks{margin-left:auto;display:flex;align-items:center;gap:clamp(16px,2vw,30px)}
+.navlinks a{font-family:var(--disp);font-style:italic;font-size:15px;color:var(--red)}
+.navlinks a:hover{color:var(--red2)}
+.navlinks-book{border:1px solid var(--red);border-radius:100px;padding:12px 26px;
+  font-family:var(--disp);font-style:italic;font-size:15px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--red);background:transparent}
+.navlinks-book:hover{background:var(--red);color:var(--paper)}
+@media (max-width:900px){.navlinks a:not(.navlinks-book){display:none}}
 
-.langchip{position:absolute;top:78px;right:clamp(20px,5vw,64px);z-index:7;display:flex;
-  border:1px solid var(--line);background:rgba(11,10,9,.6);backdrop-filter:blur(6px)}
-.langchip button{background:transparent;border:0;color:var(--mut);cursor:pointer;
-  font-family:var(--body);font-size:10.5px;letter-spacing:.16em;padding:9px 14px}
-.langchip button.on{background:var(--red);color:var(--ink)}
+.langchip{position:absolute;top:calc(var(--frame) + 12px);right:calc(var(--frame) + 12px);
+  z-index:95;display:flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;
+  background:var(--paper)}
+.langchip button{background:transparent;border:0;color:var(--red);cursor:pointer;
+  font-family:var(--body);font-size:10.5px;letter-spacing:.14em;padding:8px 13px}
+.langchip button.on{background:var(--red);color:var(--paper)}
 
-/* ---------- hero: ONE cinematic photograph, darkened into the field ---------- */
-.hero-ph{position:absolute;inset:0;z-index:0;margin:0}
-.hero-ph .inner{display:block;width:100%;height:100%}
-.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;
-  filter:brightness(.44) saturate(.86)}
-.hero-ph figcaption{position:absolute;right:clamp(20px,5vw,64px);bottom:22px;z-index:5;
-  font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(243,237,228,.5)}
-header#top::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,10,9,.86) 0%,rgba(11,10,9,.42) 30%,
-    rgba(11,10,9,.55) 62%,rgba(11,10,9,.94) 100%)}
-.hero-in{position:static;flex:1;display:flex;align-items:flex-end;
-  max-width:1180px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(46px,6vw,88px)}
+/* ---------- hero: the enormous red wordmark, then the photograph inside the frame ---------- */
+.hero-in{position:static;display:block;max-width:1280px;margin:0 auto;
+  padding:0 clamp(18px,3.4vw,52px) clamp(30px,4vw,52px)}
 .vcol{display:none}
-.hero-copy{position:relative;z-index:5;max-width:38em}
-.hero-copy h1{font-size:clamp(36px,6.4vw,86px);line-height:1.08;letter-spacing:.01em;
-  max-width:13em}
-.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(20px,2.6vw,30px)}
-.chip{display:inline-flex;align-items:center;border:1px solid var(--line);padding:9px 15px;
-  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
-  background:rgba(11,10,9,.42)}
-.chip b{font-weight:500;color:var(--amber)}
-.star{color:var(--red2);margin-right:5px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,2.8vw,32px)}
-.scrolldn{position:absolute;left:50%;translate:-50% 0;bottom:16px;z-index:5;
-  font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:rgba(243,237,228,.42)}
+.hero-copy{max-width:none}
+.hero-copy h1{font-family:var(--disp);font-weight:500;
+  font-size:clamp(34px,6.4vw,104px);line-height:.94;letter-spacing:-.012em;
+  text-transform:uppercase;color:var(--red);max-width:none;
+  border-bottom:1px solid var(--line);padding-bottom:clamp(10px,1.4vw,20px)}
+.kicker{display:block;margin-bottom:14px}
+.lede{margin-top:14px;margin-left:auto;max-width:30em;text-align:right;color:var(--red);
+  font-family:var(--disp);font-style:italic;font-size:clamp(15px,1.5vw,19px)}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,2.2vw,26px)}
+.chip{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:100px;
+  padding:8px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.chip b{font-weight:500}
+.star{color:var(--red);margin-right:5px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.2vw,26px)}
+/* the photograph: full width inside the frame, with the caption block laid over it */
+.hero-ph{position:relative;margin:clamp(20px,2.6vw,34px) auto 0;
+  max-width:1280px;padding:0 clamp(18px,3.4vw,52px)}
+.hero-ph .inner{display:block;position:relative}
+.hero-ph img{width:100%;height:clamp(340px,54vw,640px);object-fit:cover;filter:none}
+.hero-ph figcaption{position:absolute;left:clamp(30px,4.6vw,70px);bottom:clamp(22px,3vw,42px);
+  z-index:3;max-width:26em;background:rgba(28,25,23,.92);color:#F4F1EA;
+  padding:clamp(16px,2vw,24px) clamp(18px,2.2vw,26px);font-family:var(--body);
+  font-size:15px;line-height:1.6;letter-spacing:0;text-transform:none}
+.scrolldn{display:none}
 
 /* ---------- facts ---------- */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
   border-block:1px solid var(--line)}
-.fact{background:var(--bg);padding:clamp(24px,3.2vw,40px) clamp(14px,2vw,24px)}
-.fact .num,.fact b{display:block;font-family:var(--disp);font-size:clamp(26px,3.6vw,46px);
-  line-height:1;color:var(--amber)}
-.fact span,.fact small{display:block;margin-top:10px;font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--dim)}
+.fact{background:var(--paper);padding:clamp(22px,3vw,38px) clamp(14px,2vw,24px)}
+.fact .num,.fact b{display:block;font-family:var(--disp);font-size:clamp(30px,4vw,52px);
+  line-height:1;color:var(--red)}
+.fact span,.fact small{display:block;margin-top:9px;font-family:var(--disp);font-style:italic;
+  font-size:13px;color:var(--dim)}
 @media (max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
 
-/* ---------- contained photographs ---------- */
-.frame,.ph{border:1px solid var(--line);background:var(--panel)}
+/* ---------- photographs ---------- */
+.frame,.ph{border:1px solid var(--line2);background:var(--panel);display:block}
 .frame img,.ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.cap,.frame figcaption,.ph figcaption{padding:11px 13px;border-top:1px solid var(--line);
-  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
 .story-ph img{aspect-ratio:3/4}
+.cap{display:flex;justify-content:space-between;gap:14px;padding:11px 13px;
+  border-top:1px solid var(--line2)}
+
+/* ---------- story ---------- */
+.story-grid{display:grid;grid-template-columns:1.04fr .86fr;gap:clamp(26px,4vw,64px);
+  align-items:start}
+.story-copy p{margin-top:16px;max-width:34em}
+@media (max-width:880px){.story-grid{grid-template-columns:1fr}}
 
 /* ---------- cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px);
-  margin-top:clamp(34px,4.4vw,54px)}
-.card{border:1px solid var(--line);background:var(--bg2)}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.card h3{padding:18px 18px 0}
-.card p{padding:8px 18px 20px;font-size:14.5px;color:var(--dim)}
-@media (max-width:860px){.cards{grid-template-columns:1fr;max-width:440px;margin-inline:auto}}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,28px);
+  margin-top:clamp(30px,4vw,50px)}
+.card{background:transparent}
+.card .ph img{aspect-ratio:1/1}
+.card h3{margin-top:16px;font-family:var(--disp);font-style:italic;font-weight:400;
+  font-size:20px;color:var(--red);text-transform:none}
+.card p{margin-top:7px;font-size:14.5px;color:var(--mut)}
+@media (max-width:860px){.cards{grid-template-columns:1fr;max-width:430px;margin-inline:auto}}
 
-/* ---------- the yakitori chart and menu ---------- */
-.menu-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(28px,4vw,64px);
-  align-items:start;margin-top:clamp(32px,4vw,52px)}
+/* ---------- specs ---------- */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,28px);
+  margin-top:clamp(28px,3.6vw,46px)}
+.spec{border:1px solid var(--line);padding:clamp(20px,2.6vw,30px);background:var(--panel)}
+.zhbig{display:block;font-family:var(--disp);font-size:clamp(28px,3.4vw,44px);color:var(--red);
+  line-height:1;margin-bottom:12px}
+.spec h3{margin-bottom:8px;font-size:19px}
+.spec p{font-size:14.5px;color:var(--mut)}
+@media (max-width:860px){.specs{grid-template-columns:1fr;max-width:430px;margin-inline:auto}}
+.zhv,.seal,.env{display:none}
+.ad{font-style:normal;color:var(--ink)}
+.hr-note{margin-top:8px;font-family:var(--disp);font-style:italic;font-size:13.5px;color:var(--dim)}
+.beyond{color:var(--dim);font-size:14.5px}
+.book-copy{color:rgba(246,239,230,.9)}
+.bookpanel .book-copy p{color:rgba(246,239,230,.88)}
+
+/* ---------- the chart and menu ---------- */
+.menu-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(26px,4vw,60px);
+  align-items:start;margin-top:clamp(28px,3.6vw,48px)}
 .mlist{border-top:1px solid var(--line)}
-.mi{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:13px 0;
-  border-bottom:1px solid rgba(243,237,228,.07)}
+.mi{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:12px 0;
+  border-bottom:1px solid var(--line2)}
 .mn{font-size:15.5px;color:var(--ink)}
-.mn small{display:block;font-size:11.5px;letter-spacing:.06em;color:var(--dim)}
-.mi .num,.mi b{font-family:var(--disp);font-size:15.5px;color:var(--amber);white-space:nowrap}
-.mnotes{margin-top:18px;font-size:13.5px;color:var(--dim);max-width:38em;
-  display:flex;flex-wrap:wrap;gap:6px 14px}
-.mnotes span+span::before{content:'· ';color:var(--amber)}
+.mn small{display:block;font-family:var(--disp);font-style:italic;font-size:13px;color:var(--dim)}
+.dots{flex:1;border-bottom:1px dotted rgba(36,31,28,.24);transform:translateY(-4px)}
+.mi .pr,.pr{font-family:var(--disp);font-size:16px;color:var(--red);white-space:nowrap}
+.mnotes{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--disp);
+  font-style:italic;font-size:14px;color:var(--dim);max-width:40em}
+.mnotes span+span::before{content:'· ';color:var(--red)}
 .chartpanel img{aspect-ratio:3/4}
 @media (max-width:920px){.menu-grid{grid-template-columns:1fr}}
 
-/* ---------- the hand board panel ---------- */
-.hboard{border:1px solid var(--line);background:var(--panel);padding:clamp(24px,3.2vw,40px)}
-.hb-kick{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber)}
-.hb-title{font-family:var(--disp);font-size:clamp(24px,3.2vw,40px);color:var(--ink);margin-top:10px}
+/* ---------- the hand board ---------- */
+.hboard{border:1px solid var(--line);background:var(--panel);padding:clamp(22px,3vw,38px)}
+.hb-kick{display:block}
+.hb-title{font-family:var(--disp);font-size:clamp(26px,3.4vw,44px);color:var(--red);margin-top:10px;
+  text-transform:uppercase;line-height:.98}
 .hb-list{list-style:none;margin-top:18px}
 .hb-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;
-  border-bottom:1px solid rgba(243,237,228,.07);font-size:14.5px;color:var(--ink)}
+  border-bottom:1px solid var(--line2);font-size:15px;color:var(--ink)}
 .hb-no,.hb-tx{color:var(--dim);font-size:13.5px}
-.hb-sig{font-family:var(--disp);color:var(--amber);margin-top:16px}
-.hb-stamp{display:inline-block;margin-top:14px;border:1px solid var(--red);color:var(--red2);
-  font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px}
-.hb-foot{margin-top:14px;font-size:12.5px;color:var(--dim)}
+.hb-sig{font-family:var(--disp);font-style:italic;color:var(--red);margin-top:16px}
+.hb-stamp{display:inline-block;margin-top:14px;border:1px solid var(--red);border-radius:100px;
+  color:var(--red);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px}
+.hb-foot{margin-top:14px;font-size:13px;color:var(--dim)}
 
 /* ---------- reviews ---------- */
-.dots{display:flex;gap:6px}
-.env{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
-.beyond{color:var(--dim);font-size:14.5px}
+.rev-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.score{display:flex;align-items:baseline;gap:8px}
+.score .num{font-family:var(--disp);font-size:clamp(46px,7vw,96px);color:var(--red);line-height:.9}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,30px);
+  margin-top:clamp(26px,3.4vw,44px)}
+.rev{border-top:1px solid var(--line);padding-top:18px}
+.stars{color:var(--red);letter-spacing:.22em;font-size:12px}
+.rev p{margin-top:12px;font-size:15.5px;color:var(--ink)}
+q{quotes:none}
+@media (max-width:900px){.rev-grid{grid-template-columns:1fr}}
 
-/* ---------- book ---------- */
-.book-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,4vw,64px);
-  align-items:start;margin-top:clamp(30px,4vw,50px)}
-.bookpanel{border:1px solid var(--line);background:var(--bg2);padding:clamp(24px,3.2vw,40px)}
-.book-copy{color:var(--mut)}
+/* ---------- book: the solid red panel the reference uses for its reserve block ---------- */
+.bookpanel{background:var(--red);color:#F6EFE6;padding:clamp(26px,4vw,60px)}
+.bookpanel .shead,.bookpanel .zhtab,.bookpanel h2,.bookpanel .why,.bookpanel .book-alt{color:#F6EFE6}
+.bookpanel .zhtab{color:rgba(246,239,230,.72)}
+.book-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(26px,4vw,60px);
+  align-items:start}
+.why{margin-top:16px;max-width:32em;color:rgba(246,239,230,.88)}
 .bform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field.span2{grid-column:1/-1}
-.field label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.field label{font-family:var(--disp);font-style:italic;font-size:13.5px;color:rgba(246,239,230,.86)}
 .field input,.field select,.field textarea{background:transparent;border:0;
-  border-bottom:1px solid var(--line);color:var(--ink);font-family:var(--body);
+  border-bottom:1px solid rgba(246,239,230,.42);color:#F6EFE6;font-family:var(--body);
   font-size:15.5px;padding:10px 2px}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--amber)}
-.field option{background:var(--panel);color:var(--ink)}
-.wa-send{grid-column:1/-1;margin-top:6px}
-.book-alt{margin-top:18px;font-size:14px;color:var(--dim)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;
+  border-bottom-color:#F6EFE6}
+.field option{background:var(--red2);color:#F6EFE6}
+.bookpanel .btn{border-color:rgba(246,239,230,.6);color:#F6EFE6}
+.bookpanel .btn:hover{background:#F6EFE6;color:var(--red);border-color:#F6EFE6}
+.bookpanel .btn.wa-send{background:#F6EFE6;color:var(--red);border-color:#F6EFE6}
+.bookpanel .btn.wa-send:hover{background:#fff;border-color:#fff}
+.book-alt{margin-top:18px;font-size:14px;color:rgba(246,239,230,.82)}
+.book-alt a{border-bottom:1px solid rgba(246,239,230,.5)}
 @media (max-width:920px){.book-grid{grid-template-columns:1fr}}
 @media (max-width:460px){.bform{grid-template-columns:1fr}}
 
 /* ---------- visit ---------- */
-.ad{font-style:normal;color:var(--ink);font-size:16px}
-.hr-note{color:var(--dim);font-size:13.5px;margin-top:8px}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,60px);align-items:start;
+  margin-top:clamp(26px,3.4vw,44px)}
+.vrow{display:flex;justify-content:space-between;gap:18px;align-items:baseline;
+  border-bottom:1px solid var(--line2);padding:14px 0}
+.vk{flex:0 0 auto}
+.vv{text-align:right;font-size:15.5px;color:var(--ink)}
+.vv a{border-bottom:1px solid var(--line)}
+.visit-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,3vw,36px)}
+.t-act,.t-wa{display:inline-flex;align-items:center;gap:7px;font-family:var(--disp);
+  font-style:italic;font-size:14.5px;color:var(--red);border-bottom:1px solid var(--line);
+  padding-bottom:5px}
+.t-act:hover,.t-wa:hover{color:var(--red2)}
+@media (max-width:820px){.visit-grid{grid-template-columns:1fr}}
 
 /* ---------- footer ---------- */
-footer{border-top:1px solid var(--line);padding:clamp(48px,6vw,80px) 0 clamp(96px,9vw,108px);
-  background:var(--bg)}
-.f-brand{font-family:var(--disp);font-size:clamp(26px,4vw,44px);color:var(--ink);letter-spacing:.1em}
-.f-meta{margin-top:14px;font-size:13.5px;color:var(--dim)}
-.f-soc{margin-top:16px;display:flex;gap:14px;flex-wrap:wrap}
-.f-soc a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
-  border-bottom:1px solid var(--line);padding-bottom:5px}
-.f-soc a:hover{border-bottom-color:var(--amber)}
-.iglink{font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+footer{border-top:1px solid var(--line);padding:clamp(44px,5.4vw,74px) 0 clamp(92px,9vw,104px);
+  background:var(--paper)}
+.f-in{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(20px,3vw,42px)}
+.f-brand{font-family:var(--disp);font-size:clamp(30px,4.6vw,58px);color:var(--red);
+  text-transform:uppercase;line-height:.95}
+.f-meta{margin-top:12px;font-family:var(--disp);font-style:italic;font-size:14px;color:var(--dim)}
+.f-soc{margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+.f-soc a{display:inline-flex;align-items:center;gap:7px;background:none;border:0;
+  border-bottom:1px solid var(--line);padding:0 0 5px;font-family:var(--disp);font-style:italic;
+  font-size:14px;color:var(--red)}
+.iglink{font-family:var(--disp);font-style:italic;font-size:14px;color:var(--red)}
+@media (max-width:820px){.f-in{grid-template-columns:1fr}}
 
-
-/* ---------- everything the first pass left unstyled ---------- */
-.shead{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);
-  margin-bottom:14px;display:flex;align-items:baseline;gap:10px}
-.zhtab{color:var(--dim);letter-spacing:.16em}
-.ssub{margin-top:16px;max-width:34em;color:var(--mut)}
-.story-grid{display:grid;grid-template-columns:1.04fr .86fr;gap:clamp(28px,4.4vw,66px);
-  align-items:start}
-.story-copy p{margin-top:16px;max-width:34em}
-.story-ph .ph,.ph{border:1px solid var(--line);background:var(--panel);display:block}
-.ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.cap{display:flex;justify-content:space-between;gap:14px;padding:11px 13px;
-  border-top:1px solid var(--line);font-size:10px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--dim)}
-@media (max-width:880px){.story-grid{grid-template-columns:1fr}}
-
-/* the three specs */
-.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px);
-  margin-top:clamp(30px,3.8vw,48px)}
-.spec{border:1px solid var(--line);background:var(--bg2);padding:clamp(20px,2.6vw,30px)}
-.zhbig{font-family:var(--disp);font-size:clamp(28px,3.6vw,46px);color:var(--amber);line-height:1;
-  margin-bottom:12px;display:block}
-.spec h3{margin-bottom:8px}
-.spec p{font-size:14.5px;color:var(--dim)}
-@media (max-width:860px){.specs{grid-template-columns:1fr;max-width:430px;margin-inline:auto}}
-
-/* the vertical column and the seal in the hero */
-q{quotes:none}
-.zhv{writing-mode:vertical-rl;font-family:var(--disp);font-size:20px;letter-spacing:.3em;
-  color:var(--ink);opacity:.9}
-.seal{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--red);
-  color:var(--red2);font-family:var(--disp);font-size:15px}
-
-/* reviews */
-.rev-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
-.score{display:flex;align-items:baseline;gap:8px}
-.score .num{font-family:var(--disp);font-size:clamp(44px,6.6vw,88px);color:var(--amber);line-height:.9}
-.of{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px);
-  margin-top:clamp(28px,3.4vw,44px)}
-.rev{border-top:1px solid var(--line);padding-top:18px}
-.stars{color:var(--red2);letter-spacing:.24em;font-size:12px}
-.rev p{margin-top:12px;font-size:15.5px;color:var(--ink)}
-.who{margin-top:12px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-@media (max-width:900px){.rev-grid{grid-template-columns:1fr}}
-
-/* book */
-.why{margin-top:16px;max-width:32em;color:var(--mut)}
-.btn.wa-quick,.btn.wa-send,.btn.nav-book{background:var(--red);border-color:var(--red);color:var(--ink)}
-.btn.wa-quick:hover,.btn.wa-send:hover,.btn.nav-book:hover{background:#9A2818;border-color:#9A2818}
-.f-soc a{display:inline-flex;align-items:center;justify-content:center;width:auto;
-  background:none;border:0;border-bottom:1px solid var(--line);padding:0 0 5px;gap:7px}
-.t-act,.t-wa{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px}
-.t-act:hover,.t-wa:hover{border-bottom-color:var(--amber);color:var(--amber)}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:start;
-  margin-top:clamp(28px,3.6vw,46px)}
-.vrow{display:flex;justify-content:space-between;gap:18px;align-items:baseline;
-  border-bottom:1px solid var(--line);padding:14px 0}
-.vk{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);flex:0 0 auto}
-.vv{text-align:right;font-size:15.5px;color:var(--ink)}
-.vv a{border-bottom:1px solid var(--line);padding-bottom:2px}
-.visit-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3vw,38px)}
-
-/* the tray panel */
-.tray{position:fixed;left:0;right:0;bottom:0;z-index:70;border:0;border-top:1px solid var(--red);
-  background:rgba(11,10,9,.96);backdrop-filter:blur(10px);padding:0;
-  padding-bottom:env(safe-area-inset-bottom)}
+/* ---------- the mobile rail ---------- */
+.tray{position:fixed;left:var(--frame);right:var(--frame);bottom:var(--frame);z-index:95;
+  border:1px solid var(--red);border-radius:100px;overflow:hidden;background:var(--paper);
+  padding:0}
 .tray-in{display:flex;align-items:stretch;gap:0}
-.tray-in>*{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 8px;
-  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.tray-in .t-wa{background:var(--red);color:var(--ink);border:0}
-.tray-in .t-act{border:0;border-left:1px solid rgba(243,237,228,.12);padding-bottom:13px}
-@media (min-width:901px){.tray{display:none}}
+.tray-in>*{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:13px 6px;
+  font-family:var(--disp);font-style:italic;font-size:13.5px;color:var(--red);border:0}
+.tray-in .t-wa{background:var(--red);color:var(--paper);border-bottom:0}
+.tray-in .t-act{border-bottom:0;border-left:1px solid var(--line)}
 .tray-seal{display:none}
+@media (min-width:901px){.tray{display:none}}
 
-/* the yakitori chart list */
-.mi .pr,.pr{font-family:var(--disp);font-size:15.5px;color:var(--amber);white-space:nowrap}
-.dots{flex:1;border-bottom:1px dotted rgba(243,237,228,.22);transform:translateY(-4px)}
-.ph-num{font-size:10.5px;letter-spacing:.16em;color:var(--dim)}
-
-/* footer */
-.f-in{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(22px,3vw,44px)}
-@media (max-width:820px){.f-in{grid-template-columns:1fr}.visit-grid{grid-template-columns:1fr}}
-
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* ============================================================================
+   THE SCROLL TEXT REVEAL, the thing taken from the reference.
+   Each character is wrapped by the script below and scrubbed against how far
+   the line has travelled through the viewport: opacity 0 to 1 with a small
+   drift, staggered left to right. No GSAP, no Lenis, no dependency.
+   ========================================================================= */
+.sw{display:inline-block;white-space:nowrap}
+.sc{display:inline-block;will-change:opacity,transform}
+[data-split]{--p:0}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .sc{opacity:1!important;transform:none!important}
+}
 </style>
 <style data-fx-orn>
-/* gate 20 living ornament: the lantern red star in the rating chip breathes, nothing else. */
-@keyframes lantern{0%,100%{opacity:.86}50%{opacity:1}}
-.star{animation:lantern 8s ease-in-out infinite}
-@media (prefers-reduced-motion: reduce){.star{animation:none}}
+/* gate 20 living ornament: the circular badge breathes, nothing else idles. */
+@keyframes badge{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.brand{animation:badge 12s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.brand{animation:none}}
 </style>
 </head>
 <body>
@@ -329,8 +355,8 @@ q{quotes:none}
 
     <div class="hero-copy">
       <p class="kicker"><xen data-edit="t7" data-edit-label="Text (EN): Izakaya · Sai Ying Pun">Izakaya · Sai Ying Pun</xen><xzh>居酒屋 · 西營盤</xzh></p>
-      <h1><xen data-edit="t8" data-edit-label="Text (EN): Yakitori under the lanterns, sake with…">Yakitori under the lanterns, sake within reach</xen><xzh>燈下燒鳥，杯中有酒</xzh></h1>
-      <p class="lede"><xen data-edit="t9" data-edit-label="Text (EN): Osaka-style kushikatsu and oden, fresh…">Osaka-style kushikatsu and oden, fresh sashimi and a wide range of yakitori, in a small room on High Street that fills fast.</xen><xzh>大阪風串炸與關東煮、新鮮刺身、種類繁多的燒鳥，就在高街一間好快滿座的小店。</xzh></p>
+      <h1 data-split><xen data-edit="t8" data-edit-label="Text (EN): Yakitori under the lanterns, sake with…">Yakitori under the lanterns, sake within reach</xen><xzh>燈下燒鳥，杯中有酒</xzh></h1>
+      <p class="lede" data-split><xen data-edit="t9" data-edit-label="Text (EN): Osaka-style kushikatsu and oden, fresh…">Osaka-style kushikatsu and oden, fresh sashimi and a wide range of yakitori, in a small room on High Street that fills fast.</xen><xzh>大阪風串炸與關東煮、新鮮刺身、種類繁多的燒鳥，就在高街一間好快滿座的小店。</xzh></p>
       <div class="hero-chips">
         <span class="chip"><span class="star">★</span> <b data-edit="t10" data-edit-label="Text: 4.7">4.7</b>&nbsp;<xen data-edit="t11" data-edit-label="Text (EN): · 106 Google reviews">· 106 Google reviews</xen><xzh>· 106 則 Google 評論</xzh></span>
         <span class="chip"><xen><b data-edit="t12" data-edit-label="Text: BYOB">BYOB</b>&nbsp;friendly</xen><xzh>歡迎<b>自攜酒水</b></xzh></span>
@@ -346,7 +372,7 @@ q{quotes:none}
     </div>
 
     <figure class="hero-ph">
-      <span class="inner"><img src="img/01.jpg?v=5d2f0db1" alt="The room at Kuki Izakaya, tables laid under the posters"></span>
+      <span class="inner"><img src="img/01.jpg?v=492cc02f" alt="The room at Kuki Izakaya, tables laid under the posters"></span>
       <figcaption><xen data-edit="t16" data-edit-label="Text (EN): The counter, most evenings">The counter, most evenings</xen><xzh>吧檯，大部分夜晚的樣子</xzh></figcaption>
     </figure>
   </div>
@@ -361,7 +387,7 @@ q{quotes:none}
         <div class="shead">
           <span class="zhtab" aria-hidden="true">小店故事</span>
           <div>
-            <h2><xen data-edit="t18" data-edit-label="Text (EN): A small room behind a red sign">A small room behind a red sign</xen><xzh>紅招牌後的小店</xzh></h2>
+            <h2 data-split><xen data-edit="t18" data-edit-label="Text (EN): A small room behind a red sign">A small room behind a red sign</xen><xzh>紅招牌後的小店</xzh></h2>
           </div>
         </div>
         <p><xen><b data-edit="t19" data-edit-label="Text: Kuki">Kuki</b> sits behind its red samurai sign on High Street: a neighbourhood izakaya with an Osaka heart. Kushikatsu and oden are the house specialities, set in a seasonal Japanese kitchen with a touch of Western influence, from casual bites and hot plates to skewers, mains and desserts.</xen><xzh><b>九鬼</b>就在高街那塊紅色武士招牌後面：一間帶著大阪靈魂的街坊居酒屋。串炸與關東煮是本店招牌，配上帶點西式風格的季節日本料理，由輕食、鐵板到串燒、主菜與甜品都有。</xzh></p>
@@ -373,7 +399,7 @@ q{quotes:none}
         </div>
       </div>
       <figure class="frame story-ph">
-        <span class="ph"><img src="img/02.jpg?v=bbab1f68" alt="The Kuki Izakaya shopfront on High Street at night, red lanterns lit"></span>
+        <span class="ph"><img src="img/02.jpg?v=74efe93a" alt="The Kuki Izakaya shopfront on High Street at night, red lanterns lit"></span>
         <figcaption class="cap"><span><xen data-edit="t27" data-edit-label="Text (EN): 80-86 High St, Sai Ying Pun">80-86 High St, Sai Ying Pun</xen><xzh>西營盤高街 80-86 號</xzh></span><span data-edit="t28" data-edit-label="Text: 01">01</span></figcaption>
       </figure>
     </div>
@@ -386,23 +412,23 @@ q{quotes:none}
     <div class="shead">
       <span class="zhtab" aria-hidden="true">招牌之選</span>
       <div>
-        <h2><xen data-edit="t29" data-edit-label="Text (EN): From the counter">From the counter</xen><xzh>檯面上的幾味</xzh></h2>
+        <h2 data-split><xen data-edit="t29" data-edit-label="Text (EN): From the counter">From the counter</xen><xzh>檯面上的幾味</xzh></h2>
         <p class="ssub"><xen data-edit="t30" data-edit-label="Text (EN): A large menu of food and drinks, in sm…">A large menu of food and drinks, in small plates meant for sharing.</xen><xzh>豐富的美食與酒單，以小皿形式，最啱share。</xzh></p>
       </div>
     </div>
     <div class="cards">
       <figure class="card">
-        <span class="ph"><img src="img/03.jpg?v=c72ffb37" alt="A yakitori skewer held over the dipping egg at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/03.jpg?v=8fa1b61b" alt="A yakitori skewer held over the dipping egg at Kuki Izakaya"></span>
         <h3><xen data-edit="t31" data-edit-label="Text (EN): Yakitori, stick by stick">Yakitori, stick by stick</xen><xzh>燒鳥，一串一串</xzh></h3>
         <p><xen data-edit="t32" data-edit-label="Text (EN): A wide range of skewers spanning 19 cu…">A wide range of skewers spanning 19 cuts, grilled to order.</xen><xzh>19 款部位任你揀，即叫即燒。</xzh></p>
       </figure>
       <figure class="card">
-        <span class="ph"><img src="img/04.jpg?v=e8499e58" alt="A sashimi platter on the wooden board at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/04.jpg?v=62597ecf" alt="A sashimi platter on the wooden board at Kuki Izakaya"></span>
         <h3><xen data-edit="t33" data-edit-label="Text (EN): Fresh sashimi">Fresh sashimi</xen><xzh>新鮮刺身</xzh></h3>
         <p><xen data-edit="t34" data-edit-label="Text (EN): Sashimi and chirashi, the fresh side o…">Sashimi and chirashi, the fresh side of the counter.</xen><xzh>刺身與散壽司，檯面上最鮮的一邊。</xzh></p>
       </figure>
       <figure class="card">
-        <span class="ph"><img src="img/08.jpg?v=28830e69" alt="A grilled scallop in its shell at Kuki Izakaya"></span>
+        <span class="ph"><img src="img/08.jpg?v=d8118985" alt="A grilled scallop in its shell at Kuki Izakaya"></span>
         <h3><xen data-edit="t35" data-edit-label="Text (EN): Small bites">Small bites</xen><xzh>小皿料理</xzh></h3>
         <p><xen data-edit="t36" data-edit-label="Text (EN): A good variety of small bites, made fo…">A good variety of small bites, made for a long evening.</xen><xzh>多款下酒小食，陪你慢慢圍爐。</xzh></p>
       </figure>
@@ -416,7 +442,7 @@ q{quotes:none}
     <div class="shead">
       <span class="zhtab" aria-hidden="true">大阪風味</span>
       <div>
-        <h2><xen data-edit="t37" data-edit-label="Text (EN): Kushikatsu, oden and the yakitori char…">Kushikatsu, oden and the yakitori chart</xen><xzh>串炸、關東煮與燒鳥圖鑑</xzh></h2>
+        <h2 data-split><xen data-edit="t37" data-edit-label="Text (EN): Kushikatsu, oden and the yakitori char…">Kushikatsu, oden and the yakitori chart</xen><xzh>串炸、關東煮與燒鳥圖鑑</xzh></h2>
         <p class="ssub"><xen data-edit="t38" data-edit-label="Text (EN): Kushikatsu and oden, both Osaka dishes…">Kushikatsu and oden, both Osaka dishes, are the specialities of the house. Below them, the full yakitori chart transcribed from the house print, prices in HK$.</xen><xzh>串炸與關東煮同屬大阪料理，是本店招牌。下面是照足店內原版圖鑑的燒鳥全單，價錢以港幣計。</xzh></p>
       </div>
     </div>
@@ -470,7 +496,7 @@ q{quotes:none}
         </div>
       </div>
       <figure class="frame chartpanel">
-        <span class="ph"><img src="img/20.jpg?v=0b1c4473" alt="The Kuki Izakaya illustrated yakitori chart with prices"></span>
+        <span class="ph"><img src="img/20.jpg?v=33c61538" alt="The Kuki Izakaya illustrated yakitori chart with prices"></span>
         <figcaption><xen data-edit="t87" data-edit-label="Text (EN): The house chart, as printed">The house chart, as printed</xen><xzh>店內原版圖鑑</xzh></figcaption>
       </figure>
     </div>
@@ -485,7 +511,7 @@ q{quotes:none}
         <span class="num" data-edit="t88" data-edit-label="Text: 4.7">4.7</span>
         <span class="of"><xen data-edit="t89" data-edit-label="Text (EN): from 106 Google reviews">from 106 Google reviews</xen><xzh>106 則 Google 評論</xzh></span>
       </div>
-      <h2><xen data-edit="t90" data-edit-label="Text (EN): What the neighbourhood says">What the neighbourhood says</xen><xzh>街坊點講</xzh></h2>
+      <h2 data-split><xen data-edit="t90" data-edit-label="Text (EN): What the neighbourhood says">What the neighbourhood says</xen><xzh>街坊點講</xzh></h2>
     </div>
     <div class="rev-grid">
       <div class="rev">
@@ -515,7 +541,7 @@ q{quotes:none}
         <div class="book-copy">
           <div class="shead" style="margin-bottom:0">
             <span class="zhtab" aria-hidden="true">立即訂座</span>
-            <h2><xen data-edit="t100" data-edit-label="Text (EN): Book a table over WhatsApp">Book a table over WhatsApp</xen><xzh>用 WhatsApp 訂座</xzh></h2>
+            <h2 data-split><xen data-edit="t100" data-edit-label="Text (EN): Book a table over WhatsApp">Book a table over WhatsApp</xen><xzh>用 WhatsApp 訂座</xzh></h2>
           </div>
           <p><xen data-edit="t101" data-edit-label="Text (EN): Tables are limited and the room fills …">Tables are limited and the room fills fast. Send your details below, they land straight in the izakaya's WhatsApp, and the team confirms by reply.</xen><xzh>座位有限，好快滿座。填好資料，訊息會直接送到店家 WhatsApp，店員會回覆確認。</xzh></p>
           <div class="why">
@@ -568,7 +594,7 @@ q{quotes:none}
       <div>
         <div class="shead">
           <span class="zhtab" aria-hidden="true">位置交通</span>
-          <h2><xen data-edit="t111" data-edit-label="Text (EN): Find the red sign">Find the red sign</xen><xzh>認住紅招牌</xzh></h2>
+          <h2 data-split><xen data-edit="t111" data-edit-label="Text (EN): Find the red sign">Find the red sign</xen><xzh>認住紅招牌</xzh></h2>
         </div>
         <div class="vrow">
           <span class="vk"><xen data-edit="t112" data-edit-label="Text (EN): Address">Address</xen><xzh>地址</xzh></span>
@@ -632,7 +658,7 @@ q{quotes:none}
 <footer>
   <div class="wrap f-in">
     <div>
-      <div class="f-brand">Kuki Izakaya <small>九鬼居酒屋</small></div>
+      <div class="f-brand" data-split>Kuki Izakaya <small>九鬼居酒屋</small></div>
       <div class="f-meta">Shop A &amp; B, G/F, Lai Yin Court, 80-86 High St, Sai Ying Pun, Hong Kong<br><xen data-edit="t139" data-edit-label="Text (EN): Izakaya · kushikatsu · oden · fresh sa…">Izakaya · kushikatsu · oden · fresh sashimi · yakitori · BYOB friendly</xen><xzh>居酒屋 · 串炸 · 關東煮 · 新鮮刺身 · 燒鳥 · 歡迎自攜酒水</xzh></div>
     </div>
     <div class="f-soc">
@@ -735,6 +761,86 @@ function updateBooking(){
   var saved = null;
   try{ saved = localStorage.getItem('kuki-lang'); }catch(e){}
   setLang(saved === 'zh' ? 'zh' : 'en');
+})();
+</script>
+
+<script>
+/* ----------------------------------------------------------------------------
+   The scroll text reveal, taken from damaria-roma.webflow.io.
+   The reference does it with GSAP SplitText + ScrollTrigger + Lenis. Those are
+   banned here (gate 20) and unnecessary: wrap every character, then scrub each
+   one's opacity and a small drift against how far the line has moved through
+   the viewport, staggered left to right. Pure DOM, no dependency, and it works
+   in every browser (unlike animation-timeline, which rendered dead in his).
+   Language layers are preserved: xen/xzh elements are split in place, so the
+   繁體 layer reveals exactly the same way.
+---------------------------------------------------------------------------- */
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = [].slice.call(document.querySelectorAll('[data-split]'));
+  if(!targets.length) return;
+
+  function wrap(node){
+    var walk = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null);
+    var texts = [], n;
+    while((n = walk.nextNode())) if(n.nodeValue.trim()) texts.push(n);
+    texts.forEach(function(tn){
+      var frag = document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(function(tok){
+        if(!tok) return;
+        if(/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(tok)); return; }
+        var w = document.createElement('span');
+        w.className = 'sw';
+        tok.split('').forEach(function(ch){
+          var s = document.createElement('span');
+          s.className = 'sc';
+          s.textContent = ch;
+          w.appendChild(s);
+        });
+        frag.appendChild(w);
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+    return [].slice.call(node.querySelectorAll('.sc'));
+  }
+
+  var items = targets.map(function(el){
+    var chars = wrap(el);
+    return {el: el, chars: chars};
+  });
+
+  if(reduce) return;   /* wrapped but never hidden, so the text simply sits there */
+
+  function paint(){
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    items.forEach(function(it){
+      var r = it.el.getBoundingClientRect();
+      if(r.bottom < -80 || r.top > vh + 80){ return; }
+      /* progress: 0 when the line's top reaches 92% down the viewport,
+         1 by the time it has climbed to 42%. Matches the reference's feel. */
+      var p = (vh * 0.92 - r.top) / (vh * 0.50);
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      var n = it.chars.length, span = 0.55;      /* how much of the run is stagger */
+      for(var i = 0; i < n; i++){
+        var start = (i / n) * span;
+        var cp = (p - start) / (1 - span);
+        cp = cp < 0 ? 0 : (cp > 1 ? 1 : cp);
+        var e = cp * cp * (3 - 2 * cp);           /* smoothstep */
+        var c = it.chars[i];
+        c.style.opacity = e;
+        c.style.transform = 'translate3d(' + ((1 - e) * 9).toFixed(2) + 'px,0,0)';
+      }
+    });
+    queued = false;
+  }
+  var queued = false;
+  function queue(){ if(!queued){ queued = true; requestAnimationFrame(paint); } }
+  items.forEach(function(it){
+    it.chars.forEach(function(c){ c.style.opacity = 0; });
+  });
+  addEventListener('scroll', queue, {passive:true});
+  addEventListener('resize', queue, {passive:true});
+  paint();
 })();
 </script>
 </body>
